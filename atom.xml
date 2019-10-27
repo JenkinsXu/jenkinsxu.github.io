@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jenkinsxu.github.io</id>
     <title>Jenkins&apos; Secret Base</title>
-    <updated>2019-10-27T07:55:40.408Z</updated>
+    <updated>2019-10-27T07:57:12.704Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jenkinsxu.github.io"/>
     <link rel="self" href="https://jenkinsxu.github.io/atom.xml"/>
@@ -17,8 +17,8 @@
         <id>https://jenkinsxu.github.io/post/microeconomics-notes-list</id>
         <link href="https://jenkinsxu.github.io/post/microeconomics-notes-list">
         </link>
-        <updated>2019-10-26T01:45:29.000Z</updated>
-        <content type="html"><![CDATA[<p><a href="https://mubu.com/doc/FVXhIkQwc">Chapter 1 - Introduction</a></p>
+        <updated>2019-10-25T10:45:29.000Z</updated>
+        <content type="html"><![CDATA[<p><a href="https://mubu.com/doc/FVXhIkQwc">Chapter 01 - Introduction</a></p>
 <p><a href="https://mubu.com/doc/S16XFH2Gc">Chapter 02 - Economic Models: Tradeoffs and Trade</a></p>
 <p><a href="https://mubu.com/doc/1t6d_ZZG9c">Chapter 03 - Model of a Competitive Market</a></p>
 <p><a href="https://mubu.com/doc/24bl4iDarg">Chapter 04 - Producer and Consumer Surplus</a></p>
