@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jenkinsxu.github.io</id>
     <title>Jenkins&apos; Secret Base</title>
-    <updated>2019-10-27T07:51:03.018Z</updated>
+    <updated>2019-10-27T07:55:40.408Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jenkinsxu.github.io"/>
     <link rel="self" href="https://jenkinsxu.github.io/atom.xml"/>
@@ -17,30 +17,19 @@
         <id>https://jenkinsxu.github.io/post/microeconomics-notes-list</id>
         <link href="https://jenkinsxu.github.io/post/microeconomics-notes-list">
         </link>
-        <updated>2019-10-26T16:45:29.000Z</updated>
-        <content type="html"><![CDATA[<p>Chapter 1 - Introduction<br>
-https://mubu.com/doc/FVXhIkQwc</p>
-<p>Chapter 02 - Economic Models: Tradeoffs and Trade<br>
-https://mubu.com/doc/S16XFH2Gc</p>
-<p>Chapter 03 - Model of a Competitive Market<br>
-https://mubu.com/doc/1t6d_ZZG9c</p>
-<p>Chapter 04 - Producer and Consumer Surplus<br>
-https://mubu.com/doc/24bl4iDarg</p>
-<p>Chapter 05 - Government Actions in Markets<br>
-https://mubu.com/doc/3EB34npd5g</p>
-<p>Chapter 06 - Elasticity<br>
-https://mubu.com/doc/2xzSi6dKPg</p>
+        <updated>2019-10-26T01:45:29.000Z</updated>
+        <content type="html"><![CDATA[<p><a href="https://mubu.com/doc/FVXhIkQwc">Chapter 1 - Introduction</a></p>
+<p><a href="https://mubu.com/doc/S16XFH2Gc">Chapter 02 - Economic Models: Tradeoffs and Trade</a></p>
+<p><a href="https://mubu.com/doc/1t6d_ZZG9c">Chapter 03 - Model of a Competitive Market</a></p>
+<p><a href="https://mubu.com/doc/24bl4iDarg">Chapter 04 - Producer and Consumer Surplus</a></p>
+<p><a href="https://mubu.com/doc/3EB34npd5g">Chapter 05 - Government Actions in Markets</a></p>
+<p><a href="https://mubu.com/doc/2xzSi6dKPg">Chapter 06 - Elasticity</a></p>
 <p>Chapter 07 and 08 were not included in the course.</p>
-<p>Chapter 09 - Making Decisions<br>
-https://mubu.com/doc/2c6gx2yomg</p>
-<p>Chapter 10 - The Rational Comsumer<br>
-https://mubu.com/doc/2tQVAIgX3g</p>
-<p>Chapter 11 - Inputs and Costs<br>
-https://mubu.com/doc/38r72mG44g</p>
-<p>Chapter 12 - Perfect Competition and the Supply Curve<br>
-https://mubu.com/doc/AtUsievGc</p>
-<p>Chapter 13 - Monopolies<br>
-https://mubu.com/doc/19oewgvQ1c</p>
+<p><a href="https://mubu.com/doc/2c6gx2yomg">Chapter 09 - Making Decisions</a></p>
+<p><a href="**">Chapter 10 - The Rational Consumer</a></p>
+<p><a href="https://mubu.com/doc/38r72mG44g">Chapter 11 - Inputs and Costs</a></p>
+<p><a href="https://mubu.com/doc/AtUsievGc">Chapter 12 - Perfect Competition and the Supply Curve</a></p>
+<p><a href="https://mubu.com/doc/19oewgvQ1c">Chapter 13 - Monopolies</a></p>
 ]]></content>
     </entry>
     <entry>
