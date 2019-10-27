@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://jenkinsxu.github.io</id>
+    <title>Jenkins&apos; Secret Base</title>
+    <updated>2019-10-27T07:51:03.018Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://jenkinsxu.github.io"/>
+    <link rel="self" href="https://jenkinsxu.github.io/atom.xml"/>
+    <subtitle>ｄ(･∀･*)♪ﾟYou found my secret base! 
+
+（更多关于我就在 About 标签中）</subtitle>
+    <logo>https://jenkinsxu.github.io/images/avatar.png</logo>
+    <icon>https://jenkinsxu.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2019, Jenkins&apos; Secret Base</rights>
+    <entry>
+        <title type="html"><![CDATA[Microeconomics Notes List]]></title>
+        <id>https://jenkinsxu.github.io/post/microeconomics-notes-list</id>
+        <link href="https://jenkinsxu.github.io/post/microeconomics-notes-list">
+        </link>
+        <updated>2019-10-26T16:45:29.000Z</updated>
+        <content type="html"><![CDATA[<p>Chapter 1 - Introduction<br>
+https://mubu.com/doc/FVXhIkQwc</p>
+<p>Chapter 02 - Economic Models: Tradeoffs and Trade<br>
+https://mubu.com/doc/S16XFH2Gc</p>
+<p>Chapter 03 - Model of a Competitive Market<br>
+https://mubu.com/doc/1t6d_ZZG9c</p>
+<p>Chapter 04 - Producer and Consumer Surplus<br>
+https://mubu.com/doc/24bl4iDarg</p>
+<p>Chapter 05 - Government Actions in Markets<br>
+https://mubu.com/doc/3EB34npd5g</p>
+<p>Chapter 06 - Elasticity<br>
+https://mubu.com/doc/2xzSi6dKPg</p>
+<p>Chapter 07 and 08 were not included in the course.</p>
+<p>Chapter 09 - Making Decisions<br>
+https://mubu.com/doc/2c6gx2yomg</p>
+<p>Chapter 10 - The Rational Comsumer<br>
+https://mubu.com/doc/2tQVAIgX3g</p>
+<p>Chapter 11 - Inputs and Costs<br>
+https://mubu.com/doc/38r72mG44g</p>
+<p>Chapter 12 - Perfect Competition and the Supply Curve<br>
+https://mubu.com/doc/AtUsievGc</p>
+<p>Chapter 13 - Monopolies<br>
+https://mubu.com/doc/19oewgvQ1c</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Apple Watch 打字慢？用 FlickType 在 Apple Watch 快速输入]]></title>
+        <id>https://jenkinsxu.github.io/post/apple-watch-da-zi-man-yong-flicktype-zai-apple-watch-kuai-su-shu-ru</id>
+        <link href="https://jenkinsxu.github.io/post/apple-watch-da-zi-man-yong-flicktype-zai-apple-watch-kuai-su-shu-ru">
+        </link>
+        <updated>2019-09-23T01:50:11.000Z</updated>
+        <summary type="html"><![CDATA[<p>相信很多人在使用 Apple Watch 回复消息的时候都很苦恼于原生自带手写输入法的输入效率，也不是很好意思去在公众场合使用语音输入法。在经过一番搜索与尝试以后，我认为在英文输入上 FlickType 通过手势与机器学习的结合已经在准确度和易用性上给出了很好的答案（该软件暂不支持中文输入）。</p>
+<p>首先来看看软件的使用：</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>相信很多人在使用 Apple Watch 回复消息的时候都很苦恼于原生自带手写输入法的输入效率，也不是很好意思去在公众场合使用语音输入法。在经过一番搜索与尝试以后，我认为在英文输入上 FlickType 通过手势与机器学习的结合已经在准确度和易用性上给出了很好的答案（该软件暂不支持中文输入）。</p>
+<p>首先来看看软件的使用：</p>
+<!-- more -->
+<h2 id="基本输入">基本输入</h2>
+<p>软件的主界面非常简单，只由当前正在输入的词语与一个 26 键的键盘组成。用户在输入的时候不需要考虑精确度，只需要大致点击字母所在的位置，输入完成后往右滑动，FlickType 就会利用类似手机键盘点击容错的算法得出你想要输入的词汇。这种输入一般准确率非常的高，而即便识别的词语错误，你也能快速地通过上下滑动来切换其他可能的词语。<br>
+<img src="https://jenkinsxu.github.io/post-images/1569365489874.gif" alt=""></p>
+<!-- more -->
+<h2 id="符号与空格">符号与空格</h2>
+<p>空格与符号的输入也非常简单，只需要在界面上右划一次即可输入空格，右划两次即可输入符号。FlickType 默认输入的符号是句号，通过上下滑动你就能切换成其他符号。默认可切换的符号或组合如下：<br>
+<code>; 分号</code>  <code>: 冒号</code> <code>’s 属格</code> <code>! 感叹号</code> <code>? 问号</code> <code>, 逗号</code> <code>. 句号</code><br>
+假如你同时在 iPhone 上也安装了 FlickType，你甚至可以到 Emoji Shortcut  里面添加你常用的符号表情。<br>
+<img src="https://jenkinsxu.github.io/post-images/1569365504182.gif" alt=""></p>
+<!-- more -->
+<h2 id="快速编辑">快速编辑</h2>
+<p>在 FlickType 中编辑文字也非常简单。假如需要删除一个单词，你只需要在界面上往左滑动即可。更方便的是只需要滚动数码表冠，你就可以概览整个句子并在单词之间使用光标定位，或点击单词进行文字的修改。在光标位置变化时软件也利用马达给到了合适的震动反馈。<br>
+<img src="https://jenkinsxu.github.io/post-images/1569365518146.gif" alt=""></p>
+<p>但说了这么多好处，这款软件却也存在着天生的缺陷。</p>
+<!-- more -->
+<h2 id="限制与sdk">限制与SDK</h2>
+<p>作为一个第三方键盘输入工具，至少在目前的 watchOS 中自然没有原生键盘那样在所有输入中出现的特权。作为解决方案，FlickType 的开发者提供了 SDK 工具，其他第三方 App 可以在选择输入法的界面中添加 FlickType 软件的入口，只需要一次点击即可跳转以获得接近原生的体验。在撰稿时根据 FlickType 官网的描述适配了 FlickType 的 App 有 FlickType Notes, Bear, Chirp for Twitter 等 20 个笔记与通讯软件。<br>
+<img src="https://jenkinsxu.github.io/post-images/1569365533493.jpg" alt=""><br>
+（图片来源于 FlickType 官网）</p>
+<!-- more -->
+<p>目前 FlickType 在 Watch App Store 与 iOS App Store 中均可免费下载。</p>
+]]></content>
+    </entry>
+</feed>
