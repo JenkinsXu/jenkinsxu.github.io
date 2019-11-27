@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jenkinsxu.github.io</id>
     <title>Jenkins&apos; Secret Base</title>
-    <updated>2019-10-27T07:57:12.704Z</updated>
+    <updated>2019-11-27T01:56:02.466Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jenkinsxu.github.io"/>
     <link rel="self" href="https://jenkinsxu.github.io/atom.xml"/>
@@ -13,11 +13,22 @@
     <icon>https://jenkinsxu.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Jenkins&apos; Secret Base</rights>
     <entry>
+        <title type="html"><![CDATA[CSC Tutorial - Files Download]]></title>
+        <id>https://jenkinsxu.github.io/post/csc-tutorial-files-download</id>
+        <link href="https://jenkinsxu.github.io/post/csc-tutorial-files-download">
+        </link>
+        <updated>2019-11-26T09:53:05.000Z</updated>
+        <content type="html"><![CDATA[<p><a href="https://www.icloud.com/keynote/0xLkd_APjQQRk_9O32d6YI3DQ#Class_and_Testing_1">Class_and_Testing_1</a></p>
+<p><a href="https://www.icloud.com/keynote/0rIpu0q4Aa3X7fwiAj65_NV0w#Mutability_and_Dictionary">Mutability_and_Dictionary</a></p>
+<p><a href="https://www.icloud.com/keynote/0JC2FRhceh4I3G77AMETEyCmw#Sorting_Animation">Sorting_Animation</a></p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Microeconomics Notes List]]></title>
         <id>https://jenkinsxu.github.io/post/microeconomics-notes-list</id>
         <link href="https://jenkinsxu.github.io/post/microeconomics-notes-list">
         </link>
-        <updated>2019-10-25T10:45:29.000Z</updated>
+        <updated>2019-10-24T19:45:29.000Z</updated>
         <content type="html"><![CDATA[<p><a href="https://mubu.com/doc/FVXhIkQwc">Chapter 01 - Introduction</a></p>
 <p><a href="https://mubu.com/doc/S16XFH2Gc">Chapter 02 - Economic Models: Tradeoffs and Trade</a></p>
 <p><a href="https://mubu.com/doc/1t6d_ZZG9c">Chapter 03 - Model of a Competitive Market</a></p>
@@ -37,7 +48,7 @@
         <id>https://jenkinsxu.github.io/post/apple-watch-da-zi-man-yong-flicktype-zai-apple-watch-kuai-su-shu-ru</id>
         <link href="https://jenkinsxu.github.io/post/apple-watch-da-zi-man-yong-flicktype-zai-apple-watch-kuai-su-shu-ru">
         </link>
-        <updated>2019-09-23T01:50:11.000Z</updated>
+        <updated>2019-09-21T19:50:11.000Z</updated>
         <summary type="html"><![CDATA[<p>相信很多人在使用 Apple Watch 回复消息的时候都很苦恼于原生自带手写输入法的输入效率，也不是很好意思去在公众场合使用语音输入法。在经过一番搜索与尝试以后，我认为在英文输入上 FlickType 通过手势与机器学习的结合已经在准确度和易用性上给出了很好的答案（该软件暂不支持中文输入）。</p>
 <p>首先来看看软件的使用：</p>
 ]]></summary>
