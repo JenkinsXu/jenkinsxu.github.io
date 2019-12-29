@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jenkinsxu.github.io</id>
     <title>Jenkins&apos; Secret Base</title>
-    <updated>2019-12-29T21:00:17.148Z</updated>
+    <updated>2019-12-29T22:55:48.762Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jenkinsxu.github.io"/>
     <link rel="self" href="https://jenkinsxu.github.io/atom.xml"/>
@@ -17,7 +17,7 @@
         <id>https://jenkinsxu.github.io/post/day-01-getting-started-with-app-development-part-1</id>
         <link href="https://jenkinsxu.github.io/post/day-01-getting-started-with-app-development-part-1">
         </link>
-        <updated>2019-12-27T04:17:19.000Z</updated>
+        <updated>2019-12-26T12:17:19.000Z</updated>
         <content type="html"><![CDATA[<h2 id="12-constants-variables-and-data-types">1.2 Constants, variables and data types</h2>
 <ul>
 <li>Type <strong>:quit</strong> and press Enter to exit the <strong>Swift REPL</strong>.</li>
@@ -90,6 +90,78 @@ switch distance {
 		print(“Are you sure you want to travel this far?”) 
 }
 </code></pre>
+<h2 id="15-xcode">1.5 Xcode</h2>
+<ul>
+<li>All <strong>.storyboard</strong> files are unique to <strong>Interface Builder</strong>. They contain information about the design of each <strong>scene</strong> within your application.</li>
+<li>The <strong>.xcassets</strong> file makes it easy to <strong>maintain all your assets</strong>, without needing to work with individual icons and images.</li>
+<li>The <strong>Info.plist</strong> file contains a list of <strong>properties and settings</strong> for your app.</li>
+</ul>
+<h3 id="xcode-interface">Xcode Interface</h3>
+<figure data-type="image" tabindex="1"><img src="62F84E63-8208-4990-95B5-A44C14CE539D.png" alt="" loading="lazy"></figure>
+<h3 id="deployment-info">Deployment Info</h3>
+<p><img src="9A365EB0-1E74-400F-9779-D5EE49FBF2F4.png" alt="" loading="lazy"><br>
+The entry in Main Interface defines which storyboard file will be loaded first when the app launches.</p>
+<h2 id="16-building-running-and-debugging-an-app">1.6 Building, Running, and Debugging an App</h2>
+<ul>
+<li>To <strong>rotate the image</strong> from portrait to landscape orientation, use the keyboard shortcuts <strong>Command-Left</strong> and <strong>Command-Right</strong>.</li>
+<li>You can use keyboard shortcuts, from <strong>Command-1 to Command-3</strong>, to <strong>scale the device image</strong> up or down.</li>
+<li>If you try to use Simulator to test an interaction with the Camera app, the program will crash.</li>
+<li>The MessageUI framework is incompatible with Simulator.</li>
+</ul>
+<h3 id="scheme-menu">Scheme menu</h3>
+<figure data-type="image" tabindex="2"><img src="9BA0FC04-B32C-4CE5-94C5-BEB9A872118D.png" alt="" loading="lazy"></figure>
+<h3 id="types-of-issue">Types of issue</h3>
+<ol>
+<li>Warnings ⚠️</li>
+<li>Compiler Errors ❌</li>
+<li>Bugs</li>
+</ol>
+<h3 id="using-breakpoints-and-step-controls">Using breakpoints and step controls</h3>
+<p><img src="8962F8B7-CBA5-4CB9-B876-70C46FEC405D.png" alt="" loading="lazy"><br>
+Since the breakpointed line hasn’t yet been executed, names contains no values. (Not inclusive.)</p>
+<figure data-type="image" tabindex="3"><img src="A0FADE1C-BD3C-4CDB-9C23-9CA4D6027246.png" alt="" loading="lazy"></figure>
+<ul>
+<li><strong>Continue</strong> - Resumes code execution <strong>until the next breakpoint is reached</strong>.</li>
+<li><strong>Step over</strong> - Executes the selected line and pauses execution <strong>on the next line.</strong></li>
+<li><strong>Step into</strong> - If clicked on a line with a function call, advances <strong>to the first line of the function</strong>, then pauses execution again.</li>
+<li><strong>Step out</strong> - Executes all remaining lines in the function call and pauses execution <strong>on the line after the function</strong>.</li>
+</ul>
+<h2 id="17-documentation">1.7 Documentation</h2>
+<ul>
+<li>Documentation call a view that’s embedded in another view <strong>subviews</strong>.</li>
+<li>Documentation call the parent view that’s embedding the other view <strong>superviews</strong>.</li>
+<li>The <strong>frame</strong> property defines the origin and dimensions of the view in the coordinate system of its superview.</li>
+<li>The <strong>bounds</strong> property defines the internal dimensions of the view as it sees them and is used almost <strong>exclusively in custom drawing code</strong>.</li>
+</ul>
+<h3 id="three-of-the-primary-responsibilities-of-a-uiview-object">Three of the primary responsibilities of a UIView object</h3>
+<ul>
+<li>Drawing and animation</li>
+<li>Layout and subview management</li>
+<li>Event handling</li>
+</ul>
+<h3 id="the-quick-help-feature">The Quick Help Feature</h3>
+<p><img src="28A7B503-CCD4-44D6-A71E-BAAB8FDD346E.png" alt="" loading="lazy"><br>
+<strong>Option-click</strong> a method name, then Xcode will displays a popover with a brief description of the function and the OS versions that support it.</p>
+<h3 id="xcode-help">Xcode Help</h3>
+<p><img src="446B635A-E089-45C2-974F-EE3A0FDE868B.png" alt="" loading="lazy"><br>
+<strong>Command-Shift-O</strong></p>
+<h2 id="interface-builder-basics">Interface Builder Basics</h2>
+<ul>
+<li>Interface Builder opens whenever you select an <strong>.xib</strong> file or a <strong>.storyboard</strong> file from the project navigator.</li>
+<li>An XIB file contains t user interface for a single visual element, such as a full-screen view a table view cell or a custom UI control.</li>
+<li>A storyboard file includes many pieces of the interface, defining the layout of <strong>one or many screens</strong> as well as <strong>the progression from one screen to another</strong>.</li>
+<li>The single scene with a plain white view on an otherwise blank canvas is called the <strong>initial view controller</strong>.  (Can be changed by moving the <strong>entry point</strong>.)</li>
+<li>Select the Library button <img src="95BAE063-5E57-4803-8222-A574FDB3C468.png" alt="" loading="lazy"> in the toolbar to display the Object Library.</li>
+</ul>
+<h3 id="document-outline-view">Document Outline View</h3>
+<figure data-type="image" tabindex="4"><img src="8E835334-24B6-4EE0-9CA8-F2B9FDA8B1B4.png" alt="" loading="lazy"></figure>
+<h3 id="context-sensitive-inspectors">Context-sensitive Inspectors</h3>
+<ul>
+<li>The <strong>Identity inspector</strong> <img src="F49ED69F-87F2-4C12-B793-192119F696F5.png" alt="" loading="lazy"> allows you to edit the <strong>properties related to an object’s identity</strong>, such as what class it belongs to.</li>
+<li>The <strong>Attributes inspector</strong> <img src="2A3E725E-5DDD-46DA-A38E-2E7E10819CD3.png" alt="" loading="lazy"> provides a list of <strong>adjustable visual properties</strong> for the selected item.</li>
+<li>The <strong>Size inspector</strong>  <img src="065D6745-4914-4ED3-8E02-031BDAA50981.png" alt="" loading="lazy"> allows you to adjust the <strong>size and position</strong> of the selected element within the scene. You will use the X and Y fields - where the <strong>top left</strong> of the screen corresponds to (0, 0) - to change the position.</li>
+<li>The <strong>Connections inspector</strong> <img src="E46FA529-4003-4844-86E4-7427450A1D40.png" alt="" loading="lazy"> lists <strong>all the functions and variable names related to the object</strong>.</li>
+</ul>
 ]]></content>
     </entry>
 </feed>
