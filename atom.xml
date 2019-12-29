@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jenkinsxu.github.io</id>
     <title>Jenkins&apos; Secret Base</title>
-    <updated>2019-12-29T04:51:47.813Z</updated>
+    <updated>2019-12-29T20:18:16.472Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jenkinsxu.github.io"/>
     <link rel="self" href="https://jenkinsxu.github.io/atom.xml"/>
@@ -12,4 +12,83 @@
     <logo>https://jenkinsxu.github.io/images/avatar.png</logo>
     <icon>https://jenkinsxu.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Jenkins&apos; Secret Base</rights>
+    <entry>
+        <title type="html"><![CDATA[Day 01 - Getting Started with App Development Part 1]]></title>
+        <id>https://jenkinsxu.github.io/post/day-01-getting-started-with-app-development-part-1</id>
+        <link href="https://jenkinsxu.github.io/post/day-01-getting-started-with-app-development-part-1">
+        </link>
+        <updated>2019-12-29T04:17:19.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="12-constants-variables-and-data-types">1.2 Constants, variables and data types</h2>
+<ul>
+<li>Type <strong>:quit</strong> and press Enter to exit the <strong>Swift REPL</strong>.</li>
+<li>One of type inference or type annotation must be done when creating a variable / constant.</li>
+<li>Use <strong>option click</strong> to check data types</li>
+</ul>
+<h3 id="type-inference">Type Inference</h3>
+<pre><code class="language-swift">let name = “John” //names can’t begin with a number
+</code></pre>
+<h3 id="type-definition">Type Definition</h3>
+<pre><code class="language-swift">struct Person { //The first letter needs to be capitalized
+	//two properties
+	let firstName:String //Type annotation
+	let lastName :String
+
+	func sayHello() {
+		print(“Hello there! My name is \(firstName) \(lastName).”)
+	}
+}
+
+//creating an instance
+let aPerson = Person(firstName: “Jacob”, lastName: ”Edwards”)
+</code></pre>
+<h3 id="increasing-readability-of-long-numbers">Increasing readability of long numbers</h3>
+<pre><code class="language-swift">largePrettyNumber = 1_000_000_000
+</code></pre>
+<h2 id="13-operators">1.3 Operators</h2>
+<ul>
+<li>When you use the division operator <strong>/</strong> on <strong>Int values</strong>, the result will be an Int value <strong>rounded down</strong> to the nearest whole number. (Only the integer property got stored.)</li>
+</ul>
+<h3 id="creating-a-new-value-of-other-types-by-prefixing">Creating a <em>new</em> value of other types by prefixing</h3>
+<pre><code class="language-swift">let pi = Double(3) + 0.1415927
+</code></pre>
+<h3 id="referencing-the-current-variable"><em>Referencing</em> the current variable</h3>
+<pre><code class="language-swift">myScore += 3 //compound assignment operators
+</code></pre>
+<h2 id="14-control-flow">1.4 Control Flow</h2>
+<h3 id="coding-style-in-if-else-statements">Coding style in if-else statements</h3>
+<pre><code class="language-swift">let temperature = 100
+if temperature &gt;= 100 { //no brackets needed here
+	print(“The water is boiling.”)
+} else { //write it in the same line
+	print(“”The water is not boiling. )
+}
+</code></pre>
+<h3 id="switch-statement">Switch statement</h3>
+<pre><code class="language-swift">let character = “z”
+switch character {
+	case “a”, “e”, “i”, “o”, “u”:
+		print(“This character is a vowel.”)
+	//provide a default case
+	default:
+		print(“This character is not a vowel.”) 
+}
+
+//closed interval: 1.2…5.0
+//open interval: 1.2..&lt;5.0
+
+let distance = 100
+switch distance {
+	case 0…9: //inclusive
+		print(“Your destination is close.”)
+	case 10…99:
+		print(“Your destination is medium distance from here.”)
+	case 100…999:
+		print(“Your destination is far from here.”)
+	//provide a default case
+	default:
+		print(“Are you sure you want to travel this far?”) 
+}
+</code></pre>
+]]></content>
+    </entry>
 </feed>
