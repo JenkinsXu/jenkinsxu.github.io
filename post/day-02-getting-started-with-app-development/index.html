@@ -1,12 +1,12 @@
 
 <html>
-<head lang="zh">
+  <head lang="zh">
         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
         <meta content="yes" name="apple-mobile-web-app-capable"/>
         <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
         <meta content="telephone=no" name="format-detection"/>
         <meta name="renderer" content="webkit">
-    <title>Jenkins&#39; Secret Base</title>
+    <title>Day 02 - Getting Started with App Development | Jenkins&#39; Secret Base</title>
 <link href="https://jenkinsxu.github.io/styles/main.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript" src="https://jenkinsxu.github.io/media/scripts/jquery.js"></script>
 <script type="text/javascript" src="https://jenkinsxu.github.io/media/scripts/basic.js"></script>
@@ -16,7 +16,7 @@
   </head>
 
   <body>
-    <div class="header">
+     <div class="header">
       <div class="logo_title">
 		  
         <div class="title animated fadeInDown"><img src="https://jenkinsxu.github.io/images/avatar.png?v=1577774949142"/>
@@ -126,6 +126,7 @@
     <div class="main">
       <div class="main-inner">
 
+
 <div class="content">
 
 
@@ -133,21 +134,26 @@
 
 
 
-  <div class="post_list" >
+  <div class="post_page" >
 
-	
 <div class="post">
-  <div class="post_title weaklink">
-    <h2><a href="https://jenkinsxu.github.io/post/day-02-getting-started-with-app-development" >Day 02 - Getting Started with App Development</a>
+  <div class="post_title sm_margin">
+    <h2><a>Day 02 - Getting Started with App Development</a>
+
+
+
     </h2>
   </div>
-  <div class="post_content markdown"><div class="p_part"><p></p></div></div>
-  <div class="post_footer">
-    <div class="info weaklink"><i class="fa fa-clock-o"></i>
+
+  <div class="post_details">
+    <div class="info"><i class="fa fa-clock-o"></i>
 <span class="date_info">2019-12-30</span>
+<i class="fa fa-eye"></i>
+
+<span class="date_info"><span id="busuanzi_value_page_pv"></span> Views</span>
+
 
 <i class="fa fa-bookmark-o"></i>
-	
 <span class="tags_info weaklink">
 	
 
@@ -158,53 +164,69 @@
 
   </div>
 
+
+
+
+
+  <div class="post_content markdown"><p class="md_block">
+    <span class="md_line md_line_start md_line_end"><ul>
+<li>Assistant editor <img src="5A6FF822-6DBA-4B94-AC37-3C9131A8CCFD.png" alt="" loading="lazy"> - to view the storyboard and the definition at the same time.</li>
+<li>The <strong>Custom Class</strong> is set to be ViewConrtoller by default. But the ViewController class <strong>still doesn’t have access</strong> to the button you added. To make the object <strong>accessible in code</strong>, you’ll need to <strong>create an outlet</strong>.</li>
+</ul>
+<h3 id="outlets-and-actions">Outlets and Actions</h3>
+<ul>
+<li>Outlets - reference <strong>visual elements</strong> from Interface Builder to code
+<ul>
+<li><strong>Creating Outlet</strong>: <strong>Right-click and drag</strong> toward the assistant editor pane, which contains the ViewController class definition. Connection is set to <strong>Outlet</strong> and Storage is set to <strong>Strong</strong>. In the name field, specify a variable name for the button: “myButton”.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-swift">import UIKit
+
+class ViewController: UIViewController {
+</code></pre>
+<pre><code class="language-swift">⚫️	@IBOutlet var myButton: UIButton!
+//Circle - The filled circle indicates that the outlet is connected. 
+//@IBOutlet - Unique to Interface Builder, this keyword specifies a relationship between the variable and a storyboard. Without the @IBOutlet keyword, the circle doesn’t display. 
+//: UIButton! - The type of the property is a UIButton, the button type within the UIKit framework (import UIKit). The exclamation point warns you that the program will crash if you try to access this property *and* the outlet isn’t connected. 
+</code></pre>
+<pre><code class="language-swift">		override func viewDidLoad() {
+			super.viewDidLoad()
+			// Do any additional setup after loading the view
+			myButton.setTitleColor(.red, for: .normal) //changes the color of the button
+		}
+</code></pre>
+<ul>
+<li>Actions - a reference to <strong>a piece of code that will execute when the interaction takes place</strong>
+<ul>
+<li>Connection is set to <strong>Action</strong></li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-swift">⚫️	@IBAction func buttonPressed(_ sender: Any) {
+
+		}
+//Circle - The filled circle indicates that the action is connected. 
+//@IBOutlet - Unique to Interface Builder, this keyword specifies a relationship between an action and an object in a storyboard. 
+//(_ sender: Any) - An action can be connected to a number of different objects: buttons, sliders, switches, etc. In this example, sender is the name of the *object* that triggers the action. Because sender could represent any of several user interface elements, it’s of the Any type. 
+</code></pre>
+<h3 id="companion-property">Companion property</h3>
+<p><img src="F9CE2F56-44FF-49E8-84CF-3150B93656D5.png" alt="" loading="lazy"><br>
+Many objects that you can configure in Interface Builder have properties that can only be set programmatically.</p>
+</p>
+
+     <p class="md_block">
+    
+</p> 
 </div>
-	
-
-	
-<div class="post">
-  <div class="post_title weaklink">
-    <h2><a href="https://jenkinsxu.github.io/post/day-01-getting-started-with-app-development-part-1" >Day 01 - Getting Started with App Development Part 1</a>
-    </h2>
-  </div>
-  <div class="post_content markdown"><div class="p_part"><p></p></div></div>
-  <div class="post_footer">
-    <div class="info weaklink"><i class="fa fa-clock-o"></i>
-<span class="date_info">2019-12-25</span>
-
-<i class="fa fa-bookmark-o"></i>
-	
-<span class="tags_info weaklink">
-	
-	<a href="https://jenkinsxu.github.io/tag/7B5LxGodg" class="tag">App Development with Swift</a>
-
-
-
-</span>
-
-
-    </div>
-
-  </div>
 
 </div>
-	
-	
-
-<div class="paginator pager pagination" >
-	
-  <div class="paginator_container pagination_container">
-	  
-	    								
-										
-	  
 
 
 
-    <div style="clear:both;height:0;"></div>
+<link href="https://jenkinsxu.github.io/styles/main.css" type="text/css" rel="stylesheet"/>
 
-
-  </div>
+<div class="doc_comments">
 
 </div>
 
@@ -217,9 +239,12 @@
 
       </div>
 
+
+
+
     </div>
 
-    <div class="footer">
+   <div class="footer">
 <link href="https://jenkinsxu.github.io/styles/main.css" type="text/css" rel="stylesheet"/><div class="site_footer_wrap"><div class="site_footer">
 
       <div class="mysocials"><div class="my_socials">

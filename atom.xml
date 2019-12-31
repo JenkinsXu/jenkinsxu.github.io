@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jenkinsxu.github.io</id>
     <title>Jenkins&apos; Secret Base</title>
-    <updated>2019-12-29T23:02:13.461Z</updated>
+    <updated>2019-12-31T06:49:11.969Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jenkinsxu.github.io"/>
     <link rel="self" href="https://jenkinsxu.github.io/atom.xml"/>
@@ -12,6 +12,58 @@
     <logo>https://jenkinsxu.github.io/images/avatar.png</logo>
     <icon>https://jenkinsxu.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Jenkins&apos; Secret Base</rights>
+    <entry>
+        <title type="html"><![CDATA[Day 02 - Getting Started with App Development]]></title>
+        <id>https://jenkinsxu.github.io/post/day-02-getting-started-with-app-development</id>
+        <link href="https://jenkinsxu.github.io/post/day-02-getting-started-with-app-development">
+        </link>
+        <updated>2019-12-30T14:48:55.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Assistant editor <img src="5A6FF822-6DBA-4B94-AC37-3C9131A8CCFD.png" alt="" loading="lazy"> - to view the storyboard and the definition at the same time.</li>
+<li>The <strong>Custom Class</strong> is set to be ViewConrtoller by default. But the ViewController class <strong>still doesn’t have access</strong> to the button you added. To make the object <strong>accessible in code</strong>, you’ll need to <strong>create an outlet</strong>.</li>
+</ul>
+<h3 id="outlets-and-actions">Outlets and Actions</h3>
+<ul>
+<li>Outlets - reference <strong>visual elements</strong> from Interface Builder to code
+<ul>
+<li><strong>Creating Outlet</strong>: <strong>Right-click and drag</strong> toward the assistant editor pane, which contains the ViewController class definition. Connection is set to <strong>Outlet</strong> and Storage is set to <strong>Strong</strong>. In the name field, specify a variable name for the button: “myButton”.</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-swift">import UIKit
+
+class ViewController: UIViewController {
+</code></pre>
+<pre><code class="language-swift">⚫️	@IBOutlet var myButton: UIButton!
+//Circle - The filled circle indicates that the outlet is connected. 
+//@IBOutlet - Unique to Interface Builder, this keyword specifies a relationship between the variable and a storyboard. Without the @IBOutlet keyword, the circle doesn’t display. 
+//: UIButton! - The type of the property is a UIButton, the button type within the UIKit framework (import UIKit). The exclamation point warns you that the program will crash if you try to access this property *and* the outlet isn’t connected. 
+</code></pre>
+<pre><code class="language-swift">		override func viewDidLoad() {
+			super.viewDidLoad()
+			// Do any additional setup after loading the view
+			myButton.setTitleColor(.red, for: .normal) //changes the color of the button
+		}
+</code></pre>
+<ul>
+<li>Actions - a reference to <strong>a piece of code that will execute when the interaction takes place</strong>
+<ul>
+<li>Connection is set to <strong>Action</strong></li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-swift">⚫️	@IBAction func buttonPressed(_ sender: Any) {
+
+		}
+//Circle - The filled circle indicates that the action is connected. 
+//@IBOutlet - Unique to Interface Builder, this keyword specifies a relationship between an action and an object in a storyboard. 
+//(_ sender: Any) - An action can be connected to a number of different objects: buttons, sliders, switches, etc. In this example, sender is the name of the *object* that triggers the action. Because sender could represent any of several user interface elements, it’s of the Any type. 
+</code></pre>
+<h3 id="companion-property">Companion property</h3>
+<p><img src="F9CE2F56-44FF-49E8-84CF-3150B93656D5.png" alt="" loading="lazy"><br>
+Many objects that you can configure in Interface Builder have properties that can only be set programmatically.</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Day 01 - Getting Started with App Development Part 1]]></title>
         <id>https://jenkinsxu.github.io/post/day-01-getting-started-with-app-development-part-1</id>
