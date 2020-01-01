@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jenkinsxu.github.io</id>
     <title>Jenkins&apos; Secret Base</title>
-    <updated>2020-01-01T03:35:43.934Z</updated>
+    <updated>2020-01-01T03:57:19.220Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jenkinsxu.github.io"/>
     <link rel="self" href="https://jenkinsxu.github.io/atom.xml"/>
@@ -17,8 +17,22 @@
         <id>https://jenkinsxu.github.io/post/day-03-getting-started-with-app-development-part-3</id>
         <link href="https://jenkinsxu.github.io/post/day-03-getting-started-with-app-development-part-3">
         </link>
-        <updated>2019-12-31T11:25:02.000Z</updated>
-        <content type="html"><![CDATA[<p>unfinished</p>
+        <updated>2019-12-30T19:25:02.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Swift booleans have a method, **toggle() **</li>
+</ul>
+<h3 id="setting-background-color">Setting background color</h3>
+<pre><code class="language-swift">view.backgroundColor = .white
+</code></pre>
+<ul>
+<li>UIControl.State represents the different potential states of a button (a data type?)</li>
+</ul>
+<h3 id="a-normal-button">A &quot;normal&quot; button</h3>
+<pre><code class="language-swift">static var normal: UIControl.State //Define a normal constant corresponding to the state of the button when it's enabled and sitting idle on the screen
+</code></pre>
+<h3 id="changing-a-title">Changing a title</h3>
+<pre><code class="language-swift">lightButton.setTitle(&quot;Off&quot;, for: .normal)
+</code></pre>
 ]]></content>
     </entry>
     <entry>
@@ -26,7 +40,7 @@
         <id>https://jenkinsxu.github.io/post/day-02-getting-started-with-app-development</id>
         <link href="https://jenkinsxu.github.io/post/day-02-getting-started-with-app-development">
         </link>
-        <updated>2019-12-28T14:48:55.000Z</updated>
+        <updated>2019-12-27T22:48:55.000Z</updated>
         <content type="html"><![CDATA[<ul>
 <li>Assistant editor <img src="https://jenkinsxu.github.io/post-images/1577775101967.png" alt="" loading="lazy"> - to view the storyboard and the definition at the same time.</li>
 <li>The <strong>Custom Class</strong> is set to be ViewConrtoller by default. But the ViewController class <strong>still doesn’t have access</strong> to the button you added. To make the object <strong>accessible in code</strong>, you’ll need to <strong>create an outlet</strong>.</li>
@@ -48,7 +62,7 @@ class ViewController: UIViewController {
 //@IBOutlet - Unique to Interface Builder, this keyword specifies a relationship between the variable and a storyboard. Without the @IBOutlet keyword, the circle doesn’t display. 
 //: UIButton! - The type of the property is a UIButton, the button type within the UIKit framework (import UIKit). The exclamation point warns you that the program will crash if you try to access this property *and* the outlet isn’t connected. 
 </code></pre>
-<pre><code class="language-swift">		override func viewDidLoad() { // gives you access to the view controller's main view property before it is displayed on the screen
+<pre><code class="language-swift">		override func viewDidLoad() { // gives you access to the view controller's main view property before it is displayed on the screen - good for setting up
 			super.viewDidLoad()
 			// Do any additional setup after loading the view
 			myButton.setTitleColor(.red, for: .normal) //changes the color of the button
