@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jenkinsxu.github.io</id>
     <title>Jenkins&apos; Secret Base</title>
-    <updated>2020-01-02T04:22:55.200Z</updated>
+    <updated>2020-01-02T04:25:28.613Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jenkinsxu.github.io"/>
     <link rel="self" href="https://jenkinsxu.github.io/atom.xml"/>
@@ -13,36 +13,11 @@
     <icon>https://jenkinsxu.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Jenkins&apos; Secret Base</rights>
     <entry>
-        <title type="html"><![CDATA[Day 03 - Getting Started with App Development Part 3]]></title>
-        <id>https://jenkinsxu.github.io/post/day-03-getting-started-with-app-development-part-3</id>
-        <link href="https://jenkinsxu.github.io/post/day-03-getting-started-with-app-development-part-3">
-        </link>
-        <updated>2019-12-28T19:25:02.000Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Swift booleans have a method, **toggle() **</li>
-<li>Command-Shift-L to view library</li>
-</ul>
-<h3 id="setting-background-color">Setting background color</h3>
-<pre><code class="language-swift">view.backgroundColor = .white
-</code></pre>
-<ul>
-<li>UIControl.State represents the different potential states of a button (a data type?)</li>
-</ul>
-<h3 id="a-normal-button">A &quot;normal&quot; button</h3>
-<pre><code class="language-swift">static var normal: UIControl.State //Define a normal constant corresponding to the state of the button when it's enabled and sitting idle on the screen
-</code></pre>
-<h3 id="changing-a-title">Changing a title</h3>
-<pre><code class="language-swift">lightButton.setTitle(&quot;Off&quot;, for: .normal)
-</code></pre>
-<h3 id="clear-out-unused-outlets-with-connection-panel">Clear out unused outlets with connection panel</h3>
-]]></content>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Day 04 - Introduction to UIKit Part 1]]></title>
         <id>https://jenkinsxu.github.io/post/day-04-introduction-to-uikit-part-1</id>
         <link href="https://jenkinsxu.github.io/post/day-04-introduction-to-uikit-part-1">
         </link>
-        <updated>2019-12-28T09:56:16.000Z</updated>
+        <updated>2019-12-31T17:56:16.000Z</updated>
         <content type="html"><![CDATA[<h2 id="21-strings">2.1 Strings</h2>
 <h3 id="string-literals">String Literals</h3>
 <pre><code class="language-swift">&quot;Hello Michelle!&quot;
@@ -107,6 +82,31 @@ print(s[i])
 <li>.startIndex //The position of the first character in a nonempty string.</li>
 <li>.endIndex</li>
 </ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Day 03 - Getting Started with App Development Part 3]]></title>
+        <id>https://jenkinsxu.github.io/post/day-03-getting-started-with-app-development-part-3</id>
+        <link href="https://jenkinsxu.github.io/post/day-03-getting-started-with-app-development-part-3">
+        </link>
+        <updated>2019-12-28T19:25:02.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>Swift booleans have a method, **toggle() **</li>
+<li>Command-Shift-L to view library</li>
+</ul>
+<h3 id="setting-background-color">Setting background color</h3>
+<pre><code class="language-swift">view.backgroundColor = .white
+</code></pre>
+<ul>
+<li>UIControl.State represents the different potential states of a button (a data type?)</li>
+</ul>
+<h3 id="a-normal-button">A &quot;normal&quot; button</h3>
+<pre><code class="language-swift">static var normal: UIControl.State //Define a normal constant corresponding to the state of the button when it's enabled and sitting idle on the screen
+</code></pre>
+<h3 id="changing-a-title">Changing a title</h3>
+<pre><code class="language-swift">lightButton.setTitle(&quot;Off&quot;, for: .normal)
+</code></pre>
+<h3 id="clear-out-unused-outlets-with-connection-panel">Clear out unused outlets with connection panel</h3>
 ]]></content>
     </entry>
     <entry>
