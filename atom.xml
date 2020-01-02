@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jenkinsxu.github.io</id>
     <title>Jenkins&apos; Secret Base</title>
-    <updated>2020-01-02T02:33:13.432Z</updated>
+    <updated>2020-01-02T02:40:39.048Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jenkinsxu.github.io"/>
     <link rel="self" href="https://jenkinsxu.github.io/atom.xml"/>
@@ -17,7 +17,7 @@
         <id>https://jenkinsxu.github.io/post/day-04-introduction-to-uikit-part-1</id>
         <link href="https://jenkinsxu.github.io/post/day-04-introduction-to-uikit-part-1">
         </link>
-        <updated>2019-12-31T17:56:16.000Z</updated>
+        <updated>2019-12-31T01:56:16.000Z</updated>
         <content type="html"><![CDATA[<h2 id="21-strings">2.1 Strings</h2>
 <h3 id="string-literals">String Literals</h3>
 <pre><code class="language-swift">&quot;Hello Michelle!&quot;
@@ -44,6 +44,28 @@ if myString.isEmpty {
     print(&quot;The string is empty&quot;)
 }
 </code></pre>
+<h3 id="concatenation-kənˌkætəˈneɪʃn">Concatenation [kənˌkætəˈneɪʃn]</h3>
+<pre><code class="language-swift">let myString = string1 + string2
+</code></pre>
+<h3 id="string-interpolation-ɪnˌtɜːrpəˈleɪʃn">String Interpolation [ɪnˌtɜːrpəˈleɪʃn]</h3>
+<pre><code class="language-swift">print(&quot;If a is \(a) and b is \(b), then a + b equals \(a+b)&quot;) 
+</code></pre>
+<h3 id="useful-methods-of-the-string-type">Useful methods of the String type</h3>
+<ul>
+<li>.lowercased()</li>
+<li>.hasPrefix(_😃</li>
+</ul>
+<pre><code class="language-swift">let gretting = &quot;Hello, world!&quot;
+gretting.hasPrefix(&quot;Hello&quot;)
+</code></pre>
+<ul>
+<li>.hasSuffix(_😃</li>
+<li>.contains(_😃</li>
+</ul>
+<h3 id="useful-properties-of-the-string-type">Useful properties of the String type</h3>
+<ul>
+<li>.count</li>
+</ul>
 ]]></content>
     </entry>
     <entry>
