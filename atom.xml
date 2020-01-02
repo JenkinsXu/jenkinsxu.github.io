@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jenkinsxu.github.io</id>
     <title>Jenkins&apos; Secret Base</title>
-    <updated>2020-01-02T02:23:26.750Z</updated>
+    <updated>2020-01-02T02:33:13.432Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jenkinsxu.github.io"/>
     <link rel="self" href="https://jenkinsxu.github.io/atom.xml"/>
@@ -17,8 +17,33 @@
         <id>https://jenkinsxu.github.io/post/day-04-introduction-to-uikit-part-1</id>
         <link href="https://jenkinsxu.github.io/post/day-04-introduction-to-uikit-part-1">
         </link>
-        <updated>2020-01-01T09:56:16.000Z</updated>
-        <content type="html"><![CDATA[<p>Unfinished</p>
+        <updated>2019-12-31T17:56:16.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="21-strings">2.1 Strings</h2>
+<h3 id="string-literals">String Literals</h3>
+<pre><code class="language-swift">&quot;Hello Michelle!&quot;
+</code></pre>
+<p>If your string literal needs to be multiple lines, simply surround your set of characters with three double quotation marks &quot;&quot;&quot;</p>
+<pre><code class="language-swift">let joke = &quot;&quot;&quot;
+    Q: why did the chicken cross the rode?
+    A: To get to the other side! 
+    &quot;&quot;&quot;
+</code></pre>
+<p>Escape character</p>
+<pre><code class="language-swift">let greeting = &quot;It is traditional in programming to print \&quot;Hello, world\&quot;&quot;
+</code></pre>
+<ul>
+<li>Double quote <strong>&quot;</strong></li>
+<li>Single quote **' **</li>
+<li>Backslash <strong>\</strong></li>
+<li>Tap <strong>\t</strong></li>
+<li>Carriage return <strong>\r</strong></li>
+</ul>
+<h3 id="check-if-a-swift-string-is-empty-using-the-boolean-property">Check if a Swift String is empty using the Boolean <strong>property</strong></h3>
+<pre><code class="language-swift">var myString = &quot;&quot;
+if myString.isEmpty {
+    print(&quot;The string is empty&quot;)
+}
+</code></pre>
 ]]></content>
     </entry>
     <entry>
