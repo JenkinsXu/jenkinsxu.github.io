@@ -1,0 +1,460 @@
+
+<html>
+  <head lang="zh">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+        <meta content="yes" name="apple-mobile-web-app-capable"/>
+        <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+        <meta content="telephone=no" name="format-detection"/>
+        <meta name="renderer" content="webkit">
+    <title>Day 05 - Introduction to UIKit Part 2  | Jenkins&#39; Secret Base</title>
+<link href="https://jenkinsxu.github.io/styles/main.css" type="text/css" rel="stylesheet"/>
+<script type="text/javascript" src="https://jenkinsxu.github.io/media/scripts/jquery.js"></script>
+<script type="text/javascript" src="https://jenkinsxu.github.io/media/scripts/basic.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  </head>
+
+  <body>
+     <div class="header">
+      <div class="logo_title">
+		  
+        <div class="title animated fadeInDown"><img src="https://jenkinsxu.github.io/images/avatar.png?v=1578018216919"/>
+
+          <h1 title="Jenkins&#39; Secret Base" class="weaklink"><a href="/">Jenkins&#39; Secret Base</a>
+
+          </h1>
+
+          <div class="navbar weaklink">
+            <div class="normal_nav">
+
+<div class="bitcron_nav_container">
+
+
+  <div class="bitcron_nav">
+    <div class="mixed_site_nav_wrap site_nav_wrap">
+		
+      <ul class="mixed_site_nav site_nav sm sm-base">
+ 
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/" class="selected active current nav__item" >Home</a>
+
+  </li>
+ 
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/tags" class="selected active current nav__item" >Tags</a>
+
+  </li>
+ 
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/post/about" class="selected active current nav__item" >About</a>
+
+  </li>
+ 
+
+      </ul>
+
+      <div class="clear clear_nav_inline_end"></div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="clear clear_nav_end"></div>
+
+</div>
+
+            </div>
+
+            <div class="hamberger"><i class="fa fa-bars"></i>
+<i class="fa fa-times"></i>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="hidden_nav animated fadeInDown">
+
+<div class="bitcron_nav_container">
+
+
+  <div class="bitcron_nav">
+    <div class="mixed_site_nav_wrap site_nav_wrap">
+      <ul class="mixed_site_nav site_nav sm sm-base">
+		  
+	
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/" class="selected active current nav__item" >Home</a>
+
+  </li>
+
+
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/tags" class="selected active current nav__item" >Tags</a>
+
+  </li>
+
+
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/post/about" class="selected active current nav__item" >About</a>
+
+  </li>
+
+
+
+
+
+      </ul>
+
+      <div class="clear clear_nav_inline_end"></div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="clear clear_nav_end"></div>
+
+</div>
+
+      </div>
+
+    </div>
+
+
+    <div class="main">
+      <div class="main-inner">
+
+
+<div class="content">
+
+
+
+
+
+
+  <div class="post_page" >
+
+<div class="post">
+  <div class="post_title sm_margin">
+    <h2><a>Day 05 - Introduction to UIKit Part 2 </a>
+
+
+
+    </h2>
+  </div>
+
+  <div class="post_details">
+    <div class="info"><i class="fa fa-clock-o"></i>
+<span class="date_info">2020-01-02</span>
+<i class="fa fa-eye"></i>
+
+<span class="date_info"><span id="busuanzi_value_page_pv"></span> Views</span>
+
+
+<i class="fa fa-bookmark-o"></i>
+<span class="tags_info weaklink">
+	
+
+</span>
+
+
+    </div>
+
+  </div>
+
+
+
+
+
+  <div class="post_content markdown"><p class="md_block">
+    <span class="md_line md_line_start md_line_end"><h2 id="22-functions">2.2 Functions</h2>
+<ul>
+<li>A function in Swift can return zero, one or <strong>multiple values</strong>.</li>
+</ul>
+<h3 id="defining-a-function">Defining a Function</h3>
+<pre><code class="language-swift">func functionName (argumentLabel: TypeOfParameter) -&gt; ReturnType {
+	//body of the function
+}
+
+functionName (parameters: value) //calling the function
+</code></pre>
+<h3 id="argument-labels-and-local-names">Argument Labels and Local Names</h3>
+<pre><code class="language-swift">// specify an external name before the local one
+func sayHello(to person: String, and anotherPerson: String) {
+	print(“Hello \(person), and \(anotherPerson)”)
+}
+
+sayHello(to: “Miles”, and: “Riley”)
+</code></pre>
+<h3 id="omitting-the-argument-label">Omitting the Argument Label</h3>
+<pre><code class="language-swift">func sayHello(_ person: String, _anotherPerson: String) {
+	print(“Hello” \(person) and \(anotherPerson))
+}
+
+sayHello(“Miles”, “Riley”)
+</code></pre>
+<h3 id="default-parameter-values">Default Parameter Values</h3>
+<p>You’ll need to place all parameters with default values <strong>at the end of the list</strong>, and these parameters must <strong>all have argument labels</strong>.</p>
+<pre><code class="language-swift">func display(teamName: String, score: Int = 0) {
+	print(“\”(teamName): \(score))
+}
+
+display(teamName: “Wombats”, score: 100) //“Wombats: 100”
+display(teamName: “Wombats”) //“Wombats: 0”
+</code></pre>
+<h2 id="23-structures">2.3 Structures</h2>
+<ul>
+<li>As a general rule, you should use let whenever possible to define an instance of a structure, and use var when defining the properties of a structure (easier for creating new instance from the current ones).</li>
+</ul>
+<h3 id="default-initializer">Default Initializer</h3>
+<pre><code class="language-swift">var string = String.init() // “”
+var integer = Int.init() // 0
+var bool = Bool.init() // false
+
+// Shorthand version
+string = String()
+integer = Int()
+bool = Bool()
+</code></pre>
+<h3 id="different-approaches-to-initializing-property-values">Different Approaches to Initializing Property Values</h3>
+<ol>
+<li><strong>Default Values</strong></li>
+</ol>
+<pre><code class="language-swift">struct Odometer {
+	var count: Int = 0
+}
+</code></pre>
+<ol start="2">
+<li><strong>Member-wise Initializer</strong><br>
+Member-wise initializers are the correct approach when there’s not a default state for new instance of your type.</li>
+</ol>
+<pre><code class="language-swift">struct Person {
+	var name: String
+}
+
+let person = Person(name: “Michelle”) // Member-wise initializer
+</code></pre>
+<ol start="3">
+<li><strong>Custom Initializers</strong><br>
+For the times when you want to define an initializer that completes some custom logic before assigning all of the properties.<br>
+Custom initializers have the same requirement as default and member-wise initializers: All properties must be set to initial values before completing initialization.</li>
+</ol>
+<pre><code class="language-swift">struct Temperature {
+	var celsius: Double
+	
+	init(celsius: Double) {
+		self.celsius = celsius
+	}
+
+	// When you add a custom initializer to a type definition, you must define your own member-wise initializer; Swift no longer provides one for you. 
+
+	init(fahrenheit: Double) {
+		celsius = (fahrenheit - 32) / 1.8
+	}
+}
+
+let boiling = Temperature(fahrenheit: 212.0)
+</code></pre>
+<h3 id="mutating-methods">Mutating Methods</h3>
+<p>Occasionally you’ll want to update the property values of a structure within an instance method. To do so you’ll need to add the mutating keyword.</p>
+<pre><code class="language-swift">struct Odometer {
+	var count: Int = 0
+
+	mutating func increment() {
+		count += 1
+	}
+
+	mutating func increment(by amount: Int) {
+		count += amount
+	}
+}
+</code></pre>
+<h3 id="computed-properties">Computed Properties</h3>
+<p>With computed properties, you can create properties that can compute their value based on other instance properties or logic. You must also explicitly declare the type.</p>
+<pre><code class="language-swift">struct Temperature {
+	var celsius: Double
+
+	var fahrenheit: Double {
+		return celsius * 1.8 + 32
+	}
+
+	var kelvin: Double {
+		return celsius + 273.15
+	
+}
+
+// The logic contained in a computed property will be executed each time the property is accessed, so the returned value will always bt up to date. 
+</code></pre>
+<h3 id="property-observers">Property Observers</h3>
+<p>Property observers are called every time a property’s value is set.<br>
+There are two observer closures, or blocks of code, that you can define on any given property: willSet, and didSet.<br>
+Whenever the variable is modified, <strong>willSet will be called first</strong>, and you’ll have access to the new value that will be set to the property value in a constant named <strong>newValue</strong>.<br>
+After the property’s value has been updated, <strong>didSe</strong>t will be called, and you can access the previous property value using <strong>oldValue</strong>.</p>
+<pre><code class="language-swift">struct StepCounter {
+	var totalSteps: Int = 0 {
+		willSet {
+			print(“About to set totalSteps to \(newValue)”)
+		}
+		didSet {
+			if totalStep &gt; oldStep {
+				print(“Added \(totalSteps - OldValue) steps”)
+			}
+		}
+	}
+}
+</code></pre>
+<h3 id="type-properties-and-methods-different-from-instance-methods">Type Properties and Methods (Different from Instance Methods)</h3>
+<p>Type properties are useful when a property is related to the type, but not a characteristic of an instance itself.</p>
+<pre><code class="language-swift">struct Temperature {
+	static var boilingPoint = 100
+}
+
+let boilingPoint = Temperature.boilingPoint
+</code></pre>
+<p>The Double structure, defined in the Swift Standard Library, contains a static method called minimum that returns the smaller of its two parameters.</p>
+<pre><code class="language-swift">let smallerNumber = Double.minimum(100.0, -1000.0)
+</code></pre>
+<h3 id="deep-copying">(Deep) Copying</h3>
+<p>If you assign a structure to a variable or pass an instance as a parameter into a function, the values are copied. (Changing one value doesn’t change the other. )</p>
+<h3 id="self">Self</h3>
+<p>In Swift, <strong>self</strong> refers to the <strong>current instance</strong> of the object.</p>
+<pre><code class="language-swift">self.color
+</code></pre>
+<p>The Swift compiler recognizes when property or method names exist on the current object, and makes using self optional.<br>
+The use of self is required within initializers that have parameter names that match property names (<strong>shadowing</strong>).</p>
+<pre><code class="language-swift">struct Temperature {
+	var celsius: Double
+	init(celsius: Double) {
+		self.celsius = celsius
+	}
+}
+</code></pre>
+</p>
+
+     <p class="md_block">
+    
+</p> 
+</div>
+
+</div>
+
+
+
+<link href="https://jenkinsxu.github.io/styles/main.css" type="text/css" rel="stylesheet"/>
+
+<div class="doc_comments">
+
+</div>
+
+
+
+  </div>
+</div>
+
+
+
+      </div>
+
+
+
+
+    </div>
+
+   <div class="footer">
+<link href="https://jenkinsxu.github.io/styles/main.css" type="text/css" rel="stylesheet"/><div class="site_footer_wrap"><div class="site_footer">
+
+      <div class="mysocials"><div class="my_socials">
+		   
+			   
+    
+			   
+    
+			   
+    
+			   
+    
+</div><link href="https://jenkinsxu.github.io/styles/main.css" type="text/css" rel="stylesheet"/>
+
+      </div>
+
+      <div class="copyright">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+<div>Icons made by <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">Eucalyp</a> from <a href="https://www.flaticon.com/"             title="Flaticon">www.flaticon.com</a></div>
+      </div>
+
+</div></div>
+
+    </div>
+
+
+<style type="text/css">a.back_to_top {
+    text-decoration: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    background: #f0f0f0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 36px;
+    font-size: 18px;
+    text-align: center;
+    transition-duration: .5s;
+    transition-propety: background-color;
+    display: none;
+}
+
+a.back_to_top span {
+    color: #888;
+}
+
+a.back_to_top:hover {
+    cursor: pointer;
+    background: #dfdfdf;
+}
+
+a.back_to_top:hover span {
+    color: #555;
+}
+
+@media print, screen and (max-width: 580px) {
+    .back_to_top {
+        display: none !important;
+    }
+}
+
+
+
+</style><a id="back_to_top" href="#" class="back_to_top"><span>△</span>
+</a>
+<script type="text/javascript" src="https://jenkinsxu.github.io/media/scripts/jquery.js"></script>
+
+<script>$(document).ready((function(_this) {
+  return function() {
+    var bt;
+    bt = $('#back_to_top');
+    if ($(document).width() > 480) {
+      $(window).scroll(function() {
+        var st;
+        st = $(window).scrollTop();
+        if (st > 30) {
+          return bt.css('display', 'block');
+        } else {
+          return bt.css('display', 'none');
+        }
+      });
+      return bt.click(function() {
+        $('body,html').animate({
+          scrollTop: 0
+        }, 800);
+        return false;
+      });
+    }
+  };
+})(this));
+</script>
+
+</body>
+
+</html>
