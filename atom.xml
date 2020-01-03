@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jenkinsxu.github.io</id>
     <title>Jenkins&apos; Secret Base</title>
-    <updated>2020-01-03T18:32:41.909Z</updated>
+    <updated>2020-01-03T18:36:59.858Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jenkinsxu.github.io"/>
     <link rel="self" href="https://jenkinsxu.github.io/atom.xml"/>
@@ -17,7 +17,7 @@
         <id>https://jenkinsxu.github.io/post/day-06-introduction-to-uikit-part-2</id>
         <link href="https://jenkinsxu.github.io/post/day-06-introduction-to-uikit-part-2">
         </link>
-        <updated>2020-01-03T02:32:23.000Z</updated>
+        <updated>2020-01-02T10:32:23.000Z</updated>
         <content type="html"><![CDATA[<h2 id="24-classes-inheritance">2.4 Classes, Inheritance</h2>
 <ul>
 <li>As a basic rule, you should start new types as structures until you need one of the features that classes provide.</li>
@@ -73,7 +73,7 @@ class Student: Person {
 }
 </code></pre>
 <h3 id="references">References</h3>
-<p>Constants or variables that are assigned to an instance store that instance’s address to refer to the instance. So the constant or variable does not contain the value itself, it points to the value in memory. We say the data has a <strong>stable identity</strong>.</p>
+<p>Constants or variables that are assigned to an instance store that instance’s address to refer to the instance. So the constant or variable does not contain the value itself, it points to the value in memory. We say the data has a <strong>stable identity</strong>. Updating them as parameter will also update their values.</p>
 <pre><code class="language-swift">class Person {
 	let name: String
 	var age: Int
