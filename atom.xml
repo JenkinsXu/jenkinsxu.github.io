@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jenkinsxu.github.io</id>
     <title>Jenkins&apos; Secret Base</title>
-    <updated>2020-01-03T02:28:47.304Z</updated>
+    <updated>2020-01-03T18:32:41.909Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jenkinsxu.github.io"/>
     <link rel="self" href="https://jenkinsxu.github.io/atom.xml"/>
@@ -12,6 +12,101 @@
     <logo>https://jenkinsxu.github.io/images/avatar.png</logo>
     <icon>https://jenkinsxu.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Jenkins&apos; Secret Base</rights>
+    <entry>
+        <title type="html"><![CDATA[Day 06 - Introduction to UIKit Part 2]]></title>
+        <id>https://jenkinsxu.github.io/post/day-06-introduction-to-uikit-part-2</id>
+        <link href="https://jenkinsxu.github.io/post/day-06-introduction-to-uikit-part-2">
+        </link>
+        <updated>2020-01-03T02:32:23.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="24-classes-inheritance">2.4 Classes, Inheritance</h2>
+<ul>
+<li>As a basic rule, you should start new types as structures until you need one of the features that classes provide.</li>
+<li>Start with a class when you’re working with a framework (ex. <strong>Foundation</strong> or <strong>UIKit</strong>) that uses classes (since many of them have method calls that expect certain things to be classes) or you want to refer to the same instance of a type in multiple places. (<strong>Reference</strong>)</li>
+</ul>
+<h3 id="create-a-subclass-and-override-methods-and-properties">Create a Subclass and Override Methods and Properties</h3>
+<pre><code class="language-swift">class Vehicle {
+	var currentSpeed = 0.0
+
+	var description: String {
+		return “traveling at \(currentSpeed) miles per hour”
+	}
+
+	func makeNoise() {
+		
+	}
+}
+
+class Train: Vehicle {
+	override func makeNoise() {
+		print(“Choo Choo!”)
+	}
+}
+
+// You can also override properties by providing a getter, or a block of code that returns the value, like a computed property
+
+// Accesses the description from the superclass by calling super.description
+
+class Car: Vehicle {
+	var gear = 1
+	override var description: String {
+		return super.description + “ in gear \(gear)”
+	}
+}
+</code></pre>
+<h3 id="override-initializer">Override Initializer</h3>
+<pre><code class="language-swift">class Person {
+	let name: String 
+
+	// Swift does not create a member wise initializer for classes. 
+	init(name: String) {
+		self.name = name
+	}
+}
+
+class Student: Person {
+	var favoriteSubject: String
+	
+	init(name: String, favoriteSubject: String) {
+		self.favoriteSubject = favoriteSubject
+		super.init(name: name)
+	}
+}
+</code></pre>
+<h3 id="references">References</h3>
+<p>Constants or variables that are assigned to an instance store that instance’s address to refer to the instance. So the constant or variable does not contain the value itself, it points to the value in memory. We say the data has a <strong>stable identity</strong>.</p>
+<pre><code class="language-swift">class Person {
+	let name: String
+	var age: Int
+
+	init(name: String, age: Int) {
+		self.name = name
+		self.age = age
+	}
+}
+var jack = Person(name: “Jack”, age: 24)
+var myFriend = jack
+
+jack.age += 1
+
+print(jack.age == myFriend.age) // true
+
+// In contrast, when you create an instance of a structure, you’re assigning a literal value to that variable instead of an address. If you create a variable that's equal to another structure variable, the value is copied. 
+
+struct Person {
+	var name: String
+	var age: Int
+}
+
+var jack = Person(name: ”Jack”, age: 24)
+var myFriend = jack
+
+jack.age += 1
+
+print(jack.age == myFriend.age) // false
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Day 05 - Introduction to UIKit Part 2 ]]></title>
         <id>https://jenkinsxu.github.io/post/day-05-introduction-to-uikit-part-2</id>
