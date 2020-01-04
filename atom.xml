@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jenkinsxu.github.io</id>
     <title>Jenkins&apos; Secret Base</title>
-    <updated>2020-01-03T18:36:59.858Z</updated>
+    <updated>2020-01-04T22:49:41.997Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jenkinsxu.github.io"/>
     <link rel="self" href="https://jenkinsxu.github.io/atom.xml"/>
@@ -12,6 +12,120 @@
     <logo>https://jenkinsxu.github.io/images/avatar.png</logo>
     <icon>https://jenkinsxu.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Jenkins&apos; Secret Base</rights>
+    <entry>
+        <title type="html"><![CDATA[Day 07 - Introduction to UIKit Part 3]]></title>
+        <id>https://jenkinsxu.github.io/post/day-07-introduction-to-uikit-part-3</id>
+        <link href="https://jenkinsxu.github.io/post/day-07-introduction-to-uikit-part-3">
+        </link>
+        <updated>2020-01-04T06:49:01.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="25-collections">2.5 Collections</h2>
+<h3 id="arrays">Arrays</h3>
+<pre><code class="language-swift">var names: [String] = [&quot;Anne&quot;, &quot;Gary&quot;, &quot;Keith&quot;]
+var numbers: [Int8] = [1, -3, 50, 72, -95] // [-127, 128]
+</code></pre>
+<pre><code class="language-swift">var names = [&quot;Anne&quot;, &quot;Gary&quot;, &quot;Keith&quot;]
+let numbers = [1, -3, 50, 72, -95] 
+
+// Check if a certain value exist in an array. 
+if numbers.contains(5) {
+	print(&quot;There is a 5&quot;)
+}
+</code></pre>
+<h3 id="initialization-of-empty-arrays">Initialization of empty arrays</h3>
+<pre><code class="language-swift">var myArray: [Int] = []
+</code></pre>
+<pre><code class="language-swift">var myArray: Array&lt;Int&gt; = []
+</code></pre>
+<pre><code class="language-swift">// All objects can be initialized by adding a () after the type name. 
+var myArray = [Int]()
+</code></pre>
+<h3 id="repeating-elements">Repeating elements</h3>
+<pre><code class="language-swift">var myArray = [Int](repeating: 0, count: 100) // An array filled with 100 zeros. 
+</code></pre>
+<h3 id="the-count-and-isempty-properties">The .count and .isEmpty properties</h3>
+<ul>
+<li>.count: The number of items within an array.</li>
+<li>.isEmpty: Check if the array is empty.</li>
+</ul>
+<h3 id="the-subscript-syntax">The subscript Syntax</h3>
+<ul>
+<li>zero-indexed</li>
+</ul>
+<pre><code class="language-swift">names[0]
+</code></pre>
+<h3 id="adding-and-removing-elements">Adding and removing elements</h3>
+<pre><code class="language-swift">var names = [&quot;Amy&quot;]
+names.append(&quot;Joe&quot;)
+names += [&quot;Keith&quot;, &quot;Jane&quot;] // Adding multiple elements at a time
+names.insert(&quot;Bob&quot;, at: 0)
+
+let chelsea = names.remove(at: 2)
+let dan = names.removeLast()
+names.removeAll()
+
+var myNewArray = firstArray + secondArray
+</code></pre>
+<hr>
+<h3 id="dictionary">Dictionary</h3>
+<pre><code class="language-swift">var myDictionary = [String: Int]()
+
+var myDictionary = Dictionary&lt;String, Int&gt;()
+
+var myDictionary: [String: Int] = [:]
+</code></pre>
+<h3 id="addremovemodify-a-dictionary">Add/Remove/Modify a dictionary</h3>
+<pre><code class="language-swift">numberOfLegs[&quot;snake&quot;] = 0
+
+// If there was no value, oldValue will be nil.
+let oldValue = scores.updateValue(100, forKey: &quot;Richard&quot;)
+
+// Run code only if a value is returned from the method.
+if let oldValue = scores.updateValue(100, forKey: &quot;Richard&quot;) {
+	print(&quot;Richard’s old value was \(oldValue)&quot;)
+}
+
+// To remove an item from a dictionary, you can use subscript syntax, setting the value to nil. 
+// If you need the old value returned before removing it: 
+if let oldValue = scores.removeValue(forKey: &quot;&quot;Luke) {
+	print(&quot;Luke’s score was \(oldValue) before he stopped playing&quot;)
+}
+</code></pre>
+<h3 id="accessing-a-dictionary">Accessing a dictionary</h3>
+<pre><code class="language-swift">let players = Array(scores.keys)
+let points = Array(scores.values)
+
+// Execute when exists
+if let myScore = scores[&quot;Luke&quot;] {
+	print(myScore)
+}
+</code></pre>
+<h2 id="26-loops">2.6 Loops</h2>
+<h3 id="for-in-loop">for-in Loop</h3>
+<pre><code class="language-swift">for _ 1…3 {
+	print(&quot;Hello!&quot;)
+}
+
+names = [&quot;Joseph&quot;, &quot;Cathy&quot;, &quot;Winston&quot;]
+for name in names {
+	print(&quot;Hello, \(name)&quot;)
+}
+
+for letter in &quot;ABCD&quot; {
+	print(&quot;The letter is \(letter)&quot;)
+}
+
+// If you need the index of each element in addition to its value, you can use the enumerated() method (to return a tuple containing both the index and the value of each item)
+for (index, letter) in &quot;ABCD&quot;.enumerated() {
+	print(&quot;\(index): \(letter)&quot;)
+}
+
+let vehicles = [&quot;unicycle&quot;: 1, &quot;bicycle&quot;: 2, &quot;tricycle&quot;: 3, &quot;quad bike&quot;: 4]
+for (vehicleName, wheelCount) in vehicles {
+	print(&quot;A \(vehicleName) has \(wheelCount) wheels&quot;)
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Day 06 - Introduction to UIKit Part 2]]></title>
         <id>https://jenkinsxu.github.io/post/day-06-introduction-to-uikit-part-2</id>
