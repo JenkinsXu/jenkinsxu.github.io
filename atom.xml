@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jenkinsxu.github.io</id>
     <title>Jenkins&apos; Secret Base</title>
-    <updated>2020-01-05T20:19:28.342Z</updated>
+    <updated>2020-01-10T02:10:02.131Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jenkinsxu.github.io"/>
     <link rel="self" href="https://jenkinsxu.github.io/atom.xml"/>
@@ -17,7 +17,7 @@
         <id>https://jenkinsxu.github.io/post/day-08-introduction-to-uikit-part-4</id>
         <link href="https://jenkinsxu.github.io/post/day-08-introduction-to-uikit-part-4">
         </link>
-        <updated>2020-01-05T04:17:20.000Z</updated>
+        <updated>2020-01-04T12:17:20.000Z</updated>
         <content type="html"><![CDATA[<h2 id="27-introduction-to-uikit">2.7 Introduction to UIKit</h2>
 <ul>
 <li>The foundational class for all visual elements defined in UIKit is the <strong>UIView</strong>, or view. A view defines a rectangular shape that can be customized to display anything on the screen. Text, images, lines, and graphics all depend on UIView as the base.</li>
@@ -64,7 +64,7 @@ A table view presents data in a single scrollable column of rows and sections, a
 <p><img src="https://jenkinsxu.github.io/post-images/1578255553420.png" alt="" loading="lazy"><br>
 <img src="https://jenkinsxu.github.io/post-images/1578255559223.png" alt="" loading="lazy"></p>
 <h3 id="tab-bars-uitabbar">Tab Bars (UITabBar)</h3>
-<p>A tab bar provides easy access to different views in an app. The most common way to use a tab bar is with a <strong>tab bar controller</strong>, which holds a property of each view controller that represents each scene you want presented in the tab bar. You’ll add <strong>scenes</strong> to be displayed to the controller. The view controller for each scene has a <strong>UITabBarItem</strong> property that <strong>defines the text and optional image that will be displayed by the tab bar</strong>.</p>
+<p>A tab bar provides easy access to different views in an app. The most common way to use a tab bar is with a <strong>tab bar controller</strong>, which holds a property of each view controller that represents each scene you want presented in the tab bar. You’ll add <strong>scenes</strong> to be displayed to the controller, and the tab bar view, you link it to the tab bar controller's viewControllers property in a storyboard (<strong>?</strong>). The view controller for each scene has a <strong>UITabBarItem</strong> property that <strong>defines the text and optional image that will be displayed by the tab bar</strong>.</p>
 <hr>
 <h2 id="responding-to-user-input">Responding to user input</h2>
 <p>unfinished</p>
