@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jenkinsxu.github.io</id>
     <title>Jenkins&apos; Secret Base</title>
-    <updated>2020-01-10T02:10:02.131Z</updated>
+    <updated>2020-01-15T03:11:57.177Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jenkinsxu.github.io"/>
     <link rel="self" href="https://jenkinsxu.github.io/atom.xml"/>
@@ -12,6 +12,366 @@
     <logo>https://jenkinsxu.github.io/images/avatar.png</logo>
     <icon>https://jenkinsxu.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Jenkins&apos; Secret Base</rights>
+    <entry>
+        <title type="html"><![CDATA[Algorithms - Week 1]]></title>
+        <id>https://jenkinsxu.github.io/post/algorithms-week-1</id>
+        <link href="https://jenkinsxu.github.io/post/algorithms-week-1">
+        </link>
+        <updated>2020-01-14T11:11:23.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="fib">fib()</h1>
+<h3 id="the-formula">The formula</h3>
+<h3 id="facts">Facts</h3>
+<ul>
+<li>Grow as fast as 2^n</li>
+<li>fib(100) is 21 digits long</li>
+<li>In general T(n) = 2^(0.694n)</li>
+</ul>
+<p><strong>Q: What is the precise value of F100 or F200</strong><br>
+A exponential algorithm:</p>
+<pre><code class="language-python">func fib(n):
+	if n = 0: return 0
+	if n = 1: return 1
+	return fib(n - 1) + fib(n - 2)
+</code></pre>
+<h3 id="any-algorithm-implies-3-questions">Any algorithm implies 3 questions</h3>
+<ol>
+<li>Is it correct?</li>
+<li>How much time does it take as a function of input size n?</li>
+<li>Can we do better?</li>
+</ol>
+<ul>
+<li>Often, space is an important consideration too.</li>
+</ul>
+<h3 id="answers">Answers</h3>
+<ol>
+<li>Yes, by definition</li>
+<li>Let T(n) be the # of steps needed to compute fib(n)
+<ul>
+<li>T(n) ≤ 2 for n ≤ 1</li>
+<li>T(n) = T(n-1) + T(n-2) + 3 for n &gt; 1<br>
+**Observation:**T(n) ≥ F(n)<br>
+<strong>Conclusion:</strong><br>
+The running time grows as fast as the fibonacci numbers.<br>
+T(n) is exponential in n, so very impractical (except for very small n's)<br>
+<strong>Q:</strong> How bad?<br>
+<strong>A:</strong><br>
+T(200) ≥ F100 ≥ 2^138 elementary computing steps.<br>
+With 40 trillion operations per seconds (NEC Earth simulator):</li>
+<li>fib(200) taken about 2 ^ 92 seconds</li>
+<li>Longer than the remaining life of our sun<br>
+Even Moore's Law doesn't help.</li>
+<li>Computers get 1.6 times faster every year or twice as fast every 18 months.</li>
+<li>fib(n) taken roughly 2^0.694n (or 1.6^n)
+<ul>
+<li>It takes 1.6 times longer to compute Fn+1 than Fn</li>
+<li>If we can compute F100 with this years technology, then we can compute F101 with next year's technology. (One more Fibonacci number per year. )</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>A polynomial algorithm<br>
+<strong>Q:</strong> Why is fib(n) so slow?<br>
+<strong>A:</strong>  repeated calls<br>
+<strong>More sensible approach:</strong> store intermediate results (a form of dynamic programming)</li>
+</ol>
+<pre><code class="language-swift">func fib(n) {
+	if n = 0 {
+		return 0
+	}
+	f = [0, 1]
+	for i in 2...n {
+		f.append(f[i-1] + f[i-2])	
+	}
+	return f[n]
+}
+</code></pre>
+<ul>
+<li>Correct by definition</li>
+<li>Inner loop gets executed n-1 times (one addition)
+<ul>
+<li>fib(n) is linear in n</li>
+<li>we are now down from exponential to linear time</li>
+<li>One outstanding issue: fib(n) has to add increasingly larger integers
+<ul>
+<li>issues around precision or time</li>
+<li>it takes more time to add F199 and F200 than e.g. F3 and F4
+<ul>
+<li>fib(n) roughly performed Fn additions -&gt; # of basic steps is roughly proportional to n*Fn (still exponential)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h1 id="of-basic-steps-is-roughly-proportional-to-n2-still-polynomial-hw-why-bits-level">of basic steps is roughly proportional to <strong>n^2</strong> (still polynomial) <strong>[HW: Why? - bits level]</strong></h1>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="the-big-o-notation">The Big-O Notation</h1>
+<ul>
+<li>
+<p>Need to be precise, but not overly detailed</p>
+</li>
+<li>
+<p>Want to be <strong>machine and architecture independant</strong></p>
+</li>
+<li>
+<p>Further simplification</p>
+</li>
+<li>
+<p>can be viewed as the analog of the relation ⊆</p>
+</li>
+<li>
+<p>we can also define the analogs of ≥ and = as follows</p>
+<ul>
+<li>f = Ω(g) means g = O(f)</li>
+<li>f = Θ(g) means f = O(g) and f = Ω(g)</li>
+</ul>
+</li>
+</ul>
+<h1 id="algorithms-with-numbers">Algorithms with numbers</h1>
+<h2 id="factoring">Factoring</h2>
+<p>Express N as product of its prime factors.</p>
+<ul>
+<li>Factoring is hard. Exponential in he number of bits of N.</li>
+</ul>
+<h2 id="primality">Primality</h2>
+<p>Is N a prime?</p>
+<ul>
+<li>Primality testing is very easy!</li>
+</ul>
+<p>As we shall see, the above 2 problems lie at the heart of <strong>secure encrypted communication</strong>.</p>
+<p>First things first: Need for algorithms for basic arithmetic.</p>
+<h3 id="basic-grade-school-addition">Basic (grade school) addition</h3>
+<ul>
+<li>Works because the sum of any 3 single digit number is at most 2 digits long (this holds for all bases b ≥ 2)
+<ul>
+<li>Example:</li>
+</ul>
+</li>
+</ul>
+<pre><code>	110101 
++	100011
+---------
+1 011000
+</code></pre>
+<p><strong>Q:</strong> How fast is this?<br>
+<strong>A:</strong> 2n bit number can be added in n + 1 steps, so about c0 + c1*n ⇒ O(n).<br>
+<strong>Q:</strong> Can we do better?<br>
+<strong>A:</strong> At the minimum we must read 2 n-bit numbers and write down the answer. Even that requires n steps. ⇒ it is <strong>optimal</strong>. (Up to multiplicative constants c0 and c1)</p>
+<h3 id="multiplication">Multiplication</h3>
+<ul>
+<li>The grade school algorithm</li>
+<li>The Al-Khwarizmi Multiplication</li>
+</ul>
+<pre><code>11*13 table
+div2, floor()		*2
+11					13
+5					26
+2					52 (strike out)
+1					104
+</code></pre>
+<pre><code>* strike out all rows where x is even
+* then add column 2
+</code></pre>
+<p><strong>Q:</strong> How does this relate to the binary grade school multiplication algorithm?<br>
+<strong>A:</strong> The second algorithm is essentially the same as the binary multiplication. We are adding multiples of 13 by powers of 2 as before.<br>
+As before:</p>
+<pre><code>2^0 * 13 = 13
+2^1 * 13 = 26
+2^2 * 13 = 104	∑ = 143
+// See text for a third alternative of multiplication
+// All 3 versions of multiplication require O(n²) if n = # of bits. 
+// We can do better! 
+</code></pre>
+<h3 id="division">Division</h3>
+<p>To divide integer x by integer y ≠ 0 means to fine integer q and r &lt; y such that x = q(quotient) * y + r(remainder)</p>
+<ul>
+<li>Standard division (see Fig. 1.2. in text) takes quadratic time.</li>
+</ul>
+<h1 id="modular-arithmetic">Modular Arithmetic</h1>
+<p>Modular arithmetic is a system for dealing with restricted ranges of integers.<br>
+<code>x modulo N -&gt; remainder when x is divided by N</code><br>
+Ex. 	17 modulo 4 = 1<br>
+21 modulo 4 = 1<br>
+We say that 17 and 21 are congruent modulo 4. Notation:</p>
+<pre><code>a ≡ b (mod n)
+Clock with 60 minutes: -1 ≡ 59 (mod 60)
+</code></pre>
+<ul>
+<li>Modular arithmetic can be thought of as limiting integers to a specific range of [0, 1, ... , N-1] with &quot;wrap-around&quot;.</li>
+<li>Another interpretation is that it deals with all integer, but divides them into N equivalence classes.</li>
+</ul>
+<pre><code>	...	-9	-6	-3	[0]	3	6	...
+{	...	-8	-5	-2	[1]	4	7	...	} 3 equivalent classes mod 3
+	...	-7	-4	-1	[2]	5	8	...
+</code></pre>
+<h3 id="laws-in-modular-arithmetic">Laws in Modular Arithmetic</h3>
+<ul>
+<li>Substitution Law<br>
+If 		x ≡ x' (mod N) and y ≡ y' (mod N)<br>
+then:	x + y ≡ x' + y' (mod N) and<br>
+x * y ≡ x' * y' (mod N)</li>
+<li>Commutative, Associative, Distributive Laws (etc.) also hold (<strong>HW</strong>)</li>
+<li>Can do reduction during calcualtion<br>
+2^345 ≡ (2<sup>5)</sup>69 ≡ 32^69 ≡ 1^69 ≡ 1	(mod 31)  31 = (2^5 - 1)<br>
+(because 31≡ 1 mod 31)</li>
+</ul>
+<h3 id="addition-mod-n">Addition (mod N)</h3>
+<p>x + y (mod N)<br>
+x and y are in the range 0 to N-1 ⇒ x + y ∈ [0, ... , 2(N-1)]<br>
+if x + y &gt; N-1, simply <strong>subtract N</strong> to reduce mod N<br>
+⇒ 1 addition, possibly 1 subtraction of numbers ≤ 2N<br>
+⇒ Run time is O(n), where n = ceil(logN) (# of bits)</p>
+<h3 id="multiplication-mod-n">Multiplication (mod N)</h3>
+<ul>
+<li>product is ≤ (N-1)², at most 2n bits -&gt; since log(N-1)² = 2*log(N-1) ≤ 2n
+<ul>
+<li>regular multiplication: x*y -&gt; O(n²)</li>
+<li>reduce mod N</li>
+</ul>
+</li>
+<li>Use division algorithm O(n²) to get the remainder<br>
+⇒ O(n²) for modular multiplication</li>
+</ul>
+<h3 id="division-2">Division</h3>
+<ul>
+<li>Not quite so straight forward</li>
+<li>Can be managed in O(n³) time
+<ul>
+<li>This is more expensive than regular integer division that was O(n²)</li>
+</ul>
+</li>
+</ul>
+<h3 id="modular-exponentiation">Modular Exponentiation</h3>
+<p>Goal: Build a crypto-system</p>
+<ul>
+<li>We need to compute x^y mod N, where x, y and N are several 100 bits long.</li>
+<li>x^y is huge even if x and y are only 20-bit numbers.<br>
+⇒ x^y is at least (2<sup>19)</sup>(2^19) or about 10,000,000 bits long.</li>
+</ul>
+<hr>
+<p>We could just repeatedly multiply by x modulo y</p>
+<pre><code>x		mod N
+x²		mod N
+x³		mod N
+...
+x^y	mod N 
+</code></pre>
+<p>All numbers are &lt; N, but we need to perform y-1 multiplications!<br>
+If y has 500 bits ⇒ y - 1 ≈ 2^500 multiplications!<br>
+⇒ clearly exponential in the size of y.</p>
+<p><strong>Q:</strong> Can we do better?<br>
+<strong>A:</strong> Yes! Square repeatedly modulo N</p>
+<pre><code>	 x 	mod N 
+	 x²	mod N
+	 ...
+	 x^2^( ceil( log y ) ) mod N
+</code></pre>
+<ul>
+<li>Each takes O(log²N) time
+<ul>
+<li>numbers are &lt; N</li>
+<li>have &lt; logN bits<br>
+⇒ now only log y multiplications</li>
+</ul>
+</li>
+<li>Now, we have all x<sup>(2</sup>i)  (1 ≤ i ≤ ceil( log y ) )</li>
+<li>To determine x^y mod N proceed as follows:</li>
+</ul>
+<pre><code>x^25 ≡ x^11001 	≡ x^10000 * x^1000 * x^1
+					≡ x^16 * x^8 * x 	mod N (look up in table)
+</code></pre>
+<hr>
+<p><strong>Alternate Formulation</strong><br>
+Recursive Algorithm (Fig. 1.4)</p>
+<pre><code>x^y
+	= (x ^ ceil(y / 2) ) ² if y is even
+	= x * (x ^ ( x^(y / 2) ) ) if y is odd
+execute this mod N. 
+</code></pre>
+<ul>
+<li>Recursive multiplication used repeated doubling</li>
+<li>Recursive exponentiation uses repeated squaring<br>
+⇒ n recursive calls (O(n)), multiply n-bit numbers (O(n²))<br>
+⇒ O(n³) for modular exponentiation.</li>
+</ul>
+<h2 id="division-and-mod-n-need-gcd-and-euclids-algorithm">Division and mod N - Need GCD and Euclids Algorithm</h2>
+<ul>
+<li>gcd(a, b) is the largest integer d that divides both a and b</li>
+<li>One approach to compute gcd: factor a and b, then multiply together their common factors:<br>
+<strong>Example:</strong></li>
+</ul>
+<pre><code>1035	= 3² * 5 * 23 
+759	= 3 * 11 * 23
+Common factors: 3 and 23
+⇒ 3 * 32 = 69 is the gcd of 1035 and 759
+</code></pre>
+<p><strong>But:</strong> Factoring is hard!</p>
+<p><strong>Solution:</strong> Euclid's Algorithm<br>
+* Based on the following rule: If x and y are positive integers with x ≥ y, then <strong>gcd(x, y)  = gcd(x mod y, y)</strong><br>
+<strong>Proof:</strong> Enough to show the simpler rule gcd(x, y)  = gcd(x-y, y).<br>
+* Any integer that divides both x and y must also divide x-y, so gcd(x, y) ≤ gcd(x-y, y).<br>
+* Likewise, any integer that divides both x-y and y, must  also divide x, so gcd(x-y, y) ≤ gcd(x, y)<br>
+⇒ gcd(x, y) = gcd(x-y, y)</p>
+<hr>
+<p><strong>Euclid's algorithm for finding gcd(a, b)</strong><br>
+function Euclid(a, b)<br>
+Input: a, b ∈ H+ with a ≥ b ≥ 0<br>
+Output: 		gcd(a, b)<br>
+if b = 0: return a mod b<br>
+Time: After any 2 consecutive rounds, both argument a and b, are the the vast least halved in value, i, e. t their length decreases by at least one bit.<br>
+* the base case can be reached within 2n recursive call<br>
+* Each call involves O(n²) division<br>
+* total time is O(n³)<br>
+<strong>HW:</strong> Think about the details. See P.21 for more info.</p>
+<hr>
+<p><strong>Extension to Euclid's Algorithm</strong><br>
+* The gcd(a, b) is the <strong>smallest</strong> positive integer that can be written s a linear combination of a and b.<br>
+⇒ d = gcd(a, b) ≡ ax+ by (linear combination) for some integer x and y. (And d must be <strong>minimal</strong>.)</p>
+<p>Textbook uses a slightly different approach.<br>
+<strong>Q:</strong> What is different?<br>
+<strong>A:</strong> We can extend the Euclidian Algorithm to compute the coefficients for the linear combination.</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Day 09 - Introduction to UIKit Part 5]]></title>
+        <id>https://jenkinsxu.github.io/post/day-09-introduction-to-uikit-part-5</id>
+        <link href="https://jenkinsxu.github.io/post/day-09-introduction-to-uikit-part-5">
+        </link>
+        <updated>2020-01-14T11:09:43.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="controls-responding-to-user-input">Controls (Responding to user input)</h2>
+<p>When the user interacts with a control, the <strong>control triggers</strong> a <strong>control event</strong>. Different controls trigger different control events.</p>
+<p>After setting up a control in Interface Builder, you set up an <strong>IBAction</strong> that responds to a specific control event and allows you to execute a block of code.<br>
+Most often you will use the Primary Action Triggered <code>UIControl.Event.primaryActionriggered</code>control event. This control event is triggered when <strong>a button is tapped</strong> or when <strong>the value of a control changes</strong>.</p>
+<h3 id="buttons-uibutton">Buttons <code>UIButton</code></h3>
+<p><img src="https://jenkinsxu.github.io/post-images/1579057827392.png" alt="" loading="lazy"><br>
+The primary control is triggered when</p>
+<ul>
+<li>the user <strong>releases a button after tapping it</strong></li>
+<li>the user <strong>first touches the button</strong></li>
+<li>the user <strong>holds down the button</strong></li>
+<li>the user cancels the tap by <strong>dragging their finger outside of the frame</strong> of the button before lifting their finger.</li>
+</ul>
+<h3 id="segmented-controls-uisegmentedcontrol">Segmented Controls <code>UISegmentedControl</code></h3>
+<figure data-type="image" tabindex="1"><img src="https://jenkinsxu.github.io/post-images/1579057838404.png" alt="" loading="lazy"></figure>
+<ul>
+<li>Each segment functions as a discrete button.<br>
+<img src="https://jenkinsxu.github.io/post-images/1579057844085.png" alt="" loading="lazy"><br>
+Segmented controls execute code when the control’s value changes. The value <strong>represents which segment of the control is selected</strong>.</li>
+</ul>
+<h3 id="text-fields-uitextfield">Text Fields <code>UITextField</code></h3>
+<p>Text fields allow the user to input a <strong>single line</strong> of text into an app.<br>
+<img src="https://jenkinsxu.github.io/post-images/1579057852817.png" alt="" loading="lazy"><br>
+Text fields execute code when the user <strong>presses the &quot;Return&quot; or &quot;Done&quot;</strong> key on keyboard or when the user <strong>edits the text</strong>.</p>
+<h3 id="sliders-uislider">Sliders <code>UISlider</code></h3>
+<figure data-type="image" tabindex="2"><img src="https://jenkinsxu.github.io/post-images/1579057860001.png" alt="" loading="lazy"></figure>
+<h3 id="switches-uiswitch">Switches <code>UISwitch</code></h3>
+<figure data-type="image" tabindex="3"><img src="https://jenkinsxu.github.io/post-images/1579057865815.png" alt="" loading="lazy"></figure>
+<h3 id="date-pickers">Date Pickers</h3>
+<figure data-type="image" tabindex="4"><img src="https://jenkinsxu.github.io/post-images/1579057871731.png" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Day 08 - Introduction to UIKit Part 4]]></title>
         <id>https://jenkinsxu.github.io/post/day-08-introduction-to-uikit-part-4</id>
