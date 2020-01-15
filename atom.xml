@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jenkinsxu.github.io</id>
     <title>Jenkins&apos; Secret Base</title>
-    <updated>2020-01-15T03:11:57.177Z</updated>
+    <updated>2020-01-15T20:22:38.449Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jenkinsxu.github.io"/>
     <link rel="self" href="https://jenkinsxu.github.io/atom.xml"/>
@@ -12,6 +12,335 @@
     <logo>https://jenkinsxu.github.io/images/avatar.png</logo>
     <icon>https://jenkinsxu.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Jenkins&apos; Secret Base</rights>
+    <entry>
+        <title type="html"><![CDATA[Java Programming: Week 1-2]]></title>
+        <id>https://jenkinsxu.github.io/post/java-programming-week-1-2</id>
+        <link href="https://jenkinsxu.github.io/post/java-programming-week-1-2">
+        </link>
+        <updated>2020-01-15T04:22:14.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="basic-java">Basic Java</h2>
+<h3 id="classes-in-java">Classes in Java</h3>
+<pre><code class="language-java">// Can have nested classes, but no more than one full class in  a file
+public class HelloWorld {
+	public static void main(String[] arug) {
+		// static: excuse it without instantiating the object
+		System.out.println(&quot;Hello, world.&quot;);
+	}
+	// no linking errors when multiple main()'s in different classes
+}
+</code></pre>
+<h3 id="shortcuts">Shortcuts</h3>
+<ul>
+<li>To run a program for the first time: <strong>Control-Option-R</strong></li>
+<li>To run a program the second or more time: <strong>Control-R</strong></li>
+<li>Refactoring: <strong>Control-Alt-V</strong></li>
+<li>Quick Fixes: <strong>Option-Enter</strong></li>
+<li>To check required arguments: <strong>Control-P</strong></li>
+<li>Generate a constructor_setter_getter: <strong>Alt-Insert</strong></li>
+<li>Gets to where a class is defined: <strong>Option-Click</strong></li>
+<li>Assisted correction: <strong>Alt-Enter</strong></li>
+<li>Duplicate line: <strong>Control-D</strong></li>
+<li>Move a line: <strong>Control-Shift-Up/Down</strong></li>
+<li>System.out.println(): <strong>“sout”-Enter</strong></li>
+</ul>
+<h3 id="the-math-class-static">The Math class (static)</h3>
+<ul>
+<li>.sqrt()</li>
+<li>.ceil()</li>
+<li>.pow()</li>
+<li>.PI</li>
+</ul>
+<h3 id="garbage-collection-and-multiple-object-reference">Garbage Collection and Multiple Object Reference</h3>
+<p>An object is said to be eligible for GC (garbage collection) iff it is <strong>unreachable</strong>. An object is said to be unreachable iff it doesn’t contain any reference to it.</p>
+<pre><code class="language-java">Integer i = new Integer(4);
+// the new Integer object is reachable  via the reference in 'i' 
+i = null;
+// the Integer object is no longer reachable. 
+
+GreetingsSelf phoneMsg = new GreetingsSelf(&quot;Einstein&quot;); 
+//Use the new keyword when an object is being explicitly created for the first time. Java has only dynamic objects. If the new keyword is not used, it will copy a reference to the same object. 
+GreetingsSelf emailMsg = phoneMsg;
+emailMsg.setName(&quot;Albert&quot;); // Both are set to &quot;Albert&quot;
+</code></pre>
+<h3 id="automatic-type-promotion">Automatic Type Promotion</h3>
+<pre><code class="language-java">class Test 
+{ 
+    public static void main(String[] args) 
+    { 
+        int i = 100;
+        // automatic type conversion 
+        long l = i;  
+        // automatic type conversion 
+        float f = l;  
+        System.out.println(&quot;Int value &quot;+i); // 100
+        System.out.println(&quot;Long value &quot;+l); // 100
+        System.out.println(&quot;Float value &quot;+f); // 100.0
+    } 
+} 
+</code></pre>
+<p><code>(double)height / width</code></p>
+<h3 id="type-casting">Type Casting</h3>
+<p><code>(double)weightInG</code></p>
+<h3 id="lists">Lists</h3>
+<pre><code class="language-java">// null reference
+ArrayList&lt;Door&gt; doors1;
+// Type inference
+ArrayList&lt;Door&gt; doors2 = new ArrayList&lt;&gt;();
+// Using polymorphism to simplify code
+List&lt;Door&gt; doors = ArrayList&lt;&gt;(); 
+
+// appending
+doors.add(new Door(true, 1000));
+heavyDoors.add(door); // taking your reference to one door (the same object)
+// indexing
+doors.get(0);
+doors.get(doors.size() - 1);
+// if the door is empty
+doors.isEmpty();
+</code></pre>
+<h3 id="interface-empty-bodies">Interface (&quot;empty bodies&quot;)</h3>
+<pre><code class="language-java">interface Animal {
+	public void animalSound();
+	public void sleep();
+}
+
+class Pig implements Animal {
+	public void animalSound() {
+		System.out.println(&quot;wee wee&quot;);
+	}
+	public static void sleep() {
+		System.out.println(&quot;Zzz&quot;);
+	}
+}
+</code></pre>
+<h3 id="generic-classes">Generic Classes</h3>
+<pre><code class="language-java">public class GenericsType&lt;T&gt; {
+
+	private T t;
+	
+	public T get(){
+		return this.t;
+	}
+	
+	public void set(T t1){
+		this.t=t1;
+	}
+	
+	public static void main(String args[]){
+	}
+}
+</code></pre>
+<h3 id="enhanced-for-loop">Enhanced for loop</h3>
+<pre><code class="language-java">// implement the Iterable&lt;&gt; interface
+public class DoorManager implements Iterable&lt;Door&gt; {
+	//Type inference
+	private List&lt;Door&gt; doors = new ArrayList&lt;&gt;(); 
+
+	public void add(Door door){
+		doors.add(door);
+	}
+	// Class 'DoorManager' must either be declared abstract or implemented abstract method 'iterator()' in 'Iterable'
+	public iterator&lt;Door&gt; iterator(){
+		return this.doors.iterator();
+		// Lists of Door return iterator of Door
+	}
+}
+
+// Prerequisite: iterable 
+for (Door door : doors) {
+	System.out.println(&quot;Door = &quot; + door);
+}
+</code></pre>
+<h3 id="dependency-injection">Dependency Injection</h3>
+<p>Transferring the task of creating the object to someone else and directly using the dependency is called <strong>dependency injection</strong>.</p>
+<p>Ideally Java classes should be as independent as possible from other Java classes. This <strong>increases the possibility of reusing</strong> these classes and to be able to <strong>test them independently from other classes</strong>.</p>
+<p>If the Java class <strong>creates an instance of another class via the new operator</strong>, it cannot be used (and tested) independently from this class and this is called a <strong>hard dependency</strong>.</p>
+<pre><code class="language-java">public class MyClass {
+
+    private Logger logger;
+
+    public MyClass(Logger logger) {
+        this.logger = logger;
+        // write an info log message
+        logger.info(&quot;This is a log message.&quot;)
+    }
+}
+</code></pre>
+<p>Three Types of Dependency Injection</p>
+<ol>
+<li>Constructor Injection</li>
+<li>Setter Injection</li>
+<li>Interface Injection</li>
+</ol>
+<h3 id="user-input">User Input</h3>
+<pre><code class="language-java">import java.util.Scanner;  // Import the Scanner class
+
+class MyClass {
+  public static void main(String[] args) {
+    Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+    System.out.println(&quot;Enter username&quot;);
+
+    String userName = myObj.nextLine();  // Read user input
+    System.out.println(&quot;Username is: &quot; + userName);  // Output user input
+  }
+}
+
+</code></pre>
+<h3 id="switch-statement">Switch Statement</h3>
+<pre><code class="language-java">switch(choice) {
+	case 1:
+		System.out.println(&quot;You entered a one!&quot;);
+		System.out.println(&quot;Thank you!&quot;);
+	case 2:
+		System.out.println(&quot;You entered a two!&quot;);
+		System.out.println(&quot;Amazing!&quot;);
+	case 3:
+		System.out.println(&quot;You entered a three!&quot;);
+		System.out.println(&quot;Good!&quot;);
+	default:
+		System.out.println(&quot;You entered a number!&quot;);
+		System.out.println(&quot;lol!&quot;);
+}
+</code></pre>
+<hr>
+<h2 id="the-good-coding-style">The Good Coding Style</h2>
+<h3 id="the-one-name-principle">The One Name Principle</h3>
+<p>Use the <strong>this</strong> keyword to reference the current object for clarity. Java will do auto dereference when an object is not needed.<br>
+Name field and constructor parameters the same.</p>
+<h3 id="classes-and-visibility">Classes and Visibility</h3>
+<ul>
+<li>All <strong>fields</strong> (instance data) are set to <strong>private</strong>. Public methods can call private mothods.</li>
+<li>If you want something to be unchangeable, you may provide no setters to prevent invalid data.
+<ul>
+<li>Easier for maintainance</li>
+</ul>
+</li>
+<li>Using constant when applicable (the <strong>final</strong> keyword, UPPERCASE)
+<ul>
+<li>Final Variable -&gt; To create constant variables</li>
+<li>Final Methods -&gt; Prevent Method Overriding</li>
+<li>Final Classes -&gt; Prevent Inheritance</li>
+</ul>
+</li>
+<li>Use the <strong>static</strong> keyword <strong>only when sharing is intended</strong></li>
+<li><code>/src/main/java/…</code></li>
+<li>Return a string instead of printing it to console directly.</li>
+<li>Primitive Types are not objects. Everything else is an object reference.</li>
+</ul>
+<h3 id="type-conversion">Type Conversion</h3>
+<ol>
+<li>Type Promotion: Converting from a smaller type to a larger one.<br>
+<code>double weight = 200;</code></li>
+<li>Type Demotion</li>
+</ol>
+<pre><code class="language-java">int height = (int) 10.99;
+float length = float 12.0; // by default it uses double
+</code></pre>
+<ol start="3">
+<li>Constants<br>
+<code>final int MAX_LENGTH = 100;</code></li>
+</ol>
+<h3 id="javadoc-documentation">JavaDoc (Documentation)</h3>
+<pre><code class="language-java">/**
+	* @author
+	* @param a Length of the first side; must be &gt;= 0. 
+	*/
+</code></pre>
+<p>Use it for classes (the purpose of a class etc.) and sometimes for API methods. Don't comment functions / methods, instead, use better naming.</p>
+<h3 id="package-model-view">Package &amp; Model-View</h3>
+<ul>
+<li>Creat a package: <strong>src / main / java -&gt; new -&gt; Package</strong></li>
+<li>Example naming: <code>ca.doordemo.model</code></li>
+<li>Package is a group of classes that's related to each other. On top of each class within a package, there will be a statement similar to <code>package ca.doordemo.model</code> claiming that the class belongs to which package.</li>
+<li>Do not use any System.out.println() in model to increase reusability. (On some platform System.out.println() has no meaning. )</li>
+</ul>
+<pre><code class="language-java">import ca.doordemo.model.DoorManager;
+import ca.doordemo.ui.DoorTextUI;
+
+public class Main {
+	// Create model
+	DoorManager manager = new DoorManager();
+	
+	// Create UI
+	DoorTextUI ui = new DoorTextUI(Manager);
+
+	// Launch
+	ui.show();
+}
+</code></pre>
+<hr>
+<h3 id="others">Others</h3>
+<ul>
+<li><code>boolean</code>is set to false by default.</li>
+<li><strong>?</strong>: Providing constructors will delete the default constructor set up by Java</li>
+<li><strong>Concatenating</strong> a string and an instance will automatically call the .toString() method.</li>
+<li>Everything in Java is a reference, every class is a subclass of the Object class.</li>
+<li>println -&gt; prints with <strong>linefeed</strong></li>
+<li>char -&gt; Unicode</li>
+<li>boolean has only true or false to prevent the &quot;==&quot; mistyping issues.</li>
+<li>Divide by 0.0 -&gt; Infinity</li>
+</ul>
+<hr>
+<h2 id="static-exceptions-debugging">Static, Exceptions &amp; Debugging</h2>
+<h3 id="static">Static</h3>
+<ul>
+<li>Static methods / class methods</li>
+<li>Static field / class data
+<ul>
+<li>Often used for constant <code>public static final int DAYS_WEEK = 7</code></li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-java">public class StaticFun {
+	public static final int TARGET_NUM_HATS = 10;
+	private static int countNumMade = 0;
+	private int favNum = 0;
+
+	public static void main(String[] args) {
+		changeFavNum(42); // ⚠️ non-static function misused
+		displayInfo(); 
+		favNum = 10; // ⚠️ non-static field
+		countNumMade = 9;
+	}
+	private void changeFavNum(int i) {
+		favNum = TARGET_NUM_HATS + i;
+		displayInfo();
+	}
+	private static void displayInfo() {
+		System.out.println(&quot;TARGET_NUM_HATS: &quot; + TARGET_NUM_HATS);
+		System.out.println(&quot;countNumMade: &quot; + countNumMade);
+		System.out.println(&quot;favNum: &quot; + favNum);
+	}
+}
+</code></pre>
+<h3 id="exceptions">Exceptions</h3>
+<p>Catch the error so that we don't have to shut down the whole program.</p>
+<pre><code class="language-java">import java.util.*; // importing everything
+
+public class sample {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int x = 1;
+        
+        do{
+            try{
+                System.out.println(&quot;Enter first num: &quot;);
+                int n1 = input.nextInt();
+                System.out.println(&quot;Enter second num: &quot;);
+                int n2 = input.nextInt();
+                int sum = n1 / n2; // where the error might occur
+                System.out.println(sum);
+                x = 2; // runs successfully only without errors
+            } catch (Exception e) { // any error
+                System.out.println(&quot;You can't do this. &quot;);
+            }
+        } while(x == 1);
+    }
+}
+</code></pre>
+<p><code>throw new RuntimeException(&quot;Busted!&quot;)</code><strong>?</strong></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Algorithms - Week 1]]></title>
         <id>https://jenkinsxu.github.io/post/algorithms-week-1</id>
@@ -963,158 +1292,6 @@ Many objects that you can configure in Interface Builder have properties that ca
 <pre><code class="language-swift">let label = UILabel(frame: CGRect(x: 16, y: 16, width: 200, height: 44))
 view.addSubview(label) // Adds label as a child view to 'view'
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Day 01 - Getting Started with App Development Part 1]]></title>
-        <id>https://jenkinsxu.github.io/post/day-01-getting-started-with-app-development-part-1</id>
-        <link href="https://jenkinsxu.github.io/post/day-01-getting-started-with-app-development-part-1">
-        </link>
-        <updated>2019-12-25T20:17:19.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="12-constants-variables-and-data-types">1.2 Constants, variables and data types</h2>
-<ul>
-<li>Type <strong>:quit</strong> and press Enter to exit the <strong>Swift REPL</strong>.</li>
-<li>One of type inference or type annotation must be done when creating a variable / constant.</li>
-<li>Use <strong>option click</strong> to check data types</li>
-</ul>
-<h3 id="type-inference">Type Inference</h3>
-<pre><code class="language-swift">let name = “John” //names can’t begin with a number
-</code></pre>
-<h3 id="type-definition">Type Definition</h3>
-<pre><code class="language-swift">struct Person { //The first letter needs to be capitalized
-	//two properties
-	let firstName:String //Type annotation
-	let lastName :String
-
-	func sayHello() {
-		print(“Hello there! My name is \(firstName) \(lastName).”)
-	}
-}
-
-//creating an instance
-let aPerson = Person(firstName: “Jacob”, lastName: ”Edwards”)
-</code></pre>
-<h3 id="increasing-readability-of-long-numbers">Increasing readability of long numbers</h3>
-<pre><code class="language-swift">largePrettyNumber = 1_000_000_000
-</code></pre>
-<h2 id="13-operators">1.3 Operators</h2>
-<ul>
-<li>When you use the division operator <strong>/</strong> on <strong>Int values</strong>, the result will be an Int value <strong>rounded down</strong> to the nearest whole number. (Only the integer property got stored.)</li>
-</ul>
-<h3 id="creating-a-new-value-of-other-types-by-prefixing">Creating a <em>new</em> value of other types by prefixing</h3>
-<pre><code class="language-swift">let pi = Double(3) + 0.1415927
-</code></pre>
-<h3 id="referencing-the-current-variable"><em>Referencing</em> the current variable</h3>
-<pre><code class="language-swift">myScore += 3 //compound assignment operators
-</code></pre>
-<h2 id="14-control-flow">1.4 Control Flow</h2>
-<ul>
-<li>closed interval: 1.2…5.0</li>
-<li>open interval: 1.2..&lt;5.0</li>
-</ul>
-<h3 id="coding-style-in-if-else-statements">Coding style in if-else statements</h3>
-<pre><code class="language-swift">let temperature = 100
-if temperature &gt;= 100 { //no brackets needed here
-	print(“The water is boiling.”)
-} else { //write it in the same line
-	print(“”The water is not boiling. )
-}
-</code></pre>
-<h3 id="switch-statement">Switch statement</h3>
-<pre><code class="language-swift">let character = “z”
-switch character {
-	case “a”, “e”, “i”, “o”, “u”:
-		print(“This character is a vowel.”)
-	//provide a default case
-	default:
-		print(“This character is not a vowel.”) 
-}
-
-let distance = 100
-switch distance {
-	case 0…9: //inclusive
-		print(“Your destination is close.”)
-	case 10…99:
-		print(“Your destination is medium distance from here.”)
-	case 100…999:
-		print(“Your destination is far from here.”)
-	//provide a default case
-	default:
-		print(“Are you sure you want to travel this far?”) 
-}
-</code></pre>
-<h2 id="15-xcode">1.5 Xcode</h2>
-<ul>
-<li>All <strong>.storyboard</strong> files are unique to <strong>Interface Builder</strong>. They contain information about the design of each <strong>scene</strong> within your application.</li>
-<li>The <strong>.xcassets</strong> file makes it easy to <strong>maintain all your assets</strong>, without needing to work with individual icons and images.</li>
-<li>The <strong>Info.plist</strong> file contains a list of <strong>properties and settings</strong> for your app.</li>
-</ul>
-<h3 id="xcode-interface">Xcode Interface</h3>
-<figure data-type="image" tabindex="1"><img src="https://jenkinsxu.github.io/post-images/1577660369776.png" alt="" loading="lazy"></figure>
-<h3 id="deployment-info">Deployment Info</h3>
-<p><img src="https://jenkinsxu.github.io/post-images/1577660391882.png" alt="" loading="lazy"><br>
-The entry in Main Interface defines which storyboard file will be loaded first when the app launches.</p>
-<h2 id="16-building-running-and-debugging-an-app">1.6 Building, Running, and Debugging an App</h2>
-<ul>
-<li>To <strong>rotate the image</strong> from portrait to landscape orientation, use the keyboard shortcuts <strong>Command-Left</strong> and <strong>Command-Right</strong>.</li>
-<li>You can use keyboard shortcuts, from <strong>Command-1 to Command-3</strong>, to <strong>scale the device image</strong> up or down.</li>
-<li>If you try to use Simulator to test an interaction with the Camera app, the program will crash.</li>
-<li>The MessageUI framework is incompatible with Simulator.</li>
-</ul>
-<h3 id="scheme-menu">Scheme menu</h3>
-<figure data-type="image" tabindex="2"><img src="https://jenkinsxu.github.io/post-images/1577660405930.png" alt="" loading="lazy"></figure>
-<h3 id="types-of-issue">Types of issue</h3>
-<ol>
-<li>Warnings ⚠️</li>
-<li>Compiler Errors ❌</li>
-<li>Bugs</li>
-</ol>
-<h3 id="using-breakpoints-and-step-controls">Using breakpoints and step controls</h3>
-<p><img src="https://jenkinsxu.github.io/post-images/1577660418345.png" alt="" loading="lazy"><br>
-Since the breakpointed line hasn’t yet been executed, names contains no values. (Not inclusive.)</p>
-<figure data-type="image" tabindex="3"><img src="https://jenkinsxu.github.io/post-images/1577660427843.png" alt="" loading="lazy"></figure>
-<ul>
-<li><strong>Continue</strong> - Resumes code execution <strong>until the next breakpoint is reached</strong>.</li>
-<li><strong>Step over</strong> - Executes the selected line and pauses execution <strong>on the next line.</strong></li>
-<li><strong>Step into</strong> - If clicked on a line with a function call, advances <strong>to the first line of the function</strong>, then pauses execution again.</li>
-<li><strong>Step out</strong> - Executes all remaining lines in the function call and pauses execution <strong>on the line after the function</strong>.</li>
-</ul>
-<h2 id="17-documentation">1.7 Documentation</h2>
-<ul>
-<li>Documentation call a view that’s embedded in another view <strong>subviews</strong>.</li>
-<li>Documentation call the parent view that’s embedding the other view <strong>superviews</strong>.</li>
-<li>The <strong>frame</strong> property defines the origin and dimensions of the view in the coordinate system of its superview.</li>
-<li>The <strong>bounds</strong> property defines the internal dimensions of the view as it sees them and is used almost <strong>exclusively in custom drawing code</strong>.</li>
-</ul>
-<h3 id="three-of-the-primary-responsibilities-of-a-uiview-object">Three of the primary responsibilities of a UIView object</h3>
-<ul>
-<li>Drawing and animation</li>
-<li>Layout and subview management</li>
-<li>Event handling</li>
-</ul>
-<h3 id="the-quick-help-feature">The Quick Help Feature</h3>
-<p><img src="https://jenkinsxu.github.io/post-images/1577660441907.png" alt="" loading="lazy"><br>
-<strong>Option-click</strong> a method name, then Xcode will displays a popover with a brief description of the function and the OS versions that support it.</p>
-<h3 id="xcode-help">Xcode Help</h3>
-<p><img src="https://jenkinsxu.github.io/post-images/1577660451173.png" alt="" loading="lazy"><br>
-<strong>Command-Shift-O</strong></p>
-<h2 id="interface-builder-basics">Interface Builder Basics</h2>
-<ul>
-<li>Interface Builder opens whenever you select an <strong>.xib</strong> file or a <strong>.storyboard</strong> file from the project navigator.</li>
-<li>An XIB file contains t user interface for a single visual element, such as a full-screen view a table view cell or a custom UI control.</li>
-<li>A storyboard file includes many pieces of the interface, defining the layout of <strong>one or many screens</strong> as well as <strong>the progression from one screen to another</strong>.</li>
-<li>The single scene with a plain white view on an otherwise blank canvas is called the <strong>initial view controller</strong>.  (Can be changed by moving the <strong>entry point</strong>.)</li>
-<li>Select the Library button <img src="https://jenkinsxu.github.io/post-images/1577660466003.png" alt="" loading="lazy"> in the toolbar to display the Object Library.</li>
-</ul>
-<h3 id="document-outline-view">Document Outline View</h3>
-<figure data-type="image" tabindex="4"><img src="https://jenkinsxu.github.io/post-images/1577660475918.png" alt="" loading="lazy"></figure>
-<h3 id="context-sensitive-inspectors">Context-sensitive Inspectors</h3>
-<ul>
-<li>The <strong>Identity inspector</strong> <img src="https://jenkinsxu.github.io/post-images/1577660488900.png" alt="" loading="lazy"> allows you to edit the <strong>properties related to an object’s identity</strong>, such as what class it belongs to.</li>
-<li>The <strong>Attributes inspector</strong> <img src="https://jenkinsxu.github.io/post-images/1577660499132.png" alt="" loading="lazy"> provides a list of <strong>adjustable visual properties</strong> for the selected item.</li>
-<li>The <strong>Size inspector</strong>  <img src="https://jenkinsxu.github.io/post-images/1577660509414.png" alt="" loading="lazy"> allows you to adjust the <strong>size and position</strong> of the selected element within the scene. You will use the X and Y fields - where the <strong>top left</strong> of the screen corresponds to (0, 0) - to change the position.</li>
-<li>The <strong>Connections inspector</strong> <img src="https://jenkinsxu.github.io/post-images/1577660519829.png" alt="" loading="lazy"> lists <strong>all the functions and variable names related to the object</strong>.</li>
-</ul>
 ]]></content>
     </entry>
 </feed>

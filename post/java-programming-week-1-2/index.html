@@ -1,0 +1,619 @@
+
+<html>
+  <head lang="zh">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+        <meta content="yes" name="apple-mobile-web-app-capable"/>
+        <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+        <meta content="telephone=no" name="format-detection"/>
+        <meta name="renderer" content="webkit">
+    <title>Java Programming: Week 1-2 | Jenkins&#39; Secret Base</title>
+<link href="https://jenkinsxu.github.io/styles/main.css" type="text/css" rel="stylesheet"/>
+<script type="text/javascript" src="https://jenkinsxu.github.io/media/scripts/jquery.js"></script>
+<script type="text/javascript" src="https://jenkinsxu.github.io/media/scripts/basic.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  </head>
+
+  <body>
+     <div class="header">
+      <div class="logo_title">
+		  
+        <div class="title animated fadeInDown"><img src="https://jenkinsxu.github.io/images/avatar.png?v=1579119755695"/>
+
+          <h1 title="Jenkins&#39; Secret Base" class="weaklink"><a href="/">Jenkins&#39; Secret Base</a>
+
+          </h1>
+
+          <div class="navbar weaklink">
+            <div class="normal_nav">
+
+<div class="bitcron_nav_container">
+
+
+  <div class="bitcron_nav">
+    <div class="mixed_site_nav_wrap site_nav_wrap">
+		
+      <ul class="mixed_site_nav site_nav sm sm-base">
+ 
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/" class="selected active current nav__item" >Home</a>
+
+  </li>
+ 
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/tags" class="selected active current nav__item" >Tags</a>
+
+  </li>
+ 
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/post/about" class="selected active current nav__item" >About</a>
+
+  </li>
+ 
+
+      </ul>
+
+      <div class="clear clear_nav_inline_end"></div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="clear clear_nav_end"></div>
+
+</div>
+
+            </div>
+
+            <div class="hamberger"><i class="fa fa-bars"></i>
+<i class="fa fa-times"></i>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="hidden_nav animated fadeInDown">
+
+<div class="bitcron_nav_container">
+
+
+  <div class="bitcron_nav">
+    <div class="mixed_site_nav_wrap site_nav_wrap">
+      <ul class="mixed_site_nav site_nav sm sm-base">
+		  
+	
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/" class="selected active current nav__item" >Home</a>
+
+  </li>
+
+
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/tags" class="selected active current nav__item" >Tags</a>
+
+  </li>
+
+
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/post/about" class="selected active current nav__item" >About</a>
+
+  </li>
+
+
+
+
+
+      </ul>
+
+      <div class="clear clear_nav_inline_end"></div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="clear clear_nav_end"></div>
+
+</div>
+
+      </div>
+
+    </div>
+
+
+    <div class="main">
+      <div class="main-inner">
+
+
+<div class="content">
+
+
+
+
+
+
+  <div class="post_page" >
+
+<div class="post">
+  <div class="post_title sm_margin">
+    <h2><a>Java Programming: Week 1-2</a>
+
+
+
+    </h2>
+  </div>
+
+  <div class="post_details">
+    <div class="info"><i class="fa fa-clock-o"></i>
+<span class="date_info">2020-01-14</span>
+<i class="fa fa-eye"></i>
+
+<span class="date_info"><span id="busuanzi_value_page_pv"></span> Views</span>
+
+
+<i class="fa fa-bookmark-o"></i>
+<span class="tags_info weaklink">
+	
+
+</span>
+
+
+    </div>
+
+  </div>
+
+
+
+
+
+  <div class="post_content markdown"><p class="md_block">
+    <span class="md_line md_line_start md_line_end"><h2 id="basic-java">Basic Java</h2>
+<h3 id="classes-in-java">Classes in Java</h3>
+<pre><code class="language-java">// Can have nested classes, but no more than one full class in  a file
+public class HelloWorld {
+	public static void main(String[] arug) {
+		// static: excuse it without instantiating the object
+		System.out.println(&quot;Hello, world.&quot;);
+	}
+	// no linking errors when multiple main()'s in different classes
+}
+</code></pre>
+<h3 id="shortcuts">Shortcuts</h3>
+<ul>
+<li>To run a program for the first time: <strong>Control-Option-R</strong></li>
+<li>To run a program the second or more time: <strong>Control-R</strong></li>
+<li>Refactoring: <strong>Control-Alt-V</strong></li>
+<li>Quick Fixes: <strong>Option-Enter</strong></li>
+<li>To check required arguments: <strong>Control-P</strong></li>
+<li>Generate a constructor_setter_getter: <strong>Alt-Insert</strong></li>
+<li>Gets to where a class is defined: <strong>Option-Click</strong></li>
+<li>Assisted correction: <strong>Alt-Enter</strong></li>
+<li>Duplicate line: <strong>Control-D</strong></li>
+<li>Move a line: <strong>Control-Shift-Up/Down</strong></li>
+<li>System.out.println(): <strong>“sout”-Enter</strong></li>
+</ul>
+<h3 id="the-math-class-static">The Math class (static)</h3>
+<ul>
+<li>.sqrt()</li>
+<li>.ceil()</li>
+<li>.pow()</li>
+<li>.PI</li>
+</ul>
+<h3 id="garbage-collection-and-multiple-object-reference">Garbage Collection and Multiple Object Reference</h3>
+<p>An object is said to be eligible for GC (garbage collection) iff it is <strong>unreachable</strong>. An object is said to be unreachable iff it doesn’t contain any reference to it.</p>
+<pre><code class="language-java">Integer i = new Integer(4);
+// the new Integer object is reachable  via the reference in 'i' 
+i = null;
+// the Integer object is no longer reachable. 
+
+GreetingsSelf phoneMsg = new GreetingsSelf(&quot;Einstein&quot;); 
+//Use the new keyword when an object is being explicitly created for the first time. Java has only dynamic objects. If the new keyword is not used, it will copy a reference to the same object. 
+GreetingsSelf emailMsg = phoneMsg;
+emailMsg.setName(&quot;Albert&quot;); // Both are set to &quot;Albert&quot;
+</code></pre>
+<h3 id="automatic-type-promotion">Automatic Type Promotion</h3>
+<pre><code class="language-java">class Test 
+{ 
+    public static void main(String[] args) 
+    { 
+        int i = 100;
+        // automatic type conversion 
+        long l = i;  
+        // automatic type conversion 
+        float f = l;  
+        System.out.println(&quot;Int value &quot;+i); // 100
+        System.out.println(&quot;Long value &quot;+l); // 100
+        System.out.println(&quot;Float value &quot;+f); // 100.0
+    } 
+} 
+</code></pre>
+<p><code>(double)height / width</code></p>
+<h3 id="type-casting">Type Casting</h3>
+<p><code>(double)weightInG</code></p>
+<h3 id="lists">Lists</h3>
+<pre><code class="language-java">// null reference
+ArrayList&lt;Door&gt; doors1;
+// Type inference
+ArrayList&lt;Door&gt; doors2 = new ArrayList&lt;&gt;();
+// Using polymorphism to simplify code
+List&lt;Door&gt; doors = ArrayList&lt;&gt;(); 
+
+// appending
+doors.add(new Door(true, 1000));
+heavyDoors.add(door); // taking your reference to one door (the same object)
+// indexing
+doors.get(0);
+doors.get(doors.size() - 1);
+// if the door is empty
+doors.isEmpty();
+</code></pre>
+<h3 id="interface-empty-bodies">Interface (&quot;empty bodies&quot;)</h3>
+<pre><code class="language-java">interface Animal {
+	public void animalSound();
+	public void sleep();
+}
+
+class Pig implements Animal {
+	public void animalSound() {
+		System.out.println(&quot;wee wee&quot;);
+	}
+	public static void sleep() {
+		System.out.println(&quot;Zzz&quot;);
+	}
+}
+</code></pre>
+<h3 id="generic-classes">Generic Classes</h3>
+<pre><code class="language-java">public class GenericsType&lt;T&gt; {
+
+	private T t;
+	
+	public T get(){
+		return this.t;
+	}
+	
+	public void set(T t1){
+		this.t=t1;
+	}
+	
+	public static void main(String args[]){
+	}
+}
+</code></pre>
+<h3 id="enhanced-for-loop">Enhanced for loop</h3>
+<pre><code class="language-java">// implement the Iterable&lt;&gt; interface
+public class DoorManager implements Iterable&lt;Door&gt; {
+	//Type inference
+	private List&lt;Door&gt; doors = new ArrayList&lt;&gt;(); 
+
+	public void add(Door door){
+		doors.add(door);
+	}
+	// Class 'DoorManager' must either be declared abstract or implemented abstract method 'iterator()' in 'Iterable'
+	public iterator&lt;Door&gt; iterator(){
+		return this.doors.iterator();
+		// Lists of Door return iterator of Door
+	}
+}
+
+// Prerequisite: iterable 
+for (Door door : doors) {
+	System.out.println(&quot;Door = &quot; + door);
+}
+</code></pre>
+<h3 id="dependency-injection">Dependency Injection</h3>
+<p>Transferring the task of creating the object to someone else and directly using the dependency is called <strong>dependency injection</strong>.</p>
+<p>Ideally Java classes should be as independent as possible from other Java classes. This <strong>increases the possibility of reusing</strong> these classes and to be able to <strong>test them independently from other classes</strong>.</p>
+<p>If the Java class <strong>creates an instance of another class via the new operator</strong>, it cannot be used (and tested) independently from this class and this is called a <strong>hard dependency</strong>.</p>
+<pre><code class="language-java">public class MyClass {
+
+    private Logger logger;
+
+    public MyClass(Logger logger) {
+        this.logger = logger;
+        // write an info log message
+        logger.info(&quot;This is a log message.&quot;)
+    }
+}
+</code></pre>
+<p>Three Types of Dependency Injection</p>
+<ol>
+<li>Constructor Injection</li>
+<li>Setter Injection</li>
+<li>Interface Injection</li>
+</ol>
+<h3 id="user-input">User Input</h3>
+<pre><code class="language-java">import java.util.Scanner;  // Import the Scanner class
+
+class MyClass {
+  public static void main(String[] args) {
+    Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+    System.out.println(&quot;Enter username&quot;);
+
+    String userName = myObj.nextLine();  // Read user input
+    System.out.println(&quot;Username is: &quot; + userName);  // Output user input
+  }
+}
+
+</code></pre>
+<h3 id="switch-statement">Switch Statement</h3>
+<pre><code class="language-java">switch(choice) {
+	case 1:
+		System.out.println(&quot;You entered a one!&quot;);
+		System.out.println(&quot;Thank you!&quot;);
+	case 2:
+		System.out.println(&quot;You entered a two!&quot;);
+		System.out.println(&quot;Amazing!&quot;);
+	case 3:
+		System.out.println(&quot;You entered a three!&quot;);
+		System.out.println(&quot;Good!&quot;);
+	default:
+		System.out.println(&quot;You entered a number!&quot;);
+		System.out.println(&quot;lol!&quot;);
+}
+</code></pre>
+<hr>
+<h2 id="the-good-coding-style">The Good Coding Style</h2>
+<h3 id="the-one-name-principle">The One Name Principle</h3>
+<p>Use the <strong>this</strong> keyword to reference the current object for clarity. Java will do auto dereference when an object is not needed.<br>
+Name field and constructor parameters the same.</p>
+<h3 id="classes-and-visibility">Classes and Visibility</h3>
+<ul>
+<li>All <strong>fields</strong> (instance data) are set to <strong>private</strong>. Public methods can call private mothods.</li>
+<li>If you want something to be unchangeable, you may provide no setters to prevent invalid data.
+<ul>
+<li>Easier for maintainance</li>
+</ul>
+</li>
+<li>Using constant when applicable (the <strong>final</strong> keyword, UPPERCASE)
+<ul>
+<li>Final Variable -&gt; To create constant variables</li>
+<li>Final Methods -&gt; Prevent Method Overriding</li>
+<li>Final Classes -&gt; Prevent Inheritance</li>
+</ul>
+</li>
+<li>Use the <strong>static</strong> keyword <strong>only when sharing is intended</strong></li>
+<li><code>/src/main/java/…</code></li>
+<li>Return a string instead of printing it to console directly.</li>
+<li>Primitive Types are not objects. Everything else is an object reference.</li>
+</ul>
+<h3 id="type-conversion">Type Conversion</h3>
+<ol>
+<li>Type Promotion: Converting from a smaller type to a larger one.<br>
+<code>double weight = 200;</code></li>
+<li>Type Demotion</li>
+</ol>
+<pre><code class="language-java">int height = (int) 10.99;
+float length = float 12.0; // by default it uses double
+</code></pre>
+<ol start="3">
+<li>Constants<br>
+<code>final int MAX_LENGTH = 100;</code></li>
+</ol>
+<h3 id="javadoc-documentation">JavaDoc (Documentation)</h3>
+<pre><code class="language-java">/**
+	* @author
+	* @param a Length of the first side; must be &gt;= 0. 
+	*/
+</code></pre>
+<p>Use it for classes (the purpose of a class etc.) and sometimes for API methods. Don't comment functions / methods, instead, use better naming.</p>
+<h3 id="package-model-view">Package &amp; Model-View</h3>
+<ul>
+<li>Creat a package: <strong>src / main / java -&gt; new -&gt; Package</strong></li>
+<li>Example naming: <code>ca.doordemo.model</code></li>
+<li>Package is a group of classes that's related to each other. On top of each class within a package, there will be a statement similar to <code>package ca.doordemo.model</code> claiming that the class belongs to which package.</li>
+<li>Do not use any System.out.println() in model to increase reusability. (On some platform System.out.println() has no meaning. )</li>
+</ul>
+<pre><code class="language-java">import ca.doordemo.model.DoorManager;
+import ca.doordemo.ui.DoorTextUI;
+
+public class Main {
+	// Create model
+	DoorManager manager = new DoorManager();
+	
+	// Create UI
+	DoorTextUI ui = new DoorTextUI(Manager);
+
+	// Launch
+	ui.show();
+}
+</code></pre>
+<hr>
+<h3 id="others">Others</h3>
+<ul>
+<li><code>boolean</code>is set to false by default.</li>
+<li><strong>?</strong>: Providing constructors will delete the default constructor set up by Java</li>
+<li><strong>Concatenating</strong> a string and an instance will automatically call the .toString() method.</li>
+<li>Everything in Java is a reference, every class is a subclass of the Object class.</li>
+<li>println -&gt; prints with <strong>linefeed</strong></li>
+<li>char -&gt; Unicode</li>
+<li>boolean has only true or false to prevent the &quot;==&quot; mistyping issues.</li>
+<li>Divide by 0.0 -&gt; Infinity</li>
+</ul>
+<hr>
+<h2 id="static-exceptions-debugging">Static, Exceptions &amp; Debugging</h2>
+<h3 id="static">Static</h3>
+<ul>
+<li>Static methods / class methods</li>
+<li>Static field / class data
+<ul>
+<li>Often used for constant <code>public static final int DAYS_WEEK = 7</code></li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-java">public class StaticFun {
+	public static final int TARGET_NUM_HATS = 10;
+	private static int countNumMade = 0;
+	private int favNum = 0;
+
+	public static void main(String[] args) {
+		changeFavNum(42); // ⚠️ non-static function misused
+		displayInfo(); 
+		favNum = 10; // ⚠️ non-static field
+		countNumMade = 9;
+	}
+	private void changeFavNum(int i) {
+		favNum = TARGET_NUM_HATS + i;
+		displayInfo();
+	}
+	private static void displayInfo() {
+		System.out.println(&quot;TARGET_NUM_HATS: &quot; + TARGET_NUM_HATS);
+		System.out.println(&quot;countNumMade: &quot; + countNumMade);
+		System.out.println(&quot;favNum: &quot; + favNum);
+	}
+}
+</code></pre>
+<h3 id="exceptions">Exceptions</h3>
+<p>Catch the error so that we don't have to shut down the whole program.</p>
+<pre><code class="language-java">import java.util.*; // importing everything
+
+public class sample {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int x = 1;
+        
+        do{
+            try{
+                System.out.println(&quot;Enter first num: &quot;);
+                int n1 = input.nextInt();
+                System.out.println(&quot;Enter second num: &quot;);
+                int n2 = input.nextInt();
+                int sum = n1 / n2; // where the error might occur
+                System.out.println(sum);
+                x = 2; // runs successfully only without errors
+            } catch (Exception e) { // any error
+                System.out.println(&quot;You can't do this. &quot;);
+            }
+        } while(x == 1);
+    }
+}
+</code></pre>
+<p><code>throw new RuntimeException(&quot;Busted!&quot;)</code><strong>?</strong></p>
+</p>
+
+     <p class="md_block">
+    
+</p> 
+</div>
+
+</div>
+
+
+
+<link href="https://jenkinsxu.github.io/styles/main.css" type="text/css" rel="stylesheet"/>
+
+<div class="doc_comments">
+
+</div>
+
+
+
+  </div>
+</div>
+
+
+
+      </div>
+
+
+
+
+    </div>
+
+   <div class="footer">
+<link href="https://jenkinsxu.github.io/styles/main.css" type="text/css" rel="stylesheet"/><div class="site_footer_wrap"><div class="site_footer">
+
+      <div class="mysocials"><div class="my_socials">
+		   
+			   
+    
+			   
+    
+			   
+    
+			   
+    
+</div><link href="https://jenkinsxu.github.io/styles/main.css" type="text/css" rel="stylesheet"/>
+
+      </div>
+
+      <div class="copyright">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+<div>Icons made by <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">Eucalyp</a> from <a href="https://www.flaticon.com/"             title="Flaticon">www.flaticon.com</a></div>
+      </div>
+
+</div></div>
+
+    </div>
+
+
+<style type="text/css">a.back_to_top {
+    text-decoration: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    background: #f0f0f0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 36px;
+    font-size: 18px;
+    text-align: center;
+    transition-duration: .5s;
+    transition-propety: background-color;
+    display: none;
+}
+
+a.back_to_top span {
+    color: #888;
+}
+
+a.back_to_top:hover {
+    cursor: pointer;
+    background: #dfdfdf;
+}
+
+a.back_to_top:hover span {
+    color: #555;
+}
+
+@media print, screen and (max-width: 580px) {
+    .back_to_top {
+        display: none !important;
+    }
+}
+
+
+
+</style><a id="back_to_top" href="#" class="back_to_top"><span>△</span>
+</a>
+<script type="text/javascript" src="https://jenkinsxu.github.io/media/scripts/jquery.js"></script>
+
+<script>$(document).ready((function(_this) {
+  return function() {
+    var bt;
+    bt = $('#back_to_top');
+    if ($(document).width() > 480) {
+      $(window).scroll(function() {
+        var st;
+        st = $(window).scrollTop();
+        if (st > 30) {
+          return bt.css('display', 'block');
+        } else {
+          return bt.css('display', 'none');
+        }
+      });
+      return bt.click(function() {
+        $('body,html').animate({
+          scrollTop: 0
+        }, 800);
+        return false;
+      });
+    }
+  };
+})(this));
+</script>
+
+</body>
+
+</html>
