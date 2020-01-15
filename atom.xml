@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jenkinsxu.github.io</id>
     <title>Jenkins&apos; Secret Base</title>
-    <updated>2020-01-15T20:22:38.449Z</updated>
+    <updated>2020-01-15T20:23:26.771Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jenkinsxu.github.io"/>
     <link rel="self" href="https://jenkinsxu.github.io/atom.xml"/>
@@ -668,7 +668,7 @@ Time: After any 2 consecutive rounds, both argument a and b, are the the vast le
         <id>https://jenkinsxu.github.io/post/day-09-introduction-to-uikit-part-5</id>
         <link href="https://jenkinsxu.github.io/post/day-09-introduction-to-uikit-part-5">
         </link>
-        <updated>2020-01-14T11:09:43.000Z</updated>
+        <updated>2020-01-13T19:09:43.000Z</updated>
         <content type="html"><![CDATA[<h2 id="controls-responding-to-user-input">Controls (Responding to user input)</h2>
 <p>When the user interacts with a control, the <strong>control triggers</strong> a <strong>control event</strong>. Different controls trigger different control events.</p>
 <p>After setting up a control in Interface Builder, you set up an <strong>IBAction</strong> that responds to a specific control event and allows you to execute a block of code.<br>
@@ -699,64 +699,6 @@ Text fields execute code when the user <strong>presses the &quot;Return&quot; or
 <figure data-type="image" tabindex="3"><img src="https://jenkinsxu.github.io/post-images/1579057865815.png" alt="" loading="lazy"></figure>
 <h3 id="date-pickers">Date Pickers</h3>
 <figure data-type="image" tabindex="4"><img src="https://jenkinsxu.github.io/post-images/1579057871731.png" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Day 08 - Introduction to UIKit Part 4]]></title>
-        <id>https://jenkinsxu.github.io/post/day-08-introduction-to-uikit-part-4</id>
-        <link href="https://jenkinsxu.github.io/post/day-08-introduction-to-uikit-part-4">
-        </link>
-        <updated>2020-01-04T12:17:20.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="27-introduction-to-uikit">2.7 Introduction to UIKit</h2>
-<ul>
-<li>The foundational class for all visual elements defined in UIKit is the <strong>UIView</strong>, or view. A view defines a rectangular shape that can be customized to display anything on the screen. Text, images, lines, and graphics all depend on UIView as the base.</li>
-</ul>
-<h3 id="special-uiview-subclasses">Special UIView subclasses</h3>
-<ul>
-<li>UILabel: displays text</li>
-<li>UIImageView: displays an image</li>
-<li>UIScrollView: allows you to put scrollable content onto the screen</li>
-</ul>
-<h3 id="a-view-hierarchy">A view hierarchy</h3>
-<p><img src="https://jenkinsxu.github.io/post-images/1578255468953.png" alt="" loading="lazy"><br>
-Views are often nested. A view that’s contained in another view is called a <strong>child view</strong> (e.g. a cell). A view that contains one or more views is called a <strong>parent view</strong> (e.g. a table view).</p>
-<p>To display a view onscreen: give it a frame and add it to the view hierarchy.</p>
-<ul>
-<li>When adding a view in Interface Builder, its background color is white by default.</li>
-<li>When adding a view in code, the background color is transparent by default.</li>
-</ul>
-<h3 id="attributes-of-views">Attributes of views</h3>
-<figure data-type="image" tabindex="1"><img src="https://jenkinsxu.github.io/post-images/1578255479749.png" alt="" loading="lazy"></figure>
-<hr>
-<h2 id="displaying-information-to-users">Displaying information to users</h2>
-<h3 id="label-uilabel">Label (UILabel)</h3>
-<p>Labels use <strong>static</strong> text to relay information to the user.<br>
-<img src="https://jenkinsxu.github.io/post-images/1578255489380.png" alt="" loading="lazy"></p>
-<h3 id="image-view">Image View</h3>
-<p>An image view displays an image or an animated sequence of images.<br>
-<img src="https://jenkinsxu.github.io/post-images/1578255498395.png" alt="" loading="lazy"></p>
-<h3 id="text-view-uitextview">Text View (UITextView)</h3>
-<p>A text view allows the user to input text in your app. You’ll typically use a text view to display a large amount of text, such as the body of an email message.<br>
-<img src="https://jenkinsxu.github.io/post-images/1578255507711.png" alt="" loading="lazy"></p>
-<h3 id="scroll-view-uiscrollview">Scroll View (UIScrollView)</h3>
-<p>You’ll typically use a scroll view when the information you want to display is larger than the device’s screen.<br>
-<img src="https://jenkinsxu.github.io/post-images/1578255516409.png" alt="" loading="lazy"></p>
-<h3 id="table-view-uitableview">Table View (UITableView)</h3>
-<p><img src="https://jenkinsxu.github.io/post-images/1578255524295.png" alt="" loading="lazy"><br>
-A table view presents data in a single scrollable column of rows and sections, allowing users to navigate easily through groups of information. Table views are an excellent format for displaying and editing <strong>hierarchical lists of information</strong>.<br>
-<img src="https://jenkinsxu.github.io/post-images/1578255531409.png" alt="" loading="lazy"></p>
-<h3 id="toolbars-uitoolbar">Toolbars (UIToolbar)</h3>
-<p>A toolbar usually appears at the bottom of a screen and displays one or more buttons, called <strong>bar button items</strong>.<br>
-<img src="https://jenkinsxu.github.io/post-images/1578255539123.png" alt="" loading="lazy"></p>
-<figure data-type="image" tabindex="2"><img src="https://jenkinsxu.github.io/post-images/1578255545038.png" alt="" loading="lazy"></figure>
-<h3 id="navigation-bars-uinavigationbar">Navigation Bars (UINavigationBar)</h3>
-<p><img src="https://jenkinsxu.github.io/post-images/1578255553420.png" alt="" loading="lazy"><br>
-<img src="https://jenkinsxu.github.io/post-images/1578255559223.png" alt="" loading="lazy"></p>
-<h3 id="tab-bars-uitabbar">Tab Bars (UITabBar)</h3>
-<p>A tab bar provides easy access to different views in an app. The most common way to use a tab bar is with a <strong>tab bar controller</strong>, which holds a property of each view controller that represents each scene you want presented in the tab bar. You’ll add <strong>scenes</strong> to be displayed to the controller, and the tab bar view, you link it to the tab bar controller's viewControllers property in a storyboard (<strong>?</strong>). The view controller for each scene has a <strong>UITabBarItem</strong> property that <strong>defines the text and optional image that will be displayed by the tab bar</strong>.</p>
-<hr>
-<h2 id="responding-to-user-input">Responding to user input</h2>
-<p>unfinished</p>
 ]]></content>
     </entry>
     <entry>
@@ -871,6 +813,64 @@ for (vehicleName, wheelCount) in vehicles {
 	print(&quot;A \(vehicleName) has \(wheelCount) wheels&quot;)
 }
 </code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Day 08 - Introduction to UIKit Part 4]]></title>
+        <id>https://jenkinsxu.github.io/post/day-08-introduction-to-uikit-part-4</id>
+        <link href="https://jenkinsxu.github.io/post/day-08-introduction-to-uikit-part-4">
+        </link>
+        <updated>2020-01-03T20:17:20.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="27-introduction-to-uikit">2.7 Introduction to UIKit</h2>
+<ul>
+<li>The foundational class for all visual elements defined in UIKit is the <strong>UIView</strong>, or view. A view defines a rectangular shape that can be customized to display anything on the screen. Text, images, lines, and graphics all depend on UIView as the base.</li>
+</ul>
+<h3 id="special-uiview-subclasses">Special UIView subclasses</h3>
+<ul>
+<li>UILabel: displays text</li>
+<li>UIImageView: displays an image</li>
+<li>UIScrollView: allows you to put scrollable content onto the screen</li>
+</ul>
+<h3 id="a-view-hierarchy">A view hierarchy</h3>
+<p><img src="https://jenkinsxu.github.io/post-images/1578255468953.png" alt="" loading="lazy"><br>
+Views are often nested. A view that’s contained in another view is called a <strong>child view</strong> (e.g. a cell). A view that contains one or more views is called a <strong>parent view</strong> (e.g. a table view).</p>
+<p>To display a view onscreen: give it a frame and add it to the view hierarchy.</p>
+<ul>
+<li>When adding a view in Interface Builder, its background color is white by default.</li>
+<li>When adding a view in code, the background color is transparent by default.</li>
+</ul>
+<h3 id="attributes-of-views">Attributes of views</h3>
+<figure data-type="image" tabindex="1"><img src="https://jenkinsxu.github.io/post-images/1578255479749.png" alt="" loading="lazy"></figure>
+<hr>
+<h2 id="displaying-information-to-users">Displaying information to users</h2>
+<h3 id="label-uilabel">Label (UILabel)</h3>
+<p>Labels use <strong>static</strong> text to relay information to the user.<br>
+<img src="https://jenkinsxu.github.io/post-images/1578255489380.png" alt="" loading="lazy"></p>
+<h3 id="image-view">Image View</h3>
+<p>An image view displays an image or an animated sequence of images.<br>
+<img src="https://jenkinsxu.github.io/post-images/1578255498395.png" alt="" loading="lazy"></p>
+<h3 id="text-view-uitextview">Text View (UITextView)</h3>
+<p>A text view allows the user to input text in your app. You’ll typically use a text view to display a large amount of text, such as the body of an email message.<br>
+<img src="https://jenkinsxu.github.io/post-images/1578255507711.png" alt="" loading="lazy"></p>
+<h3 id="scroll-view-uiscrollview">Scroll View (UIScrollView)</h3>
+<p>You’ll typically use a scroll view when the information you want to display is larger than the device’s screen.<br>
+<img src="https://jenkinsxu.github.io/post-images/1578255516409.png" alt="" loading="lazy"></p>
+<h3 id="table-view-uitableview">Table View (UITableView)</h3>
+<p><img src="https://jenkinsxu.github.io/post-images/1578255524295.png" alt="" loading="lazy"><br>
+A table view presents data in a single scrollable column of rows and sections, allowing users to navigate easily through groups of information. Table views are an excellent format for displaying and editing <strong>hierarchical lists of information</strong>.<br>
+<img src="https://jenkinsxu.github.io/post-images/1578255531409.png" alt="" loading="lazy"></p>
+<h3 id="toolbars-uitoolbar">Toolbars (UIToolbar)</h3>
+<p>A toolbar usually appears at the bottom of a screen and displays one or more buttons, called <strong>bar button items</strong>.<br>
+<img src="https://jenkinsxu.github.io/post-images/1578255539123.png" alt="" loading="lazy"></p>
+<figure data-type="image" tabindex="2"><img src="https://jenkinsxu.github.io/post-images/1578255545038.png" alt="" loading="lazy"></figure>
+<h3 id="navigation-bars-uinavigationbar">Navigation Bars (UINavigationBar)</h3>
+<p><img src="https://jenkinsxu.github.io/post-images/1578255553420.png" alt="" loading="lazy"><br>
+<img src="https://jenkinsxu.github.io/post-images/1578255559223.png" alt="" loading="lazy"></p>
+<h3 id="tab-bars-uitabbar">Tab Bars (UITabBar)</h3>
+<p>A tab bar provides easy access to different views in an app. The most common way to use a tab bar is with a <strong>tab bar controller</strong>, which holds a property of each view controller that represents each scene you want presented in the tab bar. You’ll add <strong>scenes</strong> to be displayed to the controller, and the tab bar view, you link it to the tab bar controller's viewControllers property in a storyboard (<strong>?</strong>). The view controller for each scene has a <strong>UITabBarItem</strong> property that <strong>defines the text and optional image that will be displayed by the tab bar</strong>.</p>
+<hr>
+<h2 id="responding-to-user-input">Responding to user input</h2>
+<p>unfinished</p>
 ]]></content>
     </entry>
     <entry>
