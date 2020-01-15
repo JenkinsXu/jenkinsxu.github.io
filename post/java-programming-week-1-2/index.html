@@ -19,7 +19,7 @@
      <div class="header">
       <div class="logo_title">
 		  
-        <div class="title animated fadeInDown"><img src="https://jenkinsxu.github.io/images/avatar.png?v=1579120353702"/>
+        <div class="title animated fadeInDown"><img src="https://jenkinsxu.github.io/images/avatar.png?v=1579123612990"/>
 
           <h1 title="Jenkins&#39; Secret Base" class="weaklink"><a href="/">Jenkins&#39; Secret Base</a>
 
@@ -147,7 +147,7 @@
 
   <div class="post_details">
     <div class="info"><i class="fa fa-clock-o"></i>
-<span class="date_info">2020-01-14</span>
+<span class="date_info">2020-01-13</span>
 <i class="fa fa-eye"></i>
 
 <span class="date_info"><span id="busuanzi_value_page_pv"></span> Views</span>
@@ -490,7 +490,29 @@ public class sample {
     }
 }
 </code></pre>
-<p><code>throw new RuntimeException(&quot;Busted!&quot;)</code><strong>?</strong></p>
+<p>Another sample:<br>
+<code>throw new RuntimeException(&quot;Busted!&quot;)</code><strong>?</strong></p>
+<h3 id="tostring">.toString()</h3>
+<p>All Java objects have a toString() method since all classes inherit from Object. It returns a String object which used for debugging instead of formatted screen / file output.</p>
+<pre><code class="language-java">@Override // To prevent typo
+public String toString() {
+	return getClass.getName() // returns the name of object
+		+ &quot; [daField1 = &quot; + daField1
+		+ &quot;, daField2 = &quot; + daField2 + &quot;]&quot;;
+}
+</code></pre>
+<h3 id="pass-by-value">Pass by Value</h3>
+<p>Java uses pass by value.</p>
+<ul>
+<li>Passing a primitive type passes its value.</li>
+<li>Passing an object passes (by value) a reference to the object</li>
+</ul>
+<p>This means:</p>
+<ul>
+<li>When passed a primitive type, changes inside a method have no effect outside the method.</li>
+<li>When passed an object, you can modify its state.</li>
+<li>You cannot change which object the passed parameter points to.</li>
+</ul>
 </p>
 
      <p class="md_block">
