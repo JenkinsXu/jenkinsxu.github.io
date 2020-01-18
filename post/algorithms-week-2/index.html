@@ -6,7 +6,7 @@
         <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
         <meta content="telephone=no" name="format-detection"/>
         <meta name="renderer" content="webkit">
-    <title>Day 09 - Introduction to UIKit Part 5 | Jenkins&#39; Secret Base</title>
+    <title>Algorithms - Week 2 | Jenkins&#39; Secret Base</title>
 <link href="https://jenkinsxu.github.io/styles/main.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript" src="https://jenkinsxu.github.io/media/scripts/jquery.js"></script>
 <script type="text/javascript" src="https://jenkinsxu.github.io/media/scripts/basic.js"></script>
@@ -138,7 +138,7 @@
 
 <div class="post">
   <div class="post_title sm_margin">
-    <h2><a>Day 09 - Introduction to UIKit Part 5</a>
+    <h2><a>Algorithms - Week 2</a>
 
 
 
@@ -147,7 +147,7 @@
 
   <div class="post_details">
     <div class="info"><i class="fa fa-clock-o"></i>
-<span class="date_info">2020-01-13</span>
+<span class="date_info">2020-01-17</span>
 <i class="fa fa-eye"></i>
 
 <span class="date_info"><span id="busuanzi_value_page_pv"></span> Views</span>
@@ -156,8 +156,6 @@
 <i class="fa fa-bookmark-o"></i>
 <span class="tags_info weaklink">
 	
-	<a href="https://jenkinsxu.github.io/tag/7B5LxGodg" class="tag">App Development with Swift</a>
-
 
 </span>
 
@@ -171,36 +169,53 @@
 
 
   <div class="post_content markdown"><p class="md_block">
-    <span class="md_line md_line_start md_line_end"><h2 id="controls-responding-to-user-input">Controls (Responding to user input)</h2>
-<p>When the user interacts with a control, the <strong>control triggers</strong> a <strong>control event</strong>. Different controls trigger different control events.</p>
-<p>After setting up a control in Interface Builder, you set up an <strong>IBAction</strong> that responds to a specific control event and allows you to execute a block of code.<br>
-Most often you will use the Primary Action Triggered <code>UIControl.Event.primaryActionriggered</code>control event. This control event is triggered when <strong>a button is tapped</strong> or when <strong>the value of a control changes</strong>.</p>
-<h3 id="buttons-uibutton">Buttons <code>UIButton</code></h3>
-<p><img src="https://jenkinsxu.github.io/post-images/1579057827392.png" alt="" loading="lazy"><br>
-The primary control is triggered when</p>
+    <span class="md_line md_line_start md_line_end"><h2 id="modular-division">Modular Division</h2>
 <ul>
-<li>the user <strong>releases a button after tapping it</strong></li>
-<li>the user <strong>first touches the button</strong></li>
-<li>the user <strong>holds down the button</strong></li>
-<li>the user cancels the tap by <strong>dragging their finger outside of the frame</strong> of the button before lifting their finger.</li>
-</ul>
-<h3 id="segmented-controls-uisegmentedcontrol">Segmented Controls <code>UISegmentedControl</code></h3>
-<figure data-type="image" tabindex="1"><img src="https://jenkinsxu.github.io/post-images/1579057838404.png" alt="" loading="lazy"></figure>
+<li>Dividing by a != 0 is the same as multiplying by a^(-1) = 1 / a (the inverse of a). Here we assume rational numbers.</li>
+<li>In modular arithmetic:
 <ul>
-<li>Each segment functions as a discrete button.<br>
-<img src="https://jenkinsxu.github.io/post-images/1579057844085.png" alt="" loading="lazy"><br>
-Segmented controls execute code when the control’s value changes. The value <strong>represents which segment of the control is selected</strong>.</li>
+<li>“x is said to be the multiplicative inverse of a modulo N if a*x ≡ 1 (mod N)”</li>
 </ul>
-<h3 id="text-fields-uitextfield">Text Fields <code>UITextField</code></h3>
-<p>Text fields allow the user to input a <strong>single line</strong> of text into an app.<br>
-<img src="https://jenkinsxu.github.io/post-images/1579057852817.png" alt="" loading="lazy"><br>
-Text fields execute code when the user <strong>presses the &quot;Return&quot; or &quot;Done&quot;</strong> key on keyboard or when the user <strong>edits the text</strong>.</p>
-<h3 id="sliders-uislider">Sliders <code>UISlider</code></h3>
-<figure data-type="image" tabindex="2"><img src="https://jenkinsxu.github.io/post-images/1579057860001.png" alt="" loading="lazy"></figure>
-<h3 id="switches-uiswitch">Switches <code>UISwitch</code></h3>
-<figure data-type="image" tabindex="3"><img src="https://jenkinsxu.github.io/post-images/1579057865815.png" alt="" loading="lazy"></figure>
-<h3 id="date-pickers">Date Pickers</h3>
-<figure data-type="image" tabindex="4"><img src="https://jenkinsxu.github.io/post-images/1579057871731.png" alt="" loading="lazy"></figure>
+</li>
+<li>We call such an x the inverse of a and denote it a^(-1)
+<ul>
+<li>Now modular division become the problem of computing x = a^(-1) , given a and N<br>
+<strong>Example:</strong><br>
+<strong>Q:</strong> What is 11^(-1) mod 25 (i.e. The inverse of 11 mod 25)<br>
+⇒ we use the extended Euclidian Algorithm For gcd (25, 11)<br>
+⇒ 15 * 25 - 34 * 11 = 1, Now reduce both sides mod 25<br>
+⇒ 0 - 34 * 11 ≤ 1 (mod 25)<br>
+16 * 11≡1<br>
+⇒ 16 is the inverse of 11 (mod 25)<br>
+<strong>Q:</strong> Does the inverse a^(-1) always exist?<br>
+<strong>A:</strong> No, only when gcd (a, N) = 1, i.e. a and N are relative prime.<br>
+We know that ax + Ny = 1 (via extended Euclidian Algorithm) &lt;⇒ ax ≡ 1 (mod N) ⇒ x is a’s inverse mod N. However, if gcd (a, N) &gt; 1, then no inverse of a mod N exists. (convince yourself that this is true, page 23 is helpful)</li>
+</ul>
+</li>
+</ul>
+<h3 id="modular-division-theorem">Modular Division Theorem</h3>
+<p>For any a mod N, a has a multiplicative inverse mod N &lt;⇒ gcd (a, N) = 1.<br>
+When this inverse exists, it can be computed in O(n³) time by running the extended Euclid algorithm for gcd(a, N) where n = # of bits for N.</p>
+<h3 id="primality-testing">Primality Testing</h3>
+<p><strong>Q:</strong> Can we decide whether integer x is prime without factoring?<br>
+<strong>A:</strong> Yes, to some extend.<br>
+<strong>Goal:</strong>	input N<br>
+output yes (if N is prime)<br>
+output no (if N is composite)<br>
+With a minuscule rate of error.<br>
+<strong>Tools Fermat’s little theorem:</strong><br>
+If p is prime, then ∀a: 1 ≤ a ≤ p: a^(p-1) ≡ 1 (mod p) (<strong>HW</strong>: Proof - textbook)</p>
+<p><strong>Example:</strong><br>
+p = 7 (p is prime)<br>
+1^6 ≡ 2^6 ≡ 3^6 ≡ 4^6 ≡ 5^6 ≡ 1 mod 7</p>
+<p>p = 8 (p is composite)<br>
+2^(p-1) = 2^4 = 128 and 128 !≡ 1 mod 8</p>
+<p>However, Fermat’s little theorem is not an “if and only if” statement. Therefore some composite numbers will pass it!<br>
+341 = 11 * 13  is not prime, yet 2^340 ≡ mod 341, so 341 passes the Fermat’s test, but is composite.<br>
+Here 341 is called a <strong>Fermat Pseudoprime</strong> and a = 2 is called a <strong>Fermat Liar</strong>.</p>
+<p><strong>Hope:</strong> For composite N, most values of a will fail the test.<br>
+⇒ simple algorithm for testing primality</p>
+<p>…</p>
 </p>
 
      <p class="md_block">

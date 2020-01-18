@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jenkinsxu.github.io</id>
     <title>Jenkins&apos; Secret Base</title>
-    <updated>2020-01-15T21:26:54.988Z</updated>
+    <updated>2020-01-18T18:30:59.218Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jenkinsxu.github.io"/>
     <link rel="self" href="https://jenkinsxu.github.io/atom.xml"/>
@@ -12,6 +12,61 @@
     <logo>https://jenkinsxu.github.io/images/avatar.png</logo>
     <icon>https://jenkinsxu.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Jenkins&apos; Secret Base</rights>
+    <entry>
+        <title type="html"><![CDATA[Algorithms - Week 2]]></title>
+        <id>https://jenkinsxu.github.io/post/algorithms-week-2</id>
+        <link href="https://jenkinsxu.github.io/post/algorithms-week-2">
+        </link>
+        <updated>2020-01-18T02:30:22.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="modular-division">Modular Division</h2>
+<ul>
+<li>Dividing by a != 0 is the same as multiplying by a^(-1) = 1 / a (the inverse of a). Here we assume rational numbers.</li>
+<li>In modular arithmetic:
+<ul>
+<li>“x is said to be the multiplicative inverse of a modulo N if a*x ≡ 1 (mod N)”</li>
+</ul>
+</li>
+<li>We call such an x the inverse of a and denote it a^(-1)
+<ul>
+<li>Now modular division become the problem of computing x = a^(-1) , given a and N<br>
+<strong>Example:</strong><br>
+<strong>Q:</strong> What is 11^(-1) mod 25 (i.e. The inverse of 11 mod 25)<br>
+⇒ we use the extended Euclidian Algorithm For gcd (25, 11)<br>
+⇒ 15 * 25 - 34 * 11 = 1, Now reduce both sides mod 25<br>
+⇒ 0 - 34 * 11 ≤ 1 (mod 25)<br>
+16 * 11≡1<br>
+⇒ 16 is the inverse of 11 (mod 25)<br>
+<strong>Q:</strong> Does the inverse a^(-1) always exist?<br>
+<strong>A:</strong> No, only when gcd (a, N) = 1, i.e. a and N are relative prime.<br>
+We know that ax + Ny = 1 (via extended Euclidian Algorithm) &lt;⇒ ax ≡ 1 (mod N) ⇒ x is a’s inverse mod N. However, if gcd (a, N) &gt; 1, then no inverse of a mod N exists. (convince yourself that this is true, page 23 is helpful)</li>
+</ul>
+</li>
+</ul>
+<h3 id="modular-division-theorem">Modular Division Theorem</h3>
+<p>For any a mod N, a has a multiplicative inverse mod N &lt;⇒ gcd (a, N) = 1.<br>
+When this inverse exists, it can be computed in O(n³) time by running the extended Euclid algorithm for gcd(a, N) where n = # of bits for N.</p>
+<h3 id="primality-testing">Primality Testing</h3>
+<p><strong>Q:</strong> Can we decide whether integer x is prime without factoring?<br>
+<strong>A:</strong> Yes, to some extend.<br>
+<strong>Goal:</strong>	input N<br>
+output yes (if N is prime)<br>
+output no (if N is composite)<br>
+With a minuscule rate of error.<br>
+<strong>Tools Fermat’s little theorem:</strong><br>
+If p is prime, then ∀a: 1 ≤ a ≤ p: a^(p-1) ≡ 1 (mod p) (<strong>HW</strong>: Proof - textbook)</p>
+<p><strong>Example:</strong><br>
+p = 7 (p is prime)<br>
+1^6 ≡ 2^6 ≡ 3^6 ≡ 4^6 ≡ 5^6 ≡ 1 mod 7</p>
+<p>p = 8 (p is composite)<br>
+2^(p-1) = 2^4 = 128 and 128 !≡ 1 mod 8</p>
+<p>However, Fermat’s little theorem is not an “if and only if” statement. Therefore some composite numbers will pass it!<br>
+341 = 11 * 13  is not prime, yet 2^340 ≡ mod 341, so 341 passes the Fermat’s test, but is composite.<br>
+Here 341 is called a <strong>Fermat Pseudoprime</strong> and a = 2 is called a <strong>Fermat Liar</strong>.</p>
+<p><strong>Hope:</strong> For composite N, most values of a will fail the test.<br>
+⇒ simple algorithm for testing primality</p>
+<p>…</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Algorithms - Week 1]]></title>
         <id>https://jenkinsxu.github.io/post/algorithms-week-1</id>
@@ -1256,65 +1311,6 @@ print(s[i])
 <pre><code class="language-swift">lightButton.setTitle(&quot;Off&quot;, for: .normal)
 </code></pre>
 <h3 id="clear-out-unused-outlets-with-connection-panel">Clear out unused outlets with connection panel</h3>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Day 02 - Getting Started with App Development Part 2]]></title>
-        <id>https://jenkinsxu.github.io/post/day-02-getting-started-with-app-development</id>
-        <link href="https://jenkinsxu.github.io/post/day-02-getting-started-with-app-development">
-        </link>
-        <updated>2019-12-27T06:48:55.000Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Assistant editor <img src="https://jenkinsxu.github.io/post-images/1577775101967.png" alt="" loading="lazy"> - to view the storyboard and the definition at the same time.</li>
-<li>The <strong>Custom Class</strong> is set to be ViewConrtoller by default. But the ViewController class <strong>still doesn’t have access</strong> to the button you added. To make the object <strong>accessible in code</strong>, you’ll need to <strong>create an outlet</strong>.</li>
-</ul>
-<h3 id="outlets-and-actions">Outlets and Actions</h3>
-<ul>
-<li>Outlets - reference <strong>visual elements</strong> from Interface Builder to code
-<ul>
-<li><strong>Creating Outlet</strong>: <strong>Right-click and drag</strong> toward the assistant editor pane, which contains the ViewController class definition. Connection is set to <strong>Outlet</strong> and Storage is set to <strong>Strong</strong>. In the name field, specify a variable name for the button: “myButton”.</li>
-</ul>
-</li>
-</ul>
-<pre><code class="language-swift">import UIKit
-
-class ViewController: UIViewController {
-</code></pre>
-<pre><code class="language-swift">⚫️	@IBOutlet var myButton: UIButton!
-//Circle - The filled circle indicates that the outlet is connected. 
-//@IBOutlet - Unique to Interface Builder, this keyword specifies a relationship between the variable and a storyboard. Without the @IBOutlet keyword, the circle doesn’t display. 
-//: UIButton! - The type of the property is a UIButton, the button type within the UIKit framework (import UIKit). The exclamation point warns you that the program will crash if you try to access this property *and* the outlet isn’t connected. 
-</code></pre>
-<pre><code class="language-swift">		override func viewDidLoad() { // gives you access to the view controller's main view property before it is displayed on the screen - good for setting up
-			super.viewDidLoad()
-			// Do any additional setup after loading the view
-			myButton.setTitleColor(.red, for: .normal) //changes the color of the button
-		}
-</code></pre>
-<ul>
-<li>Actions - a reference to <strong>a piece of code that will execute when the interaction takes place</strong>
-<ul>
-<li>Connection is set to <strong>Action</strong></li>
-</ul>
-</li>
-</ul>
-<pre><code class="language-swift">⚫️	@IBAction func buttonPressed(_ sender: Any) {
-
-		}
-//Circle - The filled circle indicates that the action is connected. 
-//@IBOutlet - Unique to Interface Builder, this keyword specifies a relationship between an action and an object in a storyboard. 
-//(_ sender: Any) - An action can be connected to a number of different objects: buttons, sliders, switches, etc. In this example, sender is the name of the *object* that triggers the action. Because sender could represent any of several user interface elements, it’s of the Any type. 
-</code></pre>
-<h3 id="companion-property">Companion property</h3>
-<p><img src="https://jenkinsxu.github.io/post-images/1577775126509.png" alt="" loading="lazy"><br>
-Many objects that you can configure in Interface Builder have properties that can only be set programmatically.<br>
-* Do so programmatically by setting up an IBOutlet and updating the properties using dot notation.</p>
-<pre><code class="language-swift">scrollView.contentSize = CGSize(width: 100, height: 100)
-</code></pre>
-<h3 id="setting-up-all-child-views-and-adding-them-to-the-screen">Setting up all child views and adding them to the screen</h3>
-<pre><code class="language-swift">let label = UILabel(frame: CGRect(x: 16, y: 16, width: 200, height: 44))
-view.addSubview(label) // Adds label as a child view to 'view'
-</code></pre>
 ]]></content>
     </entry>
 </feed>
