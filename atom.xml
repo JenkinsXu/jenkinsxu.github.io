@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jenkinsxu.github.io</id>
     <title>Jenkins&apos; Secret Base</title>
-    <updated>2020-01-18T18:32:11.369Z</updated>
+    <updated>2020-01-22T17:08:26.475Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jenkinsxu.github.io"/>
     <link rel="self" href="https://jenkinsxu.github.io/atom.xml"/>
@@ -12,6 +12,124 @@
     <logo>https://jenkinsxu.github.io/images/avatar.png</logo>
     <icon>https://jenkinsxu.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Jenkins&apos; Secret Base</rights>
+    <entry>
+        <title type="html"><![CDATA[Algorithms - Week 3~4]]></title>
+        <id>https://jenkinsxu.github.io/post/algorithms-week-3~4</id>
+        <link href="https://jenkinsxu.github.io/post/algorithms-week-3~4">
+        </link>
+        <updated>2020-01-22T01:08:10.000Z</updated>
+        <content type="html"><![CDATA[<p>For simplicity, we will for now ignore the so-called &quot;Carmichael Numbers&quot;. Theses are extremely rare composite number that will pass this test (1.7) for all a with gcd(a, N) = 1.</p>
+<p>Any non-Carmichael composite number N must fail Fermat's test at least some value of a.</p>
+<p>We can show that N fails Fermat's test for at least half the possible values of a.</p>
+<p><strong>Lemma</strong>: If a^(N-1) !≡ 1 mod N for some a with gcd(a, N) = 1, then it must hold for at least half the choice of a &lt; N.<br>
+<strong>Note</strong>: This lemma is not helpful for Carmichael numbers.<br>
+<strong>Proof</strong>:<br>
+Fix a such that a^(N-1) !≡ 1 (mod N)<br>
+∀ b &lt; N that pass Fermat's test with respect to N (i.e b^(N-1) ≡ 1 mod N) has a twin a<em>b, that fails the test!<br>
+<code>(a*b) ^ (N-1) ≡ a^(N-1) * b^(N-1) ≡ a^(N-1) !≡ 1 mod N</code><br>
+All a * b for fixed a but different b are distinct. (<strong>HW</strong>)<br>
+The one-to-one function f: f(b) = a</em>b shows that at least as many elements fail the test as pass it.</p>
+<p>Algorithm 1.7 therefore has the following probabilistic behavior<br>
+P (1.7 returns &quot;yes&quot; when N is prime) = 1<br>
+P (1.7 returns &quot;yes&quot; when N is composite) ≤ 1/2<br>
+This error rate can be reduced by randomly picking different a's many times (k times).</p>
+<h3 id="algorithm-18">Algorithm 1.8</h3>
+<p><strong>function primality(N)</strong><br>
+<strong>Input</strong>: N ∈ N+<br>
+<strong>Output</strong>: yes/no<br>
+Pick positive integers a1,a2,...,ak at random</p>
+<pre><code>if ai^(N-1) ≡ 1 (mod N) for all i = 1,2,...,k
+	return yes
+else
+	return no
+</code></pre>
+<p>Algorithm 1.8 returns &quot;yes&quot; when N is composite ≤ 1/(2^k) [minuscule for k = 100]</p>
+<h3 id="carmichael-numbers">Carmichael Numbers</h3>
+<p>Smallest Carmichael number: 561<br>
+561 = 3 * 11 * 17, i.e. not prime yet<br>
+∀ a relative prime to 561: a^561 ≡ 1 (mod 561), i.e. it fools the Fermat test for such bases.</p>
+<p>Now, guessing bases is no better than randomly guessing factors.</p>
+<p>Rabin and Miller devised an algorithm for primality testing that also deals with Carmichael numbers (see P28).</p>
+<h2 id="generating-random-primes">Generating Random Primes</h2>
+<p>For our crypto-system we need a fast way to generate random primes that are several hundred bits long.<br>
+Good news! Prime numbers are abundant.</p>
+<h3 id="lagranges-prime-number-theorem">Lagrange's Prime Number Theorem</h3>
+<p>Let # (x) be the number of primes ≤ x.<br>
+Then # (x) ≈ x / ( ln(x) )<br>
+or more precisely lim x -&gt; ∞ : # (x) / (x / ln(x) ) = 1</p>
+<h3 id="generate-a-random-prime-of-length-n">Generate a random prime of length n:</h3>
+<ol>
+<li>Pick a random n-bit number</li>
+<li>Run a primality test on N</li>
+<li>If it passes test output N, else goto <strong>1.</strong><br>
+This runs on average O(n) steps.</li>
+</ol>
+<h2 id="some-notes-on-randomized-algorithms">Some notes on Randomized Algorithms</h2>
+<p>Two varieties:</p>
+<ol>
+<li>&quot;Monte Carlo Algorithms&quot;</li>
+</ol>
+<ul>
+<li>Always run fast</li>
+<li>Output has a small chance being incorrect<br>
+<strong>Example</strong>: Primality Test</li>
+</ul>
+<ol start="2">
+<li>&quot;Las Vegas Algorithms&quot;</li>
+</ol>
+<ul>
+<li>Always output the correct answer</li>
+<li>Only guarantee a short run time with high probability<br>
+<strong>Example</strong>: randomized algorithms for sorting</li>
+</ul>
+<h1 id="section-14-cryptography">Section 1.4 Cryptography</h1>
+<h2 id="rivestshamiradleman-rsa-crypto-system">Rivest–Shamir–Adleman (RSA) crypto-system</h2>
+<p>Exploits the wide gulf between polynomial time tasks (modular exponentiation, gcd, primality testing) and the intractability of others (factoring).<br>
+<img src="Photo%20Jan%2021,%202020%20at%2035329%20PM.jpg" alt="" loading="lazy"><br>
+More generally:<br>
+<img src="Photo%20Jan%2021,%202020%20at%2035922%20PM.jpg" alt="" loading="lazy"></p>
+<h2 id="different-cryptography-protocols">Different Cryptography Protocols</h2>
+<h3 id="private-key-protocols">Private-key protocols</h3>
+<ul>
+<li>Done for millennia.</li>
+<li>Both parties (A, B) need to meet beforehand to chose a secret code book.</li>
+<li>Code book is used to encrypt and decrypt all messages between them.</li>
+<li>Eve's only hope is to collect many encrypted messages and hope to used those to figure out the code book.</li>
+</ul>
+<h3 id="public-key-protocols">Public-key protocols</h3>
+<ul>
+<li>RSA is public key</li>
+<li>No meeting between Alice and Bob is necessary</li>
+<li>e(.) is publicly available, Alice can use it to digitally lock her message</li>
+<li>Only Bob knows the digital key d(.) to quickly unlock e(.)</li>
+<li>Both Alice and Bob need only perform simple calculations to lock and unlock messages</li>
+<li>However, unlocking the message without the key should exceed the capability of all supercomputers combined</li>
+<li>This enables secure Web-commerce, i.e. sending encrypted Credit Card numbers over the Internet</li>
+</ul>
+<hr>
+<p>Private-key schemes: one time pad and AES<br>
+x: message, e(x) encrypted message<br>
+In order to decode e(x), it must be an invertible function. It must be a <strong>bijection</strong>.<br>
+The inverse of e(x) is d(x), i.e. d(x) = e^(-1)(x)</p>
+<p><strong>One-time Pad</strong>:<br>
+Alice and Bob secretly agree on binary string r with |r| = |x| = n. x is the secret string to be sent by Alice later.<br>
+Alice's encryption function is:<br>
+<img src="Photo%20Jan%2021,%202020%20at%2041102%20PM.jpg" alt="" loading="lazy"></p>
+<ul>
+<li>e_r is a bijection from n-bit strings to n-bit strings (<strong>HW</strong>: verify this)</li>
+<li>e_r = e_r^(-1) (e_r is its own inverse) - please verify</li>
+<li>e_r ( e_r(x) ) = (x ⊕ r) ⊕ r = x ⊕ 0 = x</li>
+</ul>
+<p>Bob can use e_r(x) to decode message. For r to be secure, chose r at random (coin flipping each bit). Eve intercepts y = e_(x), she gets no information about x, since all possibilities for x are equally likely.</p>
+<p>Downsides of &quot;One-time Pad&quot;</p>
+<ul>
+<li>Authentication of Alice</li>
+<li>Meeting for key exchange</li>
+<li>|r| = |x| key length is terrible</li>
+<li>Needs to be discarded after each use</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Algorithms - Week 2]]></title>
         <id>https://jenkinsxu.github.io/post/algorithms-week-2</id>
@@ -1286,31 +1404,6 @@ print(s[i])
 <li>.startIndex //The position of the first character in a nonempty string.</li>
 <li>.endIndex</li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Day 03 - Getting Started with App Development Part 3]]></title>
-        <id>https://jenkinsxu.github.io/post/day-03-getting-started-with-app-development-part-3</id>
-        <link href="https://jenkinsxu.github.io/post/day-03-getting-started-with-app-development-part-3">
-        </link>
-        <updated>2019-12-28T19:25:02.000Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>Swift booleans have a method, **toggle() **</li>
-<li>Command-Shift-L to view library</li>
-</ul>
-<h3 id="setting-background-color">Setting background color</h3>
-<pre><code class="language-swift">view.backgroundColor = .white
-</code></pre>
-<ul>
-<li>UIControl.State represents the different potential states of a button (a data type?)</li>
-</ul>
-<h3 id="a-normal-button">A &quot;normal&quot; button</h3>
-<pre><code class="language-swift">static var normal: UIControl.State //Define a normal constant corresponding to the state of the button when it's enabled and sitting idle on the screen
-</code></pre>
-<h3 id="changing-a-title">Changing a title</h3>
-<pre><code class="language-swift">lightButton.setTitle(&quot;Off&quot;, for: .normal)
-</code></pre>
-<h3 id="clear-out-unused-outlets-with-connection-panel">Clear out unused outlets with connection panel</h3>
 ]]></content>
     </entry>
 </feed>

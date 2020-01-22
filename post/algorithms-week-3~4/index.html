@@ -1,0 +1,408 @@
+
+<html>
+  <head lang="zh">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+        <meta content="yes" name="apple-mobile-web-app-capable"/>
+        <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+        <meta content="telephone=no" name="format-detection"/>
+        <meta name="renderer" content="webkit">
+    <title>Algorithms - Week 3~4 | Jenkins&#39; Secret Base</title>
+<link href="https://jenkinsxu.github.io/styles/main.css" type="text/css" rel="stylesheet"/>
+<script type="text/javascript" src="https://jenkinsxu.github.io/media/scripts/jquery.js"></script>
+<script type="text/javascript" src="https://jenkinsxu.github.io/media/scripts/basic.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  </head>
+
+  <body>
+     <div class="header">
+      <div class="logo_title">
+		  
+        <div class="title animated fadeInDown"><img src="https://jenkinsxu.github.io/images/avatar.png?v=1579712903655"/>
+
+          <h1 title="Jenkins&#39; Secret Base" class="weaklink"><a href="/">Jenkins&#39; Secret Base</a>
+
+          </h1>
+
+          <div class="navbar weaklink">
+            <div class="normal_nav">
+
+<div class="bitcron_nav_container">
+
+
+  <div class="bitcron_nav">
+    <div class="mixed_site_nav_wrap site_nav_wrap">
+		
+      <ul class="mixed_site_nav site_nav sm sm-base">
+ 
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/" class="selected active current nav__item" >Home</a>
+
+  </li>
+ 
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/tags" class="selected active current nav__item" >Tags</a>
+
+  </li>
+ 
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/post/about" class="selected active current nav__item" >About</a>
+
+  </li>
+ 
+
+      </ul>
+
+      <div class="clear clear_nav_inline_end"></div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="clear clear_nav_end"></div>
+
+</div>
+
+            </div>
+
+            <div class="hamberger"><i class="fa fa-bars"></i>
+<i class="fa fa-times"></i>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="hidden_nav animated fadeInDown">
+
+<div class="bitcron_nav_container">
+
+
+  <div class="bitcron_nav">
+    <div class="mixed_site_nav_wrap site_nav_wrap">
+      <ul class="mixed_site_nav site_nav sm sm-base">
+		  
+	
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/" class="selected active current nav__item" >Home</a>
+
+  </li>
+
+
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/tags" class="selected active current nav__item" >Tags</a>
+
+  </li>
+
+
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/post/about" class="selected active current nav__item" >About</a>
+
+  </li>
+
+
+
+
+
+      </ul>
+
+      <div class="clear clear_nav_inline_end"></div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="clear clear_nav_end"></div>
+
+</div>
+
+      </div>
+
+    </div>
+
+
+    <div class="main">
+      <div class="main-inner">
+
+
+<div class="content">
+
+
+
+
+
+
+  <div class="post_page" >
+
+<div class="post">
+  <div class="post_title sm_margin">
+    <h2><a>Algorithms - Week 3~4</a>
+
+
+
+    </h2>
+  </div>
+
+  <div class="post_details">
+    <div class="info"><i class="fa fa-clock-o"></i>
+<span class="date_info">2020-01-21</span>
+<i class="fa fa-eye"></i>
+
+<span class="date_info"><span id="busuanzi_value_page_pv"></span> Views</span>
+
+
+<i class="fa fa-bookmark-o"></i>
+<span class="tags_info weaklink">
+	
+
+</span>
+
+
+    </div>
+
+  </div>
+
+
+
+
+
+  <div class="post_content markdown"><p class="md_block">
+    <span class="md_line md_line_start md_line_end"><p>For simplicity, we will for now ignore the so-called &quot;Carmichael Numbers&quot;. Theses are extremely rare composite number that will pass this test (1.7) for all a with gcd(a, N) = 1.</p>
+<p>Any non-Carmichael composite number N must fail Fermat's test at least some value of a.</p>
+<p>We can show that N fails Fermat's test for at least half the possible values of a.</p>
+<p><strong>Lemma</strong>: If a^(N-1) !≡ 1 mod N for some a with gcd(a, N) = 1, then it must hold for at least half the choice of a &lt; N.<br>
+<strong>Note</strong>: This lemma is not helpful for Carmichael numbers.<br>
+<strong>Proof</strong>:<br>
+Fix a such that a^(N-1) !≡ 1 (mod N)<br>
+∀ b &lt; N that pass Fermat's test with respect to N (i.e b^(N-1) ≡ 1 mod N) has a twin a<em>b, that fails the test!<br>
+<code>(a*b) ^ (N-1) ≡ a^(N-1) * b^(N-1) ≡ a^(N-1) !≡ 1 mod N</code><br>
+All a * b for fixed a but different b are distinct. (<strong>HW</strong>)<br>
+The one-to-one function f: f(b) = a</em>b shows that at least as many elements fail the test as pass it.</p>
+<p>Algorithm 1.7 therefore has the following probabilistic behavior<br>
+P (1.7 returns &quot;yes&quot; when N is prime) = 1<br>
+P (1.7 returns &quot;yes&quot; when N is composite) ≤ 1/2<br>
+This error rate can be reduced by randomly picking different a's many times (k times).</p>
+<h3 id="algorithm-18">Algorithm 1.8</h3>
+<p><strong>function primality(N)</strong><br>
+<strong>Input</strong>: N ∈ N+<br>
+<strong>Output</strong>: yes/no<br>
+Pick positive integers a1,a2,...,ak at random</p>
+<pre><code>if ai^(N-1) ≡ 1 (mod N) for all i = 1,2,...,k
+	return yes
+else
+	return no
+</code></pre>
+<p>Algorithm 1.8 returns &quot;yes&quot; when N is composite ≤ 1/(2^k) [minuscule for k = 100]</p>
+<h3 id="carmichael-numbers">Carmichael Numbers</h3>
+<p>Smallest Carmichael number: 561<br>
+561 = 3 * 11 * 17, i.e. not prime yet<br>
+∀ a relative prime to 561: a^561 ≡ 1 (mod 561), i.e. it fools the Fermat test for such bases.</p>
+<p>Now, guessing bases is no better than randomly guessing factors.</p>
+<p>Rabin and Miller devised an algorithm for primality testing that also deals with Carmichael numbers (see P28).</p>
+<h2 id="generating-random-primes">Generating Random Primes</h2>
+<p>For our crypto-system we need a fast way to generate random primes that are several hundred bits long.<br>
+Good news! Prime numbers are abundant.</p>
+<h3 id="lagranges-prime-number-theorem">Lagrange's Prime Number Theorem</h3>
+<p>Let # (x) be the number of primes ≤ x.<br>
+Then # (x) ≈ x / ( ln(x) )<br>
+or more precisely lim x -&gt; ∞ : # (x) / (x / ln(x) ) = 1</p>
+<h3 id="generate-a-random-prime-of-length-n">Generate a random prime of length n:</h3>
+<ol>
+<li>Pick a random n-bit number</li>
+<li>Run a primality test on N</li>
+<li>If it passes test output N, else goto <strong>1.</strong><br>
+This runs on average O(n) steps.</li>
+</ol>
+<h2 id="some-notes-on-randomized-algorithms">Some notes on Randomized Algorithms</h2>
+<p>Two varieties:</p>
+<ol>
+<li>&quot;Monte Carlo Algorithms&quot;</li>
+</ol>
+<ul>
+<li>Always run fast</li>
+<li>Output has a small chance being incorrect<br>
+<strong>Example</strong>: Primality Test</li>
+</ul>
+<ol start="2">
+<li>&quot;Las Vegas Algorithms&quot;</li>
+</ol>
+<ul>
+<li>Always output the correct answer</li>
+<li>Only guarantee a short run time with high probability<br>
+<strong>Example</strong>: randomized algorithms for sorting</li>
+</ul>
+<h1 id="section-14-cryptography">Section 1.4 Cryptography</h1>
+<h2 id="rivestshamiradleman-rsa-crypto-system">Rivest–Shamir–Adleman (RSA) crypto-system</h2>
+<p>Exploits the wide gulf between polynomial time tasks (modular exponentiation, gcd, primality testing) and the intractability of others (factoring).<br>
+<img src="Photo%20Jan%2021,%202020%20at%2035329%20PM.jpg" alt="" loading="lazy"><br>
+More generally:<br>
+<img src="Photo%20Jan%2021,%202020%20at%2035922%20PM.jpg" alt="" loading="lazy"></p>
+<h2 id="different-cryptography-protocols">Different Cryptography Protocols</h2>
+<h3 id="private-key-protocols">Private-key protocols</h3>
+<ul>
+<li>Done for millennia.</li>
+<li>Both parties (A, B) need to meet beforehand to chose a secret code book.</li>
+<li>Code book is used to encrypt and decrypt all messages between them.</li>
+<li>Eve's only hope is to collect many encrypted messages and hope to used those to figure out the code book.</li>
+</ul>
+<h3 id="public-key-protocols">Public-key protocols</h3>
+<ul>
+<li>RSA is public key</li>
+<li>No meeting between Alice and Bob is necessary</li>
+<li>e(.) is publicly available, Alice can use it to digitally lock her message</li>
+<li>Only Bob knows the digital key d(.) to quickly unlock e(.)</li>
+<li>Both Alice and Bob need only perform simple calculations to lock and unlock messages</li>
+<li>However, unlocking the message without the key should exceed the capability of all supercomputers combined</li>
+<li>This enables secure Web-commerce, i.e. sending encrypted Credit Card numbers over the Internet</li>
+</ul>
+<hr>
+<p>Private-key schemes: one time pad and AES<br>
+x: message, e(x) encrypted message<br>
+In order to decode e(x), it must be an invertible function. It must be a <strong>bijection</strong>.<br>
+The inverse of e(x) is d(x), i.e. d(x) = e^(-1)(x)</p>
+<p><strong>One-time Pad</strong>:<br>
+Alice and Bob secretly agree on binary string r with |r| = |x| = n. x is the secret string to be sent by Alice later.<br>
+Alice's encryption function is:<br>
+<img src="Photo%20Jan%2021,%202020%20at%2041102%20PM.jpg" alt="" loading="lazy"></p>
+<ul>
+<li>e_r is a bijection from n-bit strings to n-bit strings (<strong>HW</strong>: verify this)</li>
+<li>e_r = e_r^(-1) (e_r is its own inverse) - please verify</li>
+<li>e_r ( e_r(x) ) = (x ⊕ r) ⊕ r = x ⊕ 0 = x</li>
+</ul>
+<p>Bob can use e_r(x) to decode message. For r to be secure, chose r at random (coin flipping each bit). Eve intercepts y = e_(x), she gets no information about x, since all possibilities for x are equally likely.</p>
+<p>Downsides of &quot;One-time Pad&quot;</p>
+<ul>
+<li>Authentication of Alice</li>
+<li>Meeting for key exchange</li>
+<li>|r| = |x| key length is terrible</li>
+<li>Needs to be discarded after each use</li>
+</ul>
+</p>
+
+     <p class="md_block">
+    
+</p> 
+</div>
+
+</div>
+
+
+
+<link href="https://jenkinsxu.github.io/styles/main.css" type="text/css" rel="stylesheet"/>
+
+<div class="doc_comments">
+
+</div>
+
+
+
+  </div>
+</div>
+
+
+
+      </div>
+
+
+
+
+    </div>
+
+   <div class="footer">
+<link href="https://jenkinsxu.github.io/styles/main.css" type="text/css" rel="stylesheet"/><div class="site_footer_wrap"><div class="site_footer">
+
+      <div class="mysocials"><div class="my_socials">
+		   
+			   
+    
+			   
+    
+			   
+    
+			   
+    
+</div><link href="https://jenkinsxu.github.io/styles/main.css" type="text/css" rel="stylesheet"/>
+
+      </div>
+
+      <div class="copyright">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+<div>Icons made by <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">Eucalyp</a> from <a href="https://www.flaticon.com/"             title="Flaticon">www.flaticon.com</a></div>
+      </div>
+
+</div></div>
+
+    </div>
+
+
+<style type="text/css">a.back_to_top {
+    text-decoration: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    background: #f0f0f0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 36px;
+    font-size: 18px;
+    text-align: center;
+    transition-duration: .5s;
+    transition-propety: background-color;
+    display: none;
+}
+
+a.back_to_top span {
+    color: #888;
+}
+
+a.back_to_top:hover {
+    cursor: pointer;
+    background: #dfdfdf;
+}
+
+a.back_to_top:hover span {
+    color: #555;
+}
+
+@media print, screen and (max-width: 580px) {
+    .back_to_top {
+        display: none !important;
+    }
+}
+
+
+
+</style><a id="back_to_top" href="#" class="back_to_top"><span>△</span>
+</a>
+<script type="text/javascript" src="https://jenkinsxu.github.io/media/scripts/jquery.js"></script>
+
+<script>$(document).ready((function(_this) {
+  return function() {
+    var bt;
+    bt = $('#back_to_top');
+    if ($(document).width() > 480) {
+      $(window).scroll(function() {
+        var st;
+        st = $(window).scrollTop();
+        if (st > 30) {
+          return bt.css('display', 'block');
+        } else {
+          return bt.css('display', 'none');
+        }
+      });
+      return bt.click(function() {
+        $('body,html').animate({
+          scrollTop: 0
+        }, 800);
+        return false;
+      });
+    }
+  };
+})(this));
+</script>
+
+</body>
+
+</html>
