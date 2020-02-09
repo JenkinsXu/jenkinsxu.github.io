@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jenkinsxu.github.io</id>
     <title>Jenkins&apos; Secret Base</title>
-    <updated>2020-01-28T18:45:39.167Z</updated>
+    <updated>2020-02-09T22:52:39.802Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jenkinsxu.github.io"/>
     <link rel="self" href="https://jenkinsxu.github.io/atom.xml"/>
@@ -12,6 +12,598 @@
     <logo>https://jenkinsxu.github.io/images/avatar.png</logo>
     <icon>https://jenkinsxu.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Jenkins&apos; Secret Base</rights>
+    <entry>
+        <title type="html"><![CDATA[Java for C++ Programmer]]></title>
+        <id>https://jenkinsxu.github.io/post/java-for-c-programmer</id>
+        <link href="https://jenkinsxu.github.io/post/java-for-c-programmer">
+        </link>
+        <updated>2020-02-09T06:52:21.000Z</updated>
+        <content type="html"><![CDATA[<hr>
+<h1 id="class-and-interface">Class and Interface</h1>
+<h2 id="classes">Classes</h2>
+<p>Use the  <code>final</code>      keyword to prevent class inheritance.<br>
+Use the  <code>extends</code>  keyword to achieve class inheritance.</p>
+<pre><code class="language-java">// Can have nested classes, but no more than one full class in  a file
+public class Vehicle {
+	protected String brand = &quot;Ford&quot;;
+	public void honk() {
+    System.out.println(&quot;Tuut, tuut!&quot;);
+  }
+	// arug is from terminal input
+	// static: excuse it without instantiating the object
+	// no linking errors when multiple main()'s in classes
+	public static void main(String[] arug) {
+		System.out.println(&quot;Hello, world.&quot;);
+	}
+}
+class Car extends Vehicle {
+  private String modelName = &quot;Mustang&quot;;
+  public static void main(String[] args) {
+    Car myCar = new Car();
+    myCar.honk();
+    System.out.println(myCar.brand + &quot; &quot; + myCar.modelName);
+  }
+}
+</code></pre>
+<h2 id="interface-empty-bodies">Interface (&quot;empty bodies&quot;)</h2>
+<p>A class that implement interface must implement all the methods declared in the interface. A class can implement more than one interface.</p>
+<p>If a class implements an interface and does not provide method bodies for <strong>all functions</strong> specified in the interface, then the class must be declared <strong>abstract</strong>.</p>
+<p>Abstract classes may contain non-final variables.</p>
+<p>All the <strong>methods</strong> in an interface are declared with an empty body and <strong>are public</strong> and all <strong>fields are public, static and final</strong> by default.</p>
+<pre><code class="language-java">interface Animal {
+	final int id = 10;
+	void animalSound();
+	default void display() {
+		System.out.println(&quot;Hello!&quot;); 
+	}
+}
+
+class Pig implements Animal {
+	// public method
+	public void animalSound() {
+		System.out.println(&quot;wee wee&quot;);
+	}
+	public static void main (String args[]) {
+		// public and static field
+		System.out.println(id); 
+		
+		Pig test = new Pig();
+		test.displau();
+	}
+}
+</code></pre>
+<h2 id="generic-classes">Generic Classes</h2>
+<p>Use <code>&lt;T&gt;</code> after the class name to create a generic class.</p>
+<pre><code class="language-java">public class GenericsType&lt;T&gt; {
+	private T t;
+	public T get(){
+		return this.t;
+	}
+	public void set(T t1){
+		this.t=t1;
+	}
+	public static void main(String args[]){
+	}
+}
+</code></pre>
+<h2 id="static">Static</h2>
+<ul>
+<li>Static methods / class methods</li>
+<li>Static field / class data
+<ul>
+<li>Often used for constant <code>public static final int DAYS_WEEK = 7</code></li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-java">public class StaticFun {
+	public static final int TARGET_NUM_HATS = 10;
+	private static int countNumMade = 0;
+	private int favNum = 0;
+
+	public static void main(String[] args) {
+		changeFavNum(42); // ⚠️ non-static function misused
+		displayInfo(); 
+		favNum = 10; // ⚠️ non-static field
+		countNumMade = 9;
+	}
+	private void changeFavNum(int i) {
+		favNum = TARGET_NUM_HATS + i;
+		displayInfo();
+	}
+	private static void displayInfo() {
+		System.out.println(&quot;TARGET_NUM_HATS: &quot; + TARGET_NUM_HATS);
+		System.out.println(&quot;countNumMade: &quot; + countNumMade);
+		System.out.println(&quot;favNum: &quot; + favNum);
+	}
+}
+</code></pre>
+<h2 id="static-factory-method">Static Factory Method</h2>
+<p>A static method which creates an object is called the static factory method. It is more flexible than constructors and it can be given a descriptive name.</p>
+<p>Static Factory Method can be used to solve omitting parameter problems. (Overriding does not help when trying to omit the first parameter. )</p>
+<pre><code class="language-java">public static makePizzaFromFile (File file) {
+	// Open file and read in values
+	// Create new Pizza object
+	// Return the Pizza
+}
+</code></pre>
+<h2 id="anonymous-classes-object">Anonymous Classes / Object</h2>
+<p>Instance of an unnamed class which is defined on the fly. Useful when you need a short custom class to use just once. For example:</p>
+<ul>
+<li>Custom sorting</li>
+<li>Filtering files in a list</li>
+</ul>
+<h3 id="anonymous-class">Anonymous Class</h3>
+<pre><code class="language-java">FileFilter filter = new FileFilter() { // ⚠️ () is necessary
+	@Override
+	public boolean accept(File file) {
+		return file.getName().endsWith(&quot;.txt&quot;);
+	}
+}; // ⚠️ ; is necessary
+File[] fileList = folder.listFiles(filter);
+</code></pre>
+<h3 id="anonymous-object">Anonymous Object</h3>
+<pre><code class="language-java">File[] fileList = folder.listFiles(new FileFilter(){
+	@Override
+	public boolean accept(File file) {
+		return file.getName().endsWith(&quot;.txt&quot;);
+	}
+});
+</code></pre>
+<hr>
+<h1 id="ide-configurations">IDE Configurations</h1>
+<h2 id="shortcuts-intelli-j">Shortcuts - Intelli J</h2>
+<ul>
+<li>To run a program for the first time: <strong>Control-Option-R</strong></li>
+<li>To run a program the second or more time: <strong>Control-R</strong></li>
+<li>Refactoring: <strong>Control-Option-V</strong></li>
+<li>Quick Fixes: <strong>Option-Enter</strong></li>
+<li>To check required arguments: <strong>Control-P</strong></li>
+<li>Generate a constructor_setter_getter: <strong>Alt-Insert</strong></li>
+<li>Gets to where a class is defined: <strong>Option-Click</strong></li>
+<li>Assisted correction: <strong>Alt-Enter</strong></li>
+<li>Duplicate line: <strong>Control-D</strong></li>
+<li>Move a line: <strong>Control-Shift-Up/Down</strong></li>
+<li>System.out.println(): <strong>“sout”-Enter</strong></li>
+</ul>
+<h2 id="generating-jar-files-and-using-command-lines">Generating .jar files and using command lines*</h2>
+<hr>
+<h1 id="java-language-features">Java Language Features</h1>
+<h2 id="garbage-collection-and-multiple-object-reference">Garbage Collection and Multiple Object Reference</h2>
+<p>An object is said to be eligible for GC (garbage collection) iff it is <strong>unreachable</strong>. An object is said to be unreachable iff it doesn’t contain any reference to it.</p>
+<pre><code class="language-java">Integer i = new Integer(4);
+// the new Integer object is reachable  via the reference in 'i' 
+i = null;
+// the Integer object is no longer reachable. 
+
+GreetingsSelf phoneMsg = new GreetingsSelf(&quot;Einstein&quot;); 
+// Use the new keyword when an object is being explicitly created for the first time. Java has only dynamic objects. 
+// If the new keyword is not used, it will copy a reference to the same object. 
+GreetingsSelf emailMsg = phoneMsg;
+emailMsg.setName(&quot;Albert&quot;); // Both are set to &quot;Albert&quot;
+</code></pre>
+<h2 id="dependency-injection">Dependency Injection</h2>
+<p>Transferring the task of creating the object to someone else and directly using the dependency is called <strong>dependency injection</strong>.</p>
+<p>Ideally Java classes should be as independent as possible from other Java classes. This <strong>increases the possibility of reusing</strong> these classes and to be able to <strong>test them independently from other classes</strong>.</p>
+<p>If the Java class <strong>creates an instance of another class via the new operator</strong>, it cannot be used (and tested) independently from this class and this is called a <strong>hard dependency</strong>.</p>
+<pre><code class="language-java">public class MyClass {
+    private Logger logger;
+    public MyClass(Logger logger) {
+        this.logger = logger;
+        logger.info(&quot;This is a log message.&quot;);
+    }
+}
+</code></pre>
+<h3 id="three-types-of-dependency-injection">Three Types of Dependency Injection</h3>
+<ol>
+<li>Constructor Injection</li>
+<li>Setter Injection</li>
+<li>Interface Injection</li>
+</ol>
+<h2 id="pass-by-value-copy">Pass by Value (copy)</h2>
+<p>Java uses pass by value.</p>
+<ul>
+<li>Passing a primitive type passes its value.</li>
+<li>Passing an object passes (by value) a reference to the object</li>
+</ul>
+<p>This means:</p>
+<ul>
+<li>When passed a primitive type, changes inside a method have no effect outside the method.</li>
+<li>When passed an object, you can modify its state.</li>
+<li>You cannot change which object the passed parameter points to.</li>
+</ul>
+<pre><code class="language-java">void changeWhichPizza(Pizza pizza) {
+	pizza = new pizza(10); // the original value is not changed, only the copy that used in this function changed
+}
+</code></pre>
+<h2 id="sorting">Sorting</h2>
+<p>Java has built-in sorting for collection: arrays, ArrayList etc., and the original list will be mutated (copy, sort, copy):<br>
+<code>java.util.Collections.sort(myCars);</code></p>
+<h3 id="comparable-interface">Comparable Interface</h3>
+<p>Elements in the collection must implement the <code>Comparable</code> (generic) interface. The <code>Comparable</code> interface defines the natural order.</p>
+<pre><code class="language-java">class Pen implements Comparable&lt;Pen&gt; {
+	String colour;
+	int filled;
+
+	@Override
+	public int compareTo (Pen other) {
+		// Strings are comparable
+		return colour.compareTo(other.colour); 
+	}
+}
+</code></pre>
+<h3 id="comparator-interface">Comparator Interface</h3>
+<p><code>Comparator</code> is used for multiple sort orders in <code>java.util.Collections.sort(list, new PenSortByFilled())</code>.</p>
+<ul>
+<li>Returns negative integer for	<code>o1 &lt; o2</code></li>
+<li>Returns zero integer for		<code>o1 == o2</code></li>
+<li>Returns positive integer for	<code>o1 &gt; o2</code></li>
+</ul>
+<pre><code class="language-java">public static void main (String[] args) {
+	...
+	Collections.sort(list, new Comparator(){
+		@Override
+		public int compare (Pen o1, Pen 02) {
+			return 01.getFilled() - o2.getFilled();
+		}
+	};)
+}
+</code></pre>
+<p>Encapsulating an algorithm into a class is called &quot;<strong>Strategy Pattern</strong>&quot;. The algorithm can change without changing the general function itself.</p>
+<hr>
+<h1 id="input-and-output">Input and Output</h1>
+<h2 id="formatted-printing">Formatted Printing</h2>
+<h3 id="common-conversion-specifiers">Common Conversion Specifiers</h3>
+<p><code>%d</code> - decimal (int)<br>
+<code>%x</code> - hexadecimal<br>
+<code>%f</code> - float<br>
+<code>%s</code> - String<br>
+<code>%b</code> - boolean<br>
+<code>%n</code> - new line (\n)</p>
+<h3 id="formatting-floats-and-columns">Formatting Floats and Columns</h3>
+<p><code>%.2f</code> - Round to 2 decimal-point places<br>
+<code>%5d</code> <code>%5.2f</code> - Use at least 5 columns (formatted from right margin)<br>
+<code>%,d</code> <code>%,10.2f</code> - Print with comma groupings</p>
+<h2 id="user-input">User Input</h2>
+<p>Java does garbage collection on unused objects, but some objects hold resources. For example, <strong>File, network socket ad input stream</strong>. These objects must be explicitly closed or users will suffer a <strong>resource leak</strong>. However, Scanners created from <code>System.in</code> need not to be closed since it is provided by the OS.</p>
+<pre><code class="language-java">import java.util.Scanner;  // Import the Scanner class
+
+class MyClass {
+  public static void main(String[] args) {
+    Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+    System.out.println(&quot;Enter username&quot;);
+
+    String userName = myObj.nextLine();  // Read user input
+    System.out.println(&quot;Username is: &quot; + userName);  // Output user input
+  }
+}
+</code></pre>
+<h3 id="inputmismatchexception">InputMismatchException</h3>
+<pre><code class="language-java">int diameter = 0;
+
+// 1. Using try-catch statements
+try {
+	diameter = scanner.nextInt();
+} catch (InputMismatchException ex) {
+	System.out.println(&quot;Int only!&quot;);
+}
+
+// 2. Using .hasNextInt()
+if (scanner.hasNextInt()) {
+	diameter = scanner.nextInt();
+} else {
+	System.out.println(&quot;Int only!&quot;);
+}
+</code></pre>
+<h2 id="file-methods">File Methods</h2>
+<p><code>file.getAbsolutePath()</code>	- Get the path<br>
+<code>file.exist()</code>				- Does the file exist<br>
+<code>file.length()</code>				- Get it's size in bytes<br>
+<code>file.isDirectory()</code>		- Is is a directory<br>
+<code>file.listFiles()</code>			- Get all files in the folder<br>
+<code>file.listFiles(FileFilter filter)</code></p>
+<h3 id="filefilter-interface">FileFilter Interface</h3>
+<p>Write a method it can call to ask us for each file if we want to accept it.</p>
+<p>Without using anonymous classes:</p>
+<pre><code class="language-java">// A trivial class
+public class TextFilter implements FileFilter {
+	@Override
+	public boolean accept(File file) {
+		return file.getName().endWith(&quot;.txt&quot;);
+	}
+}
+
+// Code to interface
+FileFilter filter = new TextFilter();
+</code></pre>
+<h2 id="text-files">Text Files</h2>
+<h3 id="opening-files">Opening files:</h3>
+<p>Construction: <code>File(filePath)</code><br>
+Package: <code>java.io.File</code></p>
+<h3 id="reading-files">Reading files</h3>
+<p>Construction: <code>Scanner(File)</code><br>
+Methods: <code>.hasNextInt(), .nextInt()</code><br>
+Package: <code>java.util.Scanner</code><br>
+Needs to be closed manually.</p>
+<h3 id="writing-files">Writing files</h3>
+<p>Construction: <code>PrintWriter(File)</code><br>
+Package: <code>java.io.PrintWriter</code><br>
+Methods: <code>.println(), .close(), .flush()</code><br>
+PrintWriter for the screen:<br>
+<code>PrintWriter myWriter = new PrintWriter(System.out);</code></p>
+<h3 id="exception">Exception</h3>
+<p>Exception type:  <code>FileNotFoundException</code></p>
+<pre><code class="language-java">File sourceFile = new File(&quot;C:/dos/run/test.txt&quot;);
+try {
+	Scanner scanner = new Scanner(sourceFile);
+	while (scanner.hasNextLine()) {
+		String text = scanner.nextLine();
+		System.out.println(&quot;Read:&quot; + text); 
+	}
+	scanner.close();
+} catch (FileNotFoundException e) {
+	e.printStackTrace();
+}
+</code></pre>
+<hr>
+<h1 id="data-types-and-built-in-classes">Data Types and Built-in Classes</h1>
+<h2 id="mutability">Mutability</h2>
+<pre><code class="language-java">String msg = &quot;H&quot;;
+msg = msg + &quot;i&quot;;
+msg += &quot;!&quot;;
+// created 3 strings, first 2 for garbage collection
+</code></pre>
+<p>Java does not support overloaded operators in general, except for + and += on the String class.</p>
+<h2 id="strings">Strings</h2>
+<p>Strings are stored in Unicode: 2 bytes (16 bits) per character.</p>
+<h3 id="indexing">Indexing</h3>
+<p><code>char first = msg.charAt(0);</code></p>
+<h3 id="methods-on-string">Methods on String</h3>
+<pre><code>* `.length()`
+* `.contains(...)`
+* `.endsWith(...)`
+* `.isEmpty()`
+* `.replace(...)`
+* `.split(...)`
+* `.toLowerCase()`
+* `.trim()`
+* Since Strings are immutable (cannot be changed after being created), all methods return a new String. Values need to be caught. 
+</code></pre>
+<h3 id="comparing-strings">Comparing Strings</h3>
+<p><code>password.equals(&quot;12345&quot;)</code><br>
+<code>==</code>  will compares the reference.</p>
+<h3 id="read-values-from-strings">Read values from strings</h3>
+<pre><code class="language-java">String myInput = &quot;42&quot;;
+int theValue = Integer.parseInt(myInput);
+</code></pre>
+<pre><code>* `Double.parseDouble(...)`
+* `Boolean.parseBoolean(...)`
+* `Long.parseLong(...)`
+* NumberFormatException
+	* `int oops = Integer.parseInt(&quot;Oops&quot;);`
+</code></pre>
+<h3 id="string-literals">String Literals</h3>
+<p><strong>String literals</strong> are of the string class.<br>
+<code>int length = &quot;Hello&quot;.length();</code></p>
+<h2 id="date-javautildate">Date (java.util.Date)</h2>
+<p><code>Date.toString()</code> -&gt; <code>Thu Jan 16 13:49:46 PST 2020</code></p>
+<h2 id="the-math-class-static">The Math class (static)</h2>
+<ul>
+<li>.sqrt()</li>
+<li>.ceil()</li>
+<li>.pow()</li>
+<li>.PI</li>
+</ul>
+<h2 id="type-casting">Type Casting</h2>
+<p><code>(double)weightInG</code></p>
+<h2 id="type-conversion-3">Type Conversion (3)</h2>
+<h3 id="type-promotion-converting-from-a-smaller-type-to-a-larger-one">Type Promotion: Converting from a smaller type to a larger one.</h3>
+<p>Automatic Type Promotion:</p>
+<pre><code class="language-java">class Test 
+{ 
+    public static void main(String[] args) 
+    { 
+        int i = 100;
+        // automatic type conversion 
+        long l = i;  
+        // automatic type conversion 
+        float f = l;  
+        System.out.println(&quot;Int value &quot;+i); // 100
+        System.out.println(&quot;Long value &quot;+l); // 100
+        System.out.println(&quot;Float value &quot;+f); // 100.0
+    } 
+} 
+</code></pre>
+<h3 id="type-demotion">Type Demotion</h3>
+<pre><code class="language-java">int height = (int) 10.99;
+float length = (float) 12.0; // by default it uses double
+</code></pre>
+<h3 id="constants">Constants</h3>
+<p><code>final int MAX_LENGTH = 100;</code></p>
+<hr>
+<h1 id="collections-type">Collections Type</h1>
+<h2 id="list-and-arraylist">List and ArrayList</h2>
+<p>Collections only store <strong>objects</strong>, not primitive type (store as of <strong>wrapper</strong> classes instead).<br>
+* <code>Integer</code>, <code>Long</code>, <code>Double</code>, <code>Character</code></p>
+<pre><code class="language-java">values.add(new Double(6));
+values.add(new Double(4));
+values.add(4); // auto boxing 
+java.util.Collections.shuffle(values);
+</code></pre>
+<pre><code class="language-java">// null reference
+ArrayList&lt;Door&gt; doors1;
+// Type inference
+ArrayList&lt;Door&gt; doors2 = new ArrayList&lt;&gt;();
+// Using polymorphism to simplify code
+// ArrayList implements the List interface and is backed by an array (fast), and dynamically resize
+//--------------------------------------------------------
+// CODE TO INTERFACE
+//--------------------------------------------------------
+// Code to interface makes the code more flexible (can change to LinkedList easily)
+List&lt;Door&gt; doors = ArrayList&lt;&gt;(); 
+
+// appending
+doors.add(new Door(true, 1000));
+heavyDoors.add(door); // taking your reference to one door (the same object)
+// indexing for lists
+doors.get(0);
+doors.get(doors.size() - 1);
+// if the list is empty
+doors.isEmpty();
+</code></pre>
+<h2 id="arrays">Arrays</h2>
+<pre><code class="language-java">// Fixed size
+int[] ages = new int[10];
+int size = ages.length;
+// Throws exception
+int oops = size ages[size];
+</code></pre>
+<hr>
+<h1 id="control-flow">Control Flow</h1>
+<h2 id="enhanced-for-loop">Enhanced for loop</h2>
+<p>Can help avoid <strong>indexOutOfBound</strong> (Java will throws an exception).</p>
+<pre><code class="language-java">// implement the Iterable&lt;&gt; interface
+public class DoorManager implements Iterable&lt;Door&gt; {
+	//Type inference
+	private List&lt;Door&gt; doors = new ArrayList&lt;&gt;(); 
+
+	public void add(Door door){
+		doors.add(door);
+	}
+	// Class 'DoorManager' must either be declared abstract or implemented abstract method 'iterator()' in 'Iterable'
+	public iterator&lt;Door&gt; iterator(){
+		return this.doors.iterator();
+		// Lists of Door return iterator of Door
+	}
+}
+
+// Prerequisite: iterable 
+for (Door door : doors) {
+	System.out.println(&quot;Door = &quot; + door);
+}
+</code></pre>
+<h2 id="switch-statement">Switch Statement</h2>
+<pre><code class="language-java">switch(choice) {
+	case 1:
+		System.out.println(&quot;You entered a one!&quot;);
+		System.out.println(&quot;Thank you!&quot;);
+	case 2:
+		System.out.println(&quot;You entered a two!&quot;);
+		System.out.println(&quot;Amazing!&quot;);
+	case 3:
+		System.out.println(&quot;You entered a three!&quot;);
+		System.out.println(&quot;Good!&quot;);
+	default:
+		System.out.println(&quot;You entered a number!&quot;);
+		System.out.println(&quot;lol!&quot;);
+}
+</code></pre>
+<hr>
+<h1 id="coding-style">Coding Style</h1>
+<h2 id="the-one-name-principle">The One Name Principle</h2>
+<p>Use the <strong>this</strong> keyword to reference the current object for clarity. Java will do auto dereference when an object is not needed.<br>
+Name field and constructor parameters the same.</p>
+<h2 id="classes-and-visibility">Classes and Visibility</h2>
+<ul>
+<li>All <strong>fields</strong> (instance data) are set to <strong>private</strong>. Public methods can call private methods.</li>
+<li>If you want something to be unchangeable, you may provide no setters to prevent invalid data.
+<ul>
+<li>Easier for maintainance</li>
+</ul>
+</li>
+<li>Using constant when applicable (the <strong>final</strong> keyword, UPPERCASE)
+<ul>
+<li>Final Variable -&gt; To create constant variables</li>
+<li>Final Methods -&gt; Prevent Method Overriding</li>
+<li>Final Classes -&gt; Prevent Inheritance</li>
+</ul>
+</li>
+<li>Use the <strong>static</strong> keyword <strong>only when sharing is intended</strong></li>
+<li><code>/src/main/java/…</code></li>
+<li>Return a string instead of printing it to console directly.</li>
+<li>Primitive Types are not objects. Everything else is an object reference.</li>
+</ul>
+<h2 id="javadoc-documentation">JavaDoc (Documentation)</h2>
+<p>Used for classes (the purpose of a class etc.) and sometimes for API methods. Don't comment functions / methods, instead, use better naming.</p>
+<pre><code class="language-java">/**
+	* @author
+	* @param a Length of the first side; must be &gt;= 0. 
+	*/
+</code></pre>
+<h2 id="package-model-view">Package &amp; Model-View</h2>
+<ul>
+<li>Create a package: <strong>src / main / java -&gt; new -&gt; Package</strong></li>
+<li>Example naming: <code>ca.doordemo.model</code></li>
+<li>Package is a group of classes that's related to each other. On top of each class within a package, there will be a statement similar to <code>package ca.doordemo.model</code> claiming that the class belongs to which package.</li>
+<li>Do not use any <code>System.out.println()</code> in model to increase reusability. (On some platform <code>System.out.println()</code> has no meaning. )</li>
+</ul>
+<pre><code class="language-java">import ca.doordemo.model.DoorManager;
+import ca.doordemo.ui.DoorTextUI;
+
+public class Main {
+	// Create model
+	DoorManager manager = new DoorManager();
+	
+	// Create UI
+	DoorTextUI ui = new DoorTextUI(Manager);
+
+	// Launch
+	ui.show();
+}
+</code></pre>
+<hr>
+<h1 id="others">Others</h1>
+<ul>
+<li><code>boolean</code> is set to false by default.</li>
+<li>Providing constructors will delete the default constructor set up by Java</li>
+<li><strong>Concatenating</strong> a string and an instance will automatically call the .toString() method.</li>
+<li>Everything in Java is a reference, every class is a subclass of the Object class.</li>
+<li>println -&gt; prints with <strong>linefeed</strong></li>
+<li>char -&gt; Unicode</li>
+<li>boolean has only true or false to prevent the &quot;==&quot; mistyping issues.</li>
+<li>Divide by 0.0 -&gt; Infinity</li>
+</ul>
+<hr>
+<h1 id="exceptions-debugging">Exceptions &amp; Debugging</h1>
+<h2 id="exceptions">Exceptions</h2>
+<p>Catch the error so that we don't have to shut down the whole program.</p>
+<pre><code class="language-java">import java.util.*; // importing everything
+
+public class sample {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		int x = 1;
+
+		do{
+			try{
+				System.out.println(&quot;Enter first num: &quot;);
+				int n1 = input.nextInt();
+				System.out.println(&quot;Enter second num: &quot;);
+				int n2 = input.nextInt();
+				// where the error might occur
+				int sum = n1 / n2; 
+				System.out.println(sum);
+				// runs successfully only without errors
+				x = 2; 
+			} catch (Exception e) { // any error
+				System.out.println(&quot;You can't do this. &quot;);
+			}
+		} while(x == 1);
+	}
+}
+</code></pre>
+<p>Another sample:<br>
+<code>throw new RuntimeException(&quot;Busted!&quot;)</code></p>
+<h2 id="tostring">.toString()</h2>
+<p>All Java objects have a toString() method since all classes inherit from Object. It returns a String object which used for debugging instead of formatted screen / file output.</p>
+<pre><code class="language-java">@Override // To prevent typo
+public String toString() {
+	return getClass.getName() // returns the name of object
+		+ &quot; [daField1 = &quot; + daField1
+		+ &quot;, daField2 = &quot; + daField2 + &quot;]&quot;;
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Summer Internship]]></title>
         <id>https://jenkinsxu.github.io/post/summer-internship</id>
@@ -1281,176 +1873,6 @@ var myFriend = jack
 jack.age += 1
 
 print(jack.age == myFriend.age) // false
-}
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Day 05 - Introduction to UIKit Part 2 ]]></title>
-        <id>https://jenkinsxu.github.io/post/day-05-introduction-to-uikit-part-2</id>
-        <link href="https://jenkinsxu.github.io/post/day-05-introduction-to-uikit-part-2">
-        </link>
-        <updated>2020-01-02T02:23:21.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="22-functions">2.2 Functions</h2>
-<ul>
-<li>A function in Swift can return zero, one or <strong>multiple values</strong>.</li>
-</ul>
-<h3 id="defining-a-function">Defining a Function</h3>
-<pre><code class="language-swift">func functionName (argumentLabel: TypeOfParameter) -&gt; ReturnType {
-	//body of the function
-}
-
-functionName (parameters: value) //calling the function
-</code></pre>
-<h3 id="argument-labels-and-local-names">Argument Labels and Local Names</h3>
-<pre><code class="language-swift">// specify an external name before the local one
-func sayHello(to person: String, and anotherPerson: String) {
-	print(“Hello \(person), and \(anotherPerson)”)
-}
-
-sayHello(to: “Miles”, and: “Riley”)
-</code></pre>
-<h3 id="omitting-the-argument-label">Omitting the Argument Label</h3>
-<pre><code class="language-swift">func sayHello(_ person: String, _anotherPerson: String) {
-	print(“Hello” \(person) and \(anotherPerson))
-}
-
-sayHello(“Miles”, “Riley”)
-</code></pre>
-<h3 id="default-parameter-values">Default Parameter Values</h3>
-<p>You’ll need to place all parameters with default values <strong>at the end of the list</strong>, and these parameters must <strong>all have argument labels</strong>.</p>
-<pre><code class="language-swift">func display(teamName: String, score: Int = 0) {
-	print(“\”(teamName): \(score))
-}
-
-display(teamName: “Wombats”, score: 100) //“Wombats: 100”
-display(teamName: “Wombats”) //“Wombats: 0”
-</code></pre>
-<h2 id="23-structures">2.3 Structures</h2>
-<ul>
-<li>As a general rule, you should use let whenever possible to define an instance of a structure, and use var when defining the properties of a structure (easier for creating new instance from the current ones).</li>
-</ul>
-<h3 id="default-initializer">Default Initializer</h3>
-<pre><code class="language-swift">var string = String.init() // “”
-var integer = Int.init() // 0
-var bool = Bool.init() // false
-
-// Shorthand version
-string = String()
-integer = Int()
-bool = Bool()
-</code></pre>
-<h3 id="different-approaches-to-initializing-property-values">Different Approaches to Initializing Property Values</h3>
-<ol>
-<li><strong>Default Values</strong></li>
-</ol>
-<pre><code class="language-swift">struct Odometer {
-	var count: Int = 0
-}
-</code></pre>
-<ol start="2">
-<li><strong>Member-wise Initializer</strong><br>
-Member-wise initializers are the correct approach when there’s not a default state for new instance of your type.</li>
-</ol>
-<pre><code class="language-swift">struct Person {
-	var name: String
-}
-
-let person = Person(name: “Michelle”) // Member-wise initializer
-</code></pre>
-<ol start="3">
-<li><strong>Custom Initializers</strong><br>
-For the times when you want to define an initializer that completes some custom logic before assigning all of the properties.<br>
-Custom initializers have the same requirement as default and member-wise initializers: All properties must be set to initial values before completing initialization.</li>
-</ol>
-<pre><code class="language-swift">struct Temperature {
-	var celsius: Double
-	
-	init(celsius: Double) {
-		self.celsius = celsius
-	}
-
-	// When you add a custom initializer to a type definition, you must define your own member-wise initializer; Swift no longer provides one for you. 
-
-	init(fahrenheit: Double) {
-		celsius = (fahrenheit - 32) / 1.8
-	}
-}
-
-let boiling = Temperature(fahrenheit: 212.0)
-</code></pre>
-<h3 id="mutating-methods">Mutating Methods</h3>
-<p>Occasionally you’ll want to update the property values of a structure within an instance method. To do so you’ll need to add the mutating keyword.</p>
-<pre><code class="language-swift">struct Odometer {
-	var count: Int = 0
-
-	mutating func increment() {
-		count += 1
-	}
-
-	mutating func increment(by amount: Int) {
-		count += amount
-	}
-}
-</code></pre>
-<h3 id="computed-properties">Computed Properties</h3>
-<p>With computed properties, you can create properties that can compute their value based on other instance properties or logic. You must also explicitly declare the type.</p>
-<pre><code class="language-swift">struct Temperature {
-	var celsius: Double
-
-	var fahrenheit: Double {
-		return celsius * 1.8 + 32
-	}
-
-	var kelvin: Double {
-		return celsius + 273.15
-	
-}
-
-// The logic contained in a computed property will be executed each time the property is accessed, so the returned value will always bt up to date. 
-</code></pre>
-<h3 id="property-observers">Property Observers</h3>
-<p>Property observers are called every time a property’s value is set.<br>
-There are two observer closures, or blocks of code, that you can define on any given property: willSet, and didSet.<br>
-Whenever the variable is modified, <strong>willSet will be called first</strong>, and you’ll have access to the new value that will be set to the property value in a constant named <strong>newValue</strong>.<br>
-After the property’s value has been updated, <strong>didSe</strong>t will be called, and you can access the previous property value using <strong>oldValue</strong>.</p>
-<pre><code class="language-swift">struct StepCounter {
-	var totalSteps: Int = 0 {
-		willSet {
-			print(“About to set totalSteps to \(newValue)”)
-		}
-		didSet {
-			if totalStep &gt; oldStep {
-				print(“Added \(totalSteps - OldValue) steps”)
-			}
-		}
-	}
-}
-</code></pre>
-<h3 id="type-properties-and-methods-different-from-instance-methods">Type Properties and Methods (Different from Instance Methods)</h3>
-<p>Type properties are useful when a property is related to the type, but not a characteristic of an instance itself.</p>
-<pre><code class="language-swift">struct Temperature {
-	static var boilingPoint = 100
-}
-
-let boilingPoint = Temperature.boilingPoint
-</code></pre>
-<p>The Double structure, defined in the Swift Standard Library, contains a static method called minimum that returns the smaller of its two parameters.</p>
-<pre><code class="language-swift">let smallerNumber = Double.minimum(100.0, -1000.0)
-</code></pre>
-<h3 id="deep-copying">(Deep) Copying</h3>
-<p>If you assign a structure to a variable or pass an instance as a parameter into a function, the values are copied. (Changing one value doesn’t change the other. )</p>
-<h3 id="self">Self</h3>
-<p>In Swift, <strong>self</strong> refers to the <strong>current instance</strong> of the object.</p>
-<pre><code class="language-swift">self.color
-</code></pre>
-<p>The Swift compiler recognizes when property or method names exist on the current object, and makes using self optional.<br>
-The use of self is required within initializers that have parameter names that match property names (<strong>shadowing</strong>).</p>
-<pre><code class="language-swift">struct Temperature {
-	var celsius: Double
-	init(celsius: Double) {
-		self.celsius = celsius
-	}
 }
 </code></pre>
 ]]></content>
