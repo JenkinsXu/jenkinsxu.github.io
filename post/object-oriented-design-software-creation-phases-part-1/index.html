@@ -1,0 +1,449 @@
+
+<html>
+  <head lang="zh">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+        <meta content="yes" name="apple-mobile-web-app-capable"/>
+        <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+        <meta content="telephone=no" name="format-detection"/>
+        <meta name="renderer" content="webkit">
+    <title>Object Oriented Design - Software Creation Phases - Part 1 | Jenkins&#39; Secret Base</title>
+<link href="https://jenkinsxu.github.io/styles/main.css" type="text/css" rel="stylesheet"/>
+<script type="text/javascript" src="https://jenkinsxu.github.io/media/scripts/jquery.js"></script>
+<script type="text/javascript" src="https://jenkinsxu.github.io/media/scripts/basic.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  </head>
+
+  <body>
+     <div class="header">
+      <div class="logo_title">
+		  
+        <div class="title animated fadeInDown"><img src="https://jenkinsxu.github.io/images/avatar.png?v=1584396855628"/>
+
+          <h1 title="Jenkins&#39; Secret Base" class="weaklink"><a href="/">Jenkins&#39; Secret Base</a>
+
+          </h1>
+
+          <div class="navbar weaklink">
+            <div class="normal_nav">
+
+<div class="bitcron_nav_container">
+
+
+  <div class="bitcron_nav">
+    <div class="mixed_site_nav_wrap site_nav_wrap">
+		
+      <ul class="mixed_site_nav site_nav sm sm-base">
+ 
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/" class="selected active current nav__item" >Home</a>
+
+  </li>
+ 
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/tags" class="selected active current nav__item" >Tags</a>
+
+  </li>
+ 
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/post/about" class="selected active current nav__item" >About</a>
+
+  </li>
+ 
+
+      </ul>
+
+      <div class="clear clear_nav_inline_end"></div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="clear clear_nav_end"></div>
+
+</div>
+
+            </div>
+
+            <div class="hamberger"><i class="fa fa-bars"></i>
+<i class="fa fa-times"></i>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="hidden_nav animated fadeInDown">
+
+<div class="bitcron_nav_container">
+
+
+  <div class="bitcron_nav">
+    <div class="mixed_site_nav_wrap site_nav_wrap">
+      <ul class="mixed_site_nav site_nav sm sm-base">
+		  
+	
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/" class="selected active current nav__item" >Home</a>
+
+  </li>
+
+
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/tags" class="selected active current nav__item" >Tags</a>
+
+  </li>
+
+
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/post/about" class="selected active current nav__item" >About</a>
+
+  </li>
+
+
+
+
+
+      </ul>
+
+      <div class="clear clear_nav_inline_end"></div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="clear clear_nav_end"></div>
+
+</div>
+
+      </div>
+
+    </div>
+
+
+    <div class="main">
+      <div class="main-inner">
+
+
+<div class="content">
+
+
+
+
+
+
+  <div class="post_page" >
+
+<div class="post">
+  <div class="post_title sm_margin">
+    <h2><a>Object Oriented Design - Software Creation Phases - Part 1</a>
+
+
+
+    </h2>
+  </div>
+
+  <div class="post_details">
+    <div class="info"><i class="fa fa-clock-o"></i>
+<span class="date_info">2020-03-16</span>
+<i class="fa fa-eye"></i>
+
+<span class="date_info"><span id="busuanzi_value_page_pv"></span> Views</span>
+
+
+<i class="fa fa-bookmark-o"></i>
+<span class="tags_info weaklink">
+	
+	<a href="https://jenkinsxu.github.io/tag/SJx_LO8XV" class="tag">Java</a>
+
+
+</span>
+
+
+    </div>
+
+  </div>
+
+
+
+
+
+  <div class="post_content markdown"><p class="md_block">
+    <span class="md_line md_line_start md_line_end"><h1 id="terminology">Terminology</h1>
+<p><code>OOD</code>: Object Oriented Design<br>
+<code>OOP</code>: Object Oriented Programming</p>
+<h1 id="software-creation-phases">Software Creation Phases</h1>
+<h2 id="1-requirements-gathering">1. Requirements Gathering</h2>
+<ul>
+<li>The goal of requirements gathering is to create a complete description (a &quot;spec&quot;) of <strong>what</strong> (not how) the software product is to do.</li>
+<li>The product is a 📜<strong>Functional Specification</strong> that completely describe the <strong>task to be performed</strong> (what to do) and states 🧱<strong>constraints on development</strong> (what not to do) and operation.</li>
+</ul>
+<h2 id="2-design-implementation">2. Design &amp; Implementation</h2>
+<h3 id="21-object-oriented-design">2.1 Object Oriented Design</h3>
+<ul>
+<li>The goal of OOD is 🔍<strong>identification</strong> of classes, their 👨‍💼<strong>responsibilities</strong> and 💕<strong>relationships</strong> among them.</li>
+</ul>
+<hr>
+<h3 id="identifying-classes">⭐ Identifying Classes ⭐</h3>
+<p>Given a problem specification, there are 3 possible categories of classes:</p>
+<ol>
+<li>Classes are often <strong>the nouns</strong> while some nouns may be properties of other object. E.g. When <code>customers</code> call to report a <code>product's defect</code>, the <code>user</code> must record: product <code>serial number</code>, the <code>defect description</code>, and <code>defect severity</code>.</li>
+<li><strong>Utility classes</strong>: stacks, queues, trees, etc.</li>
+<li>Other possible classes:</li>
+</ol>
+<ul>
+<li><strong>Agents</strong>: Does a special task. Name often ends in &quot;or&quot; / &quot;er&quot;. Ex. <code>Scanner</code>;</li>
+<li><strong>Events &amp; Transactions</strong>: Ex: <code>MouseEvent</code>, <code>KeyPress</code>;</li>
+<li><strong>Users &amp; Roles</strong>: Model the user. Ex: <code>Administrator</code>, <code>Cashier</code>, <code>Accountant</code>;</li>
+<li><strong>Systems</strong>: Sub system, or the controlling class for a full system;</li>
+<li><strong>System interfaces / devices</strong>: Interact with the OS. Ex: <code>File</code>;</li>
+<li><strong>Foundational Classes</strong>: <code>Date</code>, <code>String</code>, <code>Rectangle</code>...Use these without modelling them.
+<ul>
+<li>Don't over use <code>String</code>. Only use if your data type is nature a string (such as a name). Create classes or enums like <code>Department</code>, <code>Course</code> or <code>Model</code>.
+<ul>
+<li>Strings are problematic to compare and store. (&quot;cmpt213&quot; and &quot;CMPT213&quot;)</li>
+<li>Even if going from string data (ex: text file) to string data (ex: screen output), convert to non-string type internally.<br>
+Poor idea for setting direction:</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-java">// May have other constants
+public const int HORIZONTAL = 0; 
+public const int VERTICAL   = 1; 
+</code></pre>
+<p>Enums are better a type. Incorrect argument type generates error. Therefore using enums converts a logic error into compile time error.</p>
+<pre><code class="language-java">public enum Direction {
+	HORIZONTAL, VERTICAL // Infact constant static instances
+}
+// Compiler enforces correct type checking
+public void printPage(Direction pageDirection);
+// Call it with: 
+printPage(Direction.HORIZONTAL);
+</code></pre>
+<hr>
+<hr>
+<h3 id="identifying-responsibilities">⭐ Identifying Responsibilities ⭐</h3>
+<p>Look for verbs in the problem description. Assign each responsibility to exactly <strong>one</strong> class. Let <code>Main</code> have higher level abstraction.<br>
+There are 2 things to pay attention to:</p>
+<ol>
+<li>Responsibility Heuristic<br>
+Avoid exposing the internals of an object just for access by another (not just a data class).<br>
+Example:<br>
+Task: &quot;Adding a <code>Page</code> to a 3-ring <code>Binder</code>. &quot;<br>
+<code>myPage.addToBinder(daBinder);</code><br>
+Using this method, we must get access inside the <code>Binder</code>.<br>
+<code>daBinder.addPage(myPage);</code><br>
+Using this method, we do not need internal access to the <code>Page</code>.</li>
+<li>Functionality often in the wrong class<br>
+If a method calls methods on another object more than this object, move it to that other class.</li>
+</ol>
+<hr>
+<hr>
+<h3 id="identifying-responsibilities-2">⭐ Identifying Responsibilities ⭐</h3>
+<h3 id="types-of-relations-between-classes">Types of Relations between classes</h3>
+<ul>
+<li><strong>Dependency</strong><br>
+Where a class <strong>&quot;uses&quot;</strong> another class. Two classes are <strong>coupled</strong> if one depends on the other (<strong>coupling</strong>). Coupling makes it harder to change a system because more parts need to change at once, and therefore, one of our design goal is to reduce coupling.<br>
+Ex: Any of our programs using <code>System</code>. <code>return name;</code> has lower coupling than <code>System.our.println(name);</code> (coupled to <code>System</code>).</li>
+<li><strong>Aggregation</strong><br>
+Where a class <strong>“has-a”</strong> object of another class in it, usually through the object's fields. Ex: <code>Car</code> has-an <code>Engine</code>. Aggregation a special case of Dependency: If you &quot;have&quot; an object of a type, you must use &quot;depend&quot; on the corresponding class. Foundational classes (<code>String</code>, <code>Data</code>, ... ) are not usually considered part of aggregation.
+<ul>
+<li><strong>Multiplicity</strong>
+<ul>
+<li>1:0...1</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-java">class Person {
+	private Car myCar;
+}
+</code></pre>
+<pre><code>	* 1:*
+</code></pre>
+<pre><code class="language-java">class Album {
+	private List&lt;Song&gt; songs;
+}
+</code></pre>
+<ul>
+<li><strong>Inheritance</strong><br>
+Where a class <strong>“is-a”</strong> sub-category of another class. Ex: <code>Eagle</code> is-a <code>Bird</code>. Heuristic: Use dependency (or aggregation) over inheritance  when possible.</li>
+</ul>
+<hr>
+<ul>
+<li>The products is a 📈<strong>diagram</strong> of classes and relationships between them or 🗒<strong>text description</strong> of classes.</li>
+</ul>
+<p>The design Process is an <strong>iterative</strong> process of discovery and refinement and it is time consuming, but a good design speeds up implementation.</p>
+<blockquote>
+<p>The sooner you start, the longer it takes.</p>
+</blockquote>
+<p>It is a <strong>wicked problem</strong>. You need a good design to implement the system, but you need to implement the system to know if you have a good design. So it can only be sloppy: we might make many mistakes and mis-steps, but it is cheaper during design than implementation.</p>
+<p>Therefore, OOD is a <strong>heuristic process</strong>:</p>
+<ul>
+<li>We use <strong>rule of thumb</strong>, rather than fixed process.</li>
+<li>We use <strong>trail</strong> to find errors, do analysis and make refinement.</li>
+</ul>
+<hr>
+<h3 id="designing-classes">⭐ Designing Classes ⭐</h3>
+<h3 id="concepts">Concepts:</h3>
+<p><code>Object</code>: A software entity with <strong>state (fields)</strong>, <strong>behaviours (methods)</strong> to operate on the state, and unique <strong>identity (memory address)</strong>.<br>
+<code>State</code>: All information an object stores.<br>
+<code>Behaviour</code>: The methods or operations it supports for using and changing its state. (Not all possible operations supported.)<br>
+<code>Identity</code>: Able to differentiate two identical objects.<br>
+<code>Class</code>: The type of a set of objects with <strong>same behaviours</strong> and set of <strong>possible states</strong>.</p>
+<h3 id="class-naming">Class Naming</h3>
+<p>To name a class we:</p>
+<ul>
+<li>Make class names <strong>singular</strong></li>
+<li>Avoid redundant &quot;object&quot; in names</li>
+</ul>
+<hr>
+<h3 id="22-implementation">2.2 Implementation</h3>
+<ul>
+<li>The goal of implementation is to program, test, and deploy the software product.</li>
+</ul>
+<p>There are two process options:</p>
+<ol>
+<li><strong>Skeleton Code 🦴</strong>: Implement minimal parts / feature of full system first, then flush out code.</li>
+<li><strong>Component Wise 🤖</strong>: Implement one class/component at a time.</li>
+</ol>
+<p>And there are two ways of intergration:</p>
+<ol>
+<li><strong>Continual Integration🚰</strong>: Gradual growth of the system by continually integrating changes.</li>
+<li><strong>Big Bang Integration 🧨</strong>: build parts separately, then assemble at once. [Fraught with peril 😥]</li>
+</ol>
+<h2 id="3-verification">3. Verification</h2>
+<h2 id="4-evolution">4. Evolution</h2>
+<p>Change is inevitable for software. OOD works well with software change because classes represent stable problem domain concepts.</p>
+</p>
+
+     <p class="md_block">
+    
+</p> 
+</div>
+
+</div>
+
+
+
+<link href="https://jenkinsxu.github.io/styles/main.css" type="text/css" rel="stylesheet"/>
+
+<div class="doc_comments">
+
+</div>
+
+
+
+  </div>
+</div>
+
+
+
+      </div>
+
+
+
+
+    </div>
+
+   <div class="footer">
+<link href="https://jenkinsxu.github.io/styles/main.css" type="text/css" rel="stylesheet"/><div class="site_footer_wrap"><div class="site_footer">
+
+      <div class="mysocials"><div class="my_socials">
+		   
+			   
+    
+			   
+    
+			   
+    
+			   
+    
+</div><link href="https://jenkinsxu.github.io/styles/main.css" type="text/css" rel="stylesheet"/>
+
+      </div>
+
+      <div class="copyright">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+<div>Icons made by <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">Eucalyp</a> from <a href="https://www.flaticon.com/"             title="Flaticon">www.flaticon.com</a></div>
+      </div>
+
+</div></div>
+
+    </div>
+
+
+<style type="text/css">a.back_to_top {
+    text-decoration: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    background: #f0f0f0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 36px;
+    font-size: 18px;
+    text-align: center;
+    transition-duration: .5s;
+    transition-propety: background-color;
+    display: none;
+}
+
+a.back_to_top span {
+    color: #888;
+}
+
+a.back_to_top:hover {
+    cursor: pointer;
+    background: #dfdfdf;
+}
+
+a.back_to_top:hover span {
+    color: #555;
+}
+
+@media print, screen and (max-width: 580px) {
+    .back_to_top {
+        display: none !important;
+    }
+}
+
+
+
+</style><a id="back_to_top" href="#" class="back_to_top"><span>△</span>
+</a>
+<script type="text/javascript" src="https://jenkinsxu.github.io/media/scripts/jquery.js"></script>
+
+<script>$(document).ready((function(_this) {
+  return function() {
+    var bt;
+    bt = $('#back_to_top');
+    if ($(document).width() > 480) {
+      $(window).scroll(function() {
+        var st;
+        st = $(window).scrollTop();
+        if (st > 30) {
+          return bt.css('display', 'block');
+        } else {
+          return bt.css('display', 'none');
+        }
+      });
+      return bt.click(function() {
+        $('body,html').animate({
+          scrollTop: 0
+        }, 800);
+        return false;
+      });
+    }
+  };
+})(this));
+</script>
+
+</body>
+
+</html>
