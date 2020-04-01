@@ -1,0 +1,724 @@
+
+<html>
+  <head lang="zh">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+        <meta content="yes" name="apple-mobile-web-app-capable"/>
+        <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+        <meta content="telephone=no" name="format-detection"/>
+        <meta name="renderer" content="webkit">
+    <title>C++ 多态入门 | Jenkins&#39; Secret Base</title>
+<link href="https://jenkinsxu.github.io/styles/main.css" type="text/css" rel="stylesheet"/>
+<script type="text/javascript" src="https://jenkinsxu.github.io/media/scripts/jquery.js"></script>
+<script type="text/javascript" src="https://jenkinsxu.github.io/media/scripts/basic.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  </head>
+
+  <body>
+     <div class="header">
+      <div class="logo_title">
+		  
+        <div class="title animated fadeInDown"><img src="https://jenkinsxu.github.io/images/avatar.png?v=1585771628136"/>
+
+          <h1 title="Jenkins&#39; Secret Base" class="weaklink"><a href="/">Jenkins&#39; Secret Base</a>
+
+          </h1>
+
+          <div class="navbar weaklink">
+            <div class="normal_nav">
+
+<div class="bitcron_nav_container">
+
+
+  <div class="bitcron_nav">
+    <div class="mixed_site_nav_wrap site_nav_wrap">
+		
+      <ul class="mixed_site_nav site_nav sm sm-base">
+ 
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/" class="selected active current nav__item" >Home</a>
+
+  </li>
+ 
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/tags" class="selected active current nav__item" >Tags</a>
+
+  </li>
+ 
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/post/about" class="selected active current nav__item" >About</a>
+
+  </li>
+ 
+
+      </ul>
+
+      <div class="clear clear_nav_inline_end"></div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="clear clear_nav_end"></div>
+
+</div>
+
+            </div>
+
+            <div class="hamberger"><i class="fa fa-bars"></i>
+<i class="fa fa-times"></i>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="hidden_nav animated fadeInDown">
+
+<div class="bitcron_nav_container">
+
+
+  <div class="bitcron_nav">
+    <div class="mixed_site_nav_wrap site_nav_wrap">
+      <ul class="mixed_site_nav site_nav sm sm-base">
+		  
+	
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/" class="selected active current nav__item" >Home</a>
+
+  </li>
+
+
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/tags" class="selected active current nav__item" >Tags</a>
+
+  </li>
+
+
+  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/post/about" class="selected active current nav__item" >About</a>
+
+  </li>
+
+
+
+
+
+      </ul>
+
+      <div class="clear clear_nav_inline_end"></div>
+
+    </div>
+
+  </div>
+
+
+
+  <div class="clear clear_nav_end"></div>
+
+</div>
+
+      </div>
+
+    </div>
+
+
+    <div class="main">
+      <div class="main-inner">
+
+
+<div class="content">
+
+
+
+
+
+
+  <div class="post_page" >
+
+<div class="post">
+  <div class="post_title sm_margin">
+    <h2><a>C++ 多态入门</a>
+
+
+
+    </h2>
+  </div>
+
+  <div class="post_details">
+    <div class="info"><i class="fa fa-clock-o"></i>
+<span class="date_info">2020-04-01</span>
+<i class="fa fa-eye"></i>
+
+<span class="date_info"><span id="busuanzi_value_page_pv"></span> Views</span>
+
+
+<i class="fa fa-bookmark-o"></i>
+<span class="tags_info weaklink">
+	
+
+</span>
+
+
+    </div>
+
+  </div>
+
+
+
+
+
+  <div class="post_content markdown"><p class="md_block">
+    <span class="md_line md_line_start md_line_end"><h2 id="多态的作用与情景">多态的作用与情景</h2>
+<p>假设一个情景，我们需要设计 C++ Classes 去代表形状。</p>
+<ul>
+<li>假设可能出现的形状有 <code>Rectangle</code> <code>Triangle</code> 以及 <code>Circle</code>三种；</li>
+<li>我们的目标是为每一个形状都创建一个独立的 Class；</li>
+<li>我们想要创建一个父类 <code>Shape</code>，包含各种形状的共同属性，比如能够求面积、输出自己的名字等。它可以被理解为一个包含了任意的形状都能做的事件的类，一个层次更高的、更抽象的类；</li>
+</ul>
+<p>用作测试的 <code>main()</code> 函数和代码如下：</p>
+<pre><code class="language-C++">class Shape
+{
+public:
+	float getArea() const
+	{
+		// 我们不知道具体形状的是什么，所以暂时先返回 0
+		return 0;
+	}
+	void printName() const
+	{
+		cout &lt;&lt; &quot;Shape: I don't know my shape :( &quot; &lt;&lt; endl;
+	}
+}
+// 冒号表示继承
+class Rectangle : public Shape
+{
+private:
+	float width, height;
+public: 
+	// 这是一种特殊的写构造函数的方法，可以节省代码
+	Rectangle() : width(0), height(0){}
+	Rectangle(float w, float h) : width(w), height(h){}
+	// const 表示这个函数不会更改任何的成员变量值，一但在这个函数里面尝试更改一个成员变量值，编译器就会报错。加上 const 是一种良好的习惯，能够防止不小心更改了数值造成逻辑错误。相比逻辑错误（能运行但是出现错误的结果），编译错误是更容易被检测并捕捉到的。
+	float getArea() const {return width * height;}
+	void printName() const {cout &lt;&lt; &quot;Shape: Rectangle&quot; &lt;&lt; endl;}
+}
+
+class Triangle : public Shape
+{
+private:
+	float side1, side2, side3;
+public: 
+	// 默认构造函数: 没有参数的时候的默认三角形
+	Triangle() : side1(1.0), side2(1.0), side3(sqrt(2.0)){}
+	// 非默认构造函数
+	Triangle(float s1, float s2, float s3) : side1(s1), side2(s2), side3(s3){}
+	float getArea() const 
+	{
+		float s = (side1 + side2 + side3) / 2.0;
+		return sqrt(s * (s-side1) * (s-side2) * (s-side3));
+	}
+	void printName() const {cout &lt;&lt; &quot;Shape: Triangle&quot; &lt;&lt; endl;}
+}
+
+class Rectangle : public Shape
+{
+private:
+	float radius;
+public: 
+	Rectangle() : radius(1.0){}
+	Rectangle(float r) : radius(r){}
+	float getArea() const {return 3.14 * radius * radius;}
+	void printName() const {cout &lt;&lt; &quot;Shape: Circle&quot; &lt;&lt; endl;}
+}
+
+int main() 
+{
+	// 创建一个形状、一个方形、一个三角形和一个圆形的对象
+	Shape s;
+	Rectangle r(4.0, 5.0);
+	Triangle t;
+	Circle c(2.0);
+
+	// 输出名字和面积
+	s.printName();
+	cout &lt;&lt; &quot;\tArea = &quot; &lt;&lt; s.getArea() &lt;&lt; endl &lt;&lt; endl;
+
+	r.printName();
+	cout &lt;&lt; &quot;\tArea = &quot; &lt;&lt; r.getArea() &lt;&lt; endl &lt;&lt; endl;
+
+	t.printName();
+	cout &lt;&lt; &quot;\tArea = &quot; &lt;&lt; t.getArea() &lt;&lt; endl &lt;&lt; endl;
+
+	c.printName();
+	cout &lt;&lt; &quot;\tArea = &quot; &lt;&lt; c.getArea() &lt;&lt; endl &lt;&lt; endl;
+
+	cout &lt;&lt; endl;
+	system(&quot;Pause&quot;);
+	return 0;
+}
+</code></pre>
+<p>我们可以看到三个子类都具有成员变量以及成员函数。但是父类没有任何的成员变量，因为形状是一个<strong>抽象</strong>的概念，我们很难定义它具体的属性，这也是我们为什么要在它的 函数 里 return 0 和 cout “I don't know” 的原因。反之，对于一个具体的图形，我们可以计算它的面积，或者是叫出它是什么名字。所有的子类都重定义（re-define）了 <code>getArea()</code> 和 <code>printName()</code> 这两个来自于 <code>Shape</code> 的成员函数，来输出正确的信息。</p>
+<p>输出的结果如下：</p>
+<pre><code>Shape: 	I don't know my shape :(
+			Area = 0
+Shape: 	Rectangle
+			Area = 20
+Shape: 	Triangle
+			Area = 0.5
+Shape: 	Circle
+			Area = 12.56
+</code></pre>
+<p>现在我们来对刚才的 <code>main()</code> 进行一些调整：</p>
+<pre><code class="language-C++">int main() 
+{
+	// 创建一个形状、一个方形、一个三角形和一个圆形的 对象
+	Rectangle r(4.0, 5.0);
+	Triangle t;
+	Circle c(2.0);
+
+	// 创建一个形状
+	Shape s;
+
+	// 把 r 赋值给 s 然后再 print
+	s = r;
+	s.printName();
+	cout &lt;&lt; &quot;\tArea = &quot; &lt;&lt; r.getArea() &lt;&lt; endl &lt;&lt; endl;
+
+	s = t;
+	s.printName();
+	cout &lt;&lt; &quot;\tArea = &quot; &lt;&lt; t.getArea() &lt;&lt; endl &lt;&lt; endl;
+
+	s = c;
+	s.printName();
+	cout &lt;&lt; &quot;\tArea = &quot; &lt;&lt; c.getArea() &lt;&lt; endl &lt;&lt; endl;
+
+	cout &lt;&lt; endl;
+	system(&quot;Pause&quot;);
+	return 0;
+}
+</code></pre>
+<p>输出的结果如下：</p>
+<pre><code>Shape: 	I don't know my shape :(
+			Area = 0
+Shape: 	I don't know my shape :(
+			Area = 0
+Shape: 	I don't know my shape :(
+			Area = 0
+</code></pre>
+<p>突然间所有的对象都失去了自己的内容，因为这些内容都在类型转换到 <code>Shape</code> 的过程中丢失了。我们新的问题是如何把<code>Rectangle</code>，<code>Triangle</code>和 <code>Circle</code> 储存在 <code>Shape</code> 类型里有不至于丢失数据呢？</p>
+<p>来尝试一下指针？</p>
+<p>我们来新建一个 <code>Shape*</code> 对象，而不是一个 <code>Shape</code> 对象。<br>
+<code>Shape *pShape</code></p>
+<p>把每个形状对象的地址都复制到里面：</p>
+<pre><code class="language-C++">int main() 
+{
+	// 创建一个形状、一个方形、一个三角形和一个圆形的 对象
+	Rectangle r(4.0, 5.0);
+	Triangle t;
+	Circle c(2.0);
+
+	// 创建一个形状
+	Shape *pShape;
+
+	// 把 r 赋值给 s 然后再 print
+	s = &amp;r;
+	s-&gt;printName();
+	cout &lt;&lt; &quot;\tArea = &quot; &lt;&lt; r.getArea() &lt;&lt; endl &lt;&lt; endl;
+
+	s = &amp;t;
+	s-&gt;printName();
+	cout &lt;&lt; &quot;\tArea = &quot; &lt;&lt; t.getArea() &lt;&lt; endl &lt;&lt; endl;
+
+	s = &amp;c;
+	s-&gt;printName();
+	cout &lt;&lt; &quot;\tArea = &quot; &lt;&lt; c.getArea() &lt;&lt; endl &lt;&lt; endl;
+
+	cout &lt;&lt; endl;
+	system(&quot;Pause&quot;);
+	return 0;
+}
+</code></pre>
+<p>输出的结果如下：</p>
+<pre><code>Shape: 	I don't know my shape :(
+			Area = 0
+Shape: 	I don't know my shape :(
+			Area = 0
+Shape: 	I don't know my shape :(
+			Area = 0
+</code></pre>
+<p>结果并没有改变。但这次问题出现的原因<strong>并不是因为类型转换</strong>。<br>
+这里有三个 对象s：r, t 和 c，他们的类型并没有出现改变（我们没有对他们进行转换，而只是用 Shape 的指针储存了他们的地址）。问题在于因为 <code>pShape</code> 是 <code>Shape</code> 类型的指针，所以在它调用函数的时候也只会调用 <code>Shape</code> 当中的函数，而不会调用子类中已经经过重定义的函数。</p>
+<p>你可能在想为什么要把 <code>Retangle</code> 啥的存到 <code>Shape</code> 里面这么折腾，而不直接用他们自己各自的类来储存。试想一下，如果我们有一百多个不同的形状，我们不可能一个个变量地储存这些数据。我们要做的是建立一个数组，把所有的<strong>形状对象</strong>都放在里面，而这个数组的类型就应该是<code>Shape</code>的数组：</p>
+<pre><code class="language-C++">int main()
+{
+	const int SIZE = 5;
+	Shape myShape[size];
+	
+	myShape[0] = Rectangle(4.0, 5.0);
+	myShape[1] = Triangle();
+	myShape[2] = Circle(2.0);
+	myShape[3] = Shape();
+	myShape[4] = Circle(2.8);
+
+	for (int i = 0; i &lt; SIZE; i++)
+	{
+		myShape[i].printName();
+		cout &lt;&lt; &quot;\tArea = &quot; &lt;&lt; myShape[i].getArea() &lt;&lt; endl &lt;&lt; endl;
+	}
+	cout &lt;&lt; endl;
+	system(&quot;Pause&quot;);
+	return 0;
+}
+</code></pre>
+<p>但你可能已经猜到结果，所有的数据都被类型转换破坏了，且无论静态数组还是动态数组都会出现类型转换的问题：</p>
+<pre><code>Shape: 	I don't know my shape :(
+			Area = 0
+Shape: 	I don't know my shape :(
+			Area = 0
+Shape: 	I don't know my shape :(
+			Area = 0
+Shape: 	I don't know my shape :(
+			Area = 0
+Shape: 	I don't know my shape :(
+			Area = 0
+</code></pre>
+<p>解决这个问题的方法就是多态（polymorphism）：衍生类型的对象调用自己的函数，同时能够把他们储存在父类类型的数组里。</p>
+<p>要达到多态，我们就需要在父类当中把需要被子类重定义并调用的函数标注成 <code>virtual</code>，方法是在声明一个函数的时候在前面加上 <code>virtual</code> 这个关键词。</p>
+<p>马上来试验一下。作为对比，我们先暂时不把 <code>.getArea()</code> 而只是 <code>.printName()</code> 标记 <code>virtual</code>。<br>
+更改后的 <code>Shape</code> 结果如下：</p>
+<pre><code class="language-C++">class Shape
+{
+public:
+	// 作为对比，我们先暂时不为 .getArea() 标记 virtual
+	float getArea() const
+	{
+		// 我们不知道具体形状的是什么，所以暂时先返回 0
+		return 0;
+	}
+
+	virtual void printName() const
+	{
+		cout &lt;&lt; &quot;Shape: I don't know my shape :( &quot; &lt;&lt; endl;
+	}
+}
+</code></pre>
+<pre><code class="language-C++">int main() 
+{
+	// 创建一个形状、一个方形、一个三角形和一个圆形的 对象
+	Rectangle r(4.0, 5.0);
+	Triangle t;
+	Circle c(2.0);
+
+	// 创建一个形状
+	Shape *pShape;
+
+	// 把 r 赋值给 s 然后再输出
+	s = &amp;r;
+	s-&gt;printName();
+	cout &lt;&lt; &quot;\tArea = &quot; &lt;&lt; r.getArea() &lt;&lt; endl &lt;&lt; endl;
+
+	s = &amp;t;
+	s-&gt;printName();
+	cout &lt;&lt; &quot;\tArea = &quot; &lt;&lt; t.getArea() &lt;&lt; endl &lt;&lt; endl;
+
+	s = &amp;c;
+	s-&gt;printName();
+	cout &lt;&lt; &quot;\tArea = &quot; &lt;&lt; c.getArea() &lt;&lt; endl &lt;&lt; endl;
+
+	cout &lt;&lt; endl;
+	system(&quot;Pause&quot;);
+	return 0;
+}
+</code></pre>
+<p>输出的结果如下：</p>
+<pre><code>Shape: 	I don't know my shape :(
+			Area = 0
+Shape: 	Rectangle
+			Area = 0
+Shape: 	Triangle
+			Area = 0
+Shape: 	Circle
+			Area = 0
+</code></pre>
+<p>可以看到，被标记成 virtual 的函数已经能够被正确识别，没有调用父类李的<code>printName()</code> 函数，而是调用到了子集当中重定义后正确的函数。</p>
+<p>我们来把两个函数都标注上 virtual：</p>
+<pre><code class="language-C++">class Shape
+{
+public:
+	// 作为对比，我们先暂时不把 .getArea() 改成 virtual
+	virtual float getArea() const
+	{
+		// 我们不知道具体形状的是什么，所以暂时先返回 0
+		return 0;
+	}
+
+	virtual void printName() const
+	{
+		// 我们不知道具体形状是什么，所以暂时先随便说个玩意儿
+		cout &lt;&lt; &quot;Shape: I don't know my shape :( &quot; &lt;&lt; endl;
+	}
+}
+</code></pre>
+<p>同样的 <code>main()</code> 来进行测试，注意，我们这里用了指针来储存。</p>
+<pre><code class="language-C++">int main() 
+{
+	// 创建一个形状、一个方形、一个三角形和一个圆形的 对象
+	Rectangle r(4.0, 5.0);
+	Triangle t;
+	Circle c(2.0);
+
+	// 创建一个形状
+	Shape *pShape;
+
+	// 把 r 赋值给 s 然后再 print
+	s = &amp;r;
+	s-&gt;printName();
+	cout &lt;&lt; &quot;\tArea = &quot; &lt;&lt; r.getArea() &lt;&lt; endl &lt;&lt; endl;
+
+	s = &amp;t;
+	s-&gt;printName();
+	cout &lt;&lt; &quot;\tArea = &quot; &lt;&lt; t.getArea() &lt;&lt; endl &lt;&lt; endl;
+
+	s = &amp;c;
+	s-&gt;printName();
+	cout &lt;&lt; &quot;\tArea = &quot; &lt;&lt; c.getArea() &lt;&lt; endl &lt;&lt; endl;
+
+	cout &lt;&lt; endl;
+	system(&quot;Pause&quot;);
+	return 0;
+}
+</code></pre>
+<p>输出的结果如下：</p>
+<pre><code>Shape: 	I don't know my shape :(
+			Area = 0
+Shape: 	Rectangle
+			Area = 20
+Shape: 	Triangle
+			Area = 0.5
+Shape: 	Circle
+			Area = 12.56
+</code></pre>
+<p>呼，大功告成。<br>
+需要注意的是，类型转换的问题依然无法直接避免，我们仍然会因此丢失数据。所以为了达成多态，我们一定要用指针来储存数据。</p>
+<p>错误示范：</p>
+<pre><code class="language-C++">int main() 
+{
+	// 创建一个形状、一个方形、一个三角形和一个圆形的 对象
+	Rectangle r(4.0, 5.0);
+	Triangle t;
+	Circle c(2.0);
+
+	// 创建一个形状
+	Shape s;
+
+	// 把 r 赋值给 s 然后再 print
+	s = r;
+	s.printName();
+	cout &lt;&lt; &quot;\tArea = &quot; &lt;&lt; r.getArea() &lt;&lt; endl &lt;&lt; endl;
+
+	s = t;
+	s.printName();
+	cout &lt;&lt; &quot;\tArea = &quot; &lt;&lt; t.getArea() &lt;&lt; endl &lt;&lt; endl;
+
+	s = c;
+	s.printName();
+	cout &lt;&lt; &quot;\tArea = &quot; &lt;&lt; c.getArea() &lt;&lt; endl &lt;&lt; endl;
+
+	cout &lt;&lt; endl;
+	system(&quot;Pause&quot;);
+	return 0;
+}
+</code></pre>
+<p>输出的结果如下：</p>
+<pre><code>Shape: 	I don't know my shape :(
+			Area = 0
+Shape: 	I don't know my shape :(
+			Area = 0
+Shape: 	I don't know my shape :(
+			Area = 0
+</code></pre>
+<p>如果我们把父类比作爷爷，它的子类比作爸爸，那么假如这个爸爸子类也有自己的子类（也就是孙子子类）的话，因为在爷爷里面已经把函数标注成 <code>virtual</code>，我们即便不在爸爸这个子类中标注这个函数为 <code>virtual</code> ，孙子子类依然能正确识别那是一个 <code>virtual</code> 函数。当然想要特定标注出来也是允许且推荐的。<strong>所有在父类中被标注成 virtual 的函数必须被子类重定义。</strong></p>
+<p><code>virtual</code> 的工作方式大概可以理解为当一个 <code>Shape*</code> 找到其储存地址对应的对象后，如果被调用的函数被标记为 <code>virtual</code>，我们就会到对象归属子类中的 vftable 寻找对应的函数，而不是在父类的 vftable 中寻找。</p>
+<p>利用 <code>typedef</code> 我们可以更方便的写出指针数组。</p>
+<pre><code class="language-C++">typedef Shape* ShapePtr;
+
+// ...
+
+int main() 
+{
+	const int size = 5;
+	ShapePtr *myShape = new ShapePtr[size];
+	myShape[0] = Rectangle(4.0, 5.0);
+	myShape[1] = Triangle();
+	myShape[2] = Circle(2.0);
+	myShape[3] = Shape();
+	myShape[4] = Circle(2.8);
+
+	for (int i = 0; i &lt; SIZE; i++)
+	{
+		myShape[i].printName();
+		cout &lt;&lt; &quot;\tArea = &quot; &lt;&lt; myShape[i].getArea() &lt;&lt; endl &lt;&lt; endl;
+	}
+	cout &lt;&lt; endl;
+	system(&quot;Pause&quot;);
+	return 0;
+}
+</code></pre>
+<p>输出的结果如下：</p>
+<pre><code>Shape: 	Rectangle
+			Area = 20
+
+Shape: 	Triangle
+			Area = 0.5
+
+Shape: 	I don't know my shape :(
+			Area = 0
+
+Shape: 	Circle
+			Area = 12.56
+</code></pre>
+<h2 id="destructor析构函数与polymorphism多态">Destructor（析构函数）与Polymorphism（多态）</h2>
+<p>想象一个 A -&gt; B -&gt; C 的线性继承关系。在每一个 class 中我们都声明了它们各自的析构函数。当我们调用 C 的析构函数的时候，程序将会自动调用 C 的析构函数后马上调用 B 的析构函数，结束后程序再调用 A 的析构函数，这是 C 类型对象的析构是充分的。但当我们有一个 A 类型的指针指向 C 类型的对象的时候 <code>A *x = new C();</code> ，当我们析构 x 的时候，根据我们提到的原因，它将只会调用 A 类型的析构函数。为了析构函数的充分执行，我们必须把父类中所有的析构函数都设为 <code>virtual</code>。</p>
+<h2 id="abstract-classes抽象类型">Abstract Classes（抽象类型）</h2>
+<p>回到我们 <code>Shape</code> 的例子当中。对于  <code>Shape</code> 有的时候我们并不知道在像 <code>.getArea()</code> 这样的函数当中填写什么内容。这种情况下我们倾向于把它留空。同时因为它有 <code>float</code> 的返回类型，我们不可以只留一个空白的函数体。C++提供了一种叫做 Pure Virtual Function（纯虚拟函式）的功能：当一个函数被标记为 <code>virtual</code> 的时候，只需要为这个函数赋值 0 ，我们就不需要在函数体当中填写任何的内容。我们把这个父类称之为<strong>抽象类型</strong>。关于抽象类型需要注意的是</p>
+<ul>
+<li>所有的纯虚拟函式都必须在子类当中重定义；</li>
+<li>如果一个父类包含有任何的纯虚拟函式，我们就不能利用这个父类创建任何对象，从而防止调用没有任何函数体的函数。</li>
+</ul>
+<p>抽象类型几乎唯一的作用就是作为数组的类型存在（比如 <code>Shape</code>）。当你把一个类当中所有的函数都标记为纯虚拟函式的时候我们就把这个类称为 interface（接口 / 界面）。</p>
+<p>最后结合所有知识点，我们得到了终极版的 <code>Shape</code> 如下：</p>
+<pre><code class="language-C++">class Shape
+{
+public:
+	virtual float getArea() const = 0;
+	void printName() const = 0;
+}
+</code></pre>
+</p>
+
+     <p class="md_block">
+    
+</p> 
+</div>
+
+</div>
+
+
+
+<link href="https://jenkinsxu.github.io/styles/main.css" type="text/css" rel="stylesheet"/>
+
+<div class="doc_comments">
+
+</div>
+
+
+
+  </div>
+</div>
+
+
+
+      </div>
+
+
+
+
+    </div>
+
+   <div class="footer">
+<link href="https://jenkinsxu.github.io/styles/main.css" type="text/css" rel="stylesheet"/><div class="site_footer_wrap"><div class="site_footer">
+
+      <div class="mysocials"><div class="my_socials">
+		   
+			   
+    
+			   
+    
+			   
+    
+			   
+    
+</div><link href="https://jenkinsxu.github.io/styles/main.css" type="text/css" rel="stylesheet"/>
+
+      </div>
+
+      <div class="copyright">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+<div>Icons made by <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">Eucalyp</a> from <a href="https://www.flaticon.com/"             title="Flaticon">www.flaticon.com</a></div>
+      </div>
+
+</div></div>
+
+    </div>
+
+
+<style type="text/css">a.back_to_top {
+    text-decoration: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    background: #f0f0f0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 36px;
+    font-size: 18px;
+    text-align: center;
+    transition-duration: .5s;
+    transition-propety: background-color;
+    display: none;
+}
+
+a.back_to_top span {
+    color: #888;
+}
+
+a.back_to_top:hover {
+    cursor: pointer;
+    background: #dfdfdf;
+}
+
+a.back_to_top:hover span {
+    color: #555;
+}
+
+@media print, screen and (max-width: 580px) {
+    .back_to_top {
+        display: none !important;
+    }
+}
+
+
+
+</style><a id="back_to_top" href="#" class="back_to_top"><span>△</span>
+</a>
+<script type="text/javascript" src="https://jenkinsxu.github.io/media/scripts/jquery.js"></script>
+
+<script>$(document).ready((function(_this) {
+  return function() {
+    var bt;
+    bt = $('#back_to_top');
+    if ($(document).width() > 480) {
+      $(window).scroll(function() {
+        var st;
+        st = $(window).scrollTop();
+        if (st > 30) {
+          return bt.css('display', 'block');
+        } else {
+          return bt.css('display', 'none');
+        }
+      });
+      return bt.click(function() {
+        $('body,html').animate({
+          scrollTop: 0
+        }, 800);
+        return false;
+      });
+    }
+  };
+})(this));
+</script>
+
+</body>
+
+</html>
