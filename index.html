@@ -1,318 +1,482 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-<!-- 必要参数 -->
-<meta charset="utf-8"/>
-<title>Jenkins&#39; Secret Base</title>
-<meta name="keywords" content="关键词"/>
-<meta name="description" content="简述"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable:no"/>
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<link rel="shortcut icon" href="favicon.ico">
-<!-- CSS -->
-<link rel="stylesheet" href="https://jenkinsxu.github.io/media/css/mdui.min.css">
-<link rel="stylesheet" href="https://jenkinsxu.github.io/media/css/modify.css">
+        <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,minimal-ui" />
+    <title>Jenkins&#39; Secret Base</title>
+<link rel='stylesheet' id='puma-css'  href='https://jenkinsxu.github.io/styles/main.css' type='text/css' media='screen' />
+<link rel='stylesheet' id='puma-css'  href='https://at.alicdn.com/t/font_1306644_jwtuc2zzbrd.css' media='screen' />
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<script type='text/javascript' src='https://jenkinsxu.github.io/media/scripts/jquery.js'></script>
+<script type='text/javascript' src='https://jenkinsxu.github.io/media/scripts/jquery-migrate.min.js'></script>
+        <script src="https://cdn.bootcss.com/highlight.js/9.15.10/highlight.min.js"></script>
+         <script >hljs.initHighlightingOnLoad();</script>
+         
 </head>
-<body id="index" class="mdui-appbar-with-toolbar mdui-theme-primary-blue-grey mdui-theme-accent-blue mdui-theme-layout-dark">
-<header role="banner">
-    <div class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide mdui-shadow-0">
-        <div class="mdui-toolbar">
-            <button class="mdui-btn mdui-btn-icon" id="menu" mdui-drawer="{target:'#drawer',overlay:true,swipe:true}"><i class="mdui-icon material-icons">menu</i></button>
-            <a href="https://jenkinsxu.github.io" class="mdui-typo-headline">Jenkins&#39; Secret Base</a>
-            <div class="mdui-toolbar-spacer"></div>
-            <button class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '深色样式切换', position: 'left'}" id="DarkStyle"><i class="mdui-icon material-icons">brightness_4</i></button>
+<body class="home blog">
+	<!--加入跟随滑动的顶部-->
+	<header id="masthead" class="site-header" role="banner">
+		<div class="site-branding">
+			<h1 class="site-title">
+				<a href="https://jenkinsxu.github.io" title="Jenkins&#39; Secret Base">Jenkins&#39; Secret Base</a>
+			</h1>
+		</div>
+
+		<a class="primary-nav-trigger" href="javascript:void(0)">
+			<span class="menu-icon"></span>
+		</a>
+		
+	</header>
+    	<div class="site-navigation-wrapper">
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+			<ul class="primary-nav">
+                    
+				<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a title="Home" href="/">Home</a></li>
+                
+				<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a title="Tags" href="/tags">Tags</a></li>
+                
+				<li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30"><a title="About" href="/post/about">About</a></li>
+                
+	
+			</ul>
+		</nav>			
+	</div>
+	<!--跟随滑动的顶部结束-->
+	<!--大屏banner开始-->
+    
+	<div class="site-banner u-textAlignCenter hasImage" style="background-image:url(https://sm.ms/image/nxtpzoXL92HfhGb)">
+		<div class="fade-cover"></div>
+		<div class="banner-txt">
+			<h2>Jenkins&#39; Secret Base</h2>
+		</div>
+		<div class="banner-txt">
+			<p></p>
+		</div>	
+	</div>
+	<!--大屏banner结束-->
+	<div class="site-main">
+	<div class="surface-content">    <main class="main-content">
+        <section class="blockGroup">
+                
+            <article class="block block--inset block--list">
+    <h2 class="block-title post-featured" itemprop="headline">
+        <a href="https://jenkinsxu.github.io/post/c-duo-tai-ru-men/">C++ 多态入门</a>
+    </h2>
+    <div class="block-postMetaWrap u-textAlignCenter">
+        <time>2020-04-01</time>
+    </div>
+    <div class="block-snippet block-snippet--subtitle grap" itemprop="about">
+            
+                    
+                <p class="u-textAlignCenter"><a class="more-link" href="https://jenkinsxu.github.io/post/c-duo-tai-ru-men/" title="C++ 多态入门">READ MORE</a></p>
+    </div>
+    <div class="block-footer">
+        In 
+        <div class="block-footer-inner">
+                16 min read .
         </div>
     </div>
-</header>
+</article>
 
-<nav id="drawer" class="mdui-drawer mdui-drawer-full-height mdui-drawer-close">
-    <ul class="mdui-list">
-        <a href="/" class="menu"><li class="mdui-list-item mdui-ripple">Home</li></a>
-        <a href="/tags" class="menu"><li class="mdui-list-item mdui-ripple">Tags</li></a>
-        <a href="/post/about" class="menu"><li class="mdui-list-item mdui-ripple">About</li></a>
-        
-        <a href="https://github.com/CPlayer-CN/gridea-theme-cplayer-material" class="spread"><li class="mdui-list-item mdui-ripple">主题主页</li></a>
-    </ul>
-</nav>
-
-
-<main class="mdui-m-a-2 mdui-row-xs-1 mdui-row-sm-2 mdui-row-md-3 mdui-row-xl-4 mdui-typo mdui-m-t-2">
-    
-    <section class="mdui-col mdui-m-b-2">
-        <div class="mdui-card">
+            <article class="block block--inset block--list">
+    <h2 class="block-title post-featured" itemprop="headline">
+        <a href="https://jenkinsxu.github.io/post/object-oriented-design-software-creation-phases-part-1/">Object Oriented Design - Software Creation Phases - Part 1</a>
+    </h2>
+    <div class="block-postMetaWrap u-textAlignCenter">
+        <time>2020-03-16</time>
+    </div>
+    <div class="block-snippet block-snippet--subtitle grap" itemprop="about">
             
-            <div class="mdui-card-primary">
-                <div class="mdui-card-primary-title"><a href="https://jenkinsxu.github.io/post/c-duo-tai-ru-men/">C++ 多态入门</a></div>
-                <div class="mdui-card-primary-subtitle">2020-04-01</div>
-            </div>
-            <div class="mdui-card-content">多态的作用与情景
-假设一个情景，我们需要设计 C++ Classes 去代表形状。
-
-假设可能出现的形状有 Rectangle Triangle 以及 Circle三种；
-我们的目标是为每一个形状都创建一个独立的 Class；
-我们想要创建...</div>
+                    
+                <p class="u-textAlignCenter"><a class="more-link" href="https://jenkinsxu.github.io/post/object-oriented-design-software-creation-phases-part-1/" title="Object Oriented Design - Software Creation Phases - Part 1">READ MORE</a></p>
+    </div>
+    <div class="block-footer">
+        In  <a href="https://jenkinsxu.github.io/tag/SJx_LO8XV/" rel="category tag">Java</a>.  
+        <div class="block-footer-inner">
+                6 min read .
         </div>
-    </section>
+    </div>
+</article>
 
-    <section class="mdui-col mdui-m-b-2">
-        <div class="mdui-card">
+            <article class="block block--inset block--list">
+    <h2 class="block-title post-featured" itemprop="headline">
+        <a href="https://jenkinsxu.github.io/post/java-for-c-programmer/">Java for C++ Programmer</a>
+    </h2>
+    <div class="block-postMetaWrap u-textAlignCenter">
+        <time>2020-02-09</time>
+    </div>
+    <div class="block-snippet block-snippet--subtitle grap" itemprop="about">
             
-            <div class="mdui-card-primary">
-                <div class="mdui-card-primary-title"><a href="https://jenkinsxu.github.io/post/object-oriented-design-software-creation-phases-part-1/">Object Oriented Design - Software Creation Phases - Part 1</a></div>
-                <div class="mdui-card-primary-subtitle">2020-03-16</div>
-            </div>
-            <div class="mdui-card-content">Terminology
-OOD: Object Oriented Design
-OOP: Object Oriented Programming
-Software Creation Phases
-1. Requirements Gather...</div>
+                    
+                <p class="u-textAlignCenter"><a class="more-link" href="https://jenkinsxu.github.io/post/java-for-c-programmer/" title="Java for C++ Programmer">READ MORE</a></p>
+    </div>
+    <div class="block-footer">
+        In 
+        <div class="block-footer-inner">
+                17 min read .
         </div>
-    </section>
+    </div>
+</article>
 
-    <section class="mdui-col mdui-m-b-2">
-        <div class="mdui-card">
+            <article class="block block--inset block--list">
+    <h2 class="block-title post-featured" itemprop="headline">
+        <a href="https://jenkinsxu.github.io/post/summer-internship/">Summer Internship</a>
+    </h2>
+    <div class="block-postMetaWrap u-textAlignCenter">
+        <time>2020-01-27</time>
+    </div>
+    <div class="block-snippet block-snippet--subtitle grap" itemprop="about">
             
-            <div class="mdui-card-primary">
-                <div class="mdui-card-primary-title"><a href="https://jenkinsxu.github.io/post/java-for-c-programmer/">Java for C++ Programmer</a></div>
-                <div class="mdui-card-primary-subtitle">2020-02-09</div>
-            </div>
-            <div class="mdui-card-content">
-Class and Interface
-Classes
-Use the  final      keyword to prevent class inheritance.
-Use the  extends  keyword to achi...</div>
+                    
+                <p class="u-textAlignCenter"><a class="more-link" href="https://jenkinsxu.github.io/post/summer-internship/" title="Summer Internship">READ MORE</a></p>
+    </div>
+    <div class="block-footer">
+        In 
+        <div class="block-footer-inner">
+                4 min read .
         </div>
-    </section>
+    </div>
+</article>
 
-    <section class="mdui-col mdui-m-b-2">
-        <div class="mdui-card">
+            <article class="block block--inset block--list">
+    <h2 class="block-title post-featured" itemprop="headline">
+        <a href="https://jenkinsxu.github.io/post/algorithms-week-3~4/">Algorithms - Week 3~4</a>
+    </h2>
+    <div class="block-postMetaWrap u-textAlignCenter">
+        <time>2020-01-21</time>
+    </div>
+    <div class="block-snippet block-snippet--subtitle grap" itemprop="about">
             
-            <div class="mdui-card-primary">
-                <div class="mdui-card-primary-title"><a href="https://jenkinsxu.github.io/post/summer-internship/">Summer Internship</a></div>
-                <div class="mdui-card-primary-subtitle">2020-01-27</div>
-            </div>
-            <div class="mdui-card-content">BMO Personal Banking Associate, Summer 2020 (Co-op/Intern), 4 Months
-Qualifications:
-
-As a full-time employee, we would ...</div>
+                    
+                <p class="u-textAlignCenter"><a class="more-link" href="https://jenkinsxu.github.io/post/algorithms-week-3~4/" title="Algorithms - Week 3~4">READ MORE</a></p>
+    </div>
+    <div class="block-footer">
+        In 
+        <div class="block-footer-inner">
+                6 min read .
         </div>
-    </section>
+    </div>
+</article>
 
-    <section class="mdui-col mdui-m-b-2">
-        <div class="mdui-card">
+            <article class="block block--inset block--list">
+    <h2 class="block-title post-featured" itemprop="headline">
+        <a href="https://jenkinsxu.github.io/post/algorithms-week-2/">Algorithms - Week 2</a>
+    </h2>
+    <div class="block-postMetaWrap u-textAlignCenter">
+        <time>2020-01-17</time>
+    </div>
+    <div class="block-snippet block-snippet--subtitle grap" itemprop="about">
             
-            <div class="mdui-card-primary">
-                <div class="mdui-card-primary-title"><a href="https://jenkinsxu.github.io/post/algorithms-week-3~4/">Algorithms - Week 3~4</a></div>
-                <div class="mdui-card-primary-subtitle">2020-01-21</div>
-            </div>
-            <div class="mdui-card-content">For simplicity, we will for now ignore the so-called &quot;Carmichael Numbers&quot;. Theses are extremely rare composite...</div>
+                    
+                <p class="u-textAlignCenter"><a class="more-link" href="https://jenkinsxu.github.io/post/algorithms-week-2/" title="Algorithms - Week 2">READ MORE</a></p>
+    </div>
+    <div class="block-footer">
+        In 
+        <div class="block-footer-inner">
+                3 min read .
         </div>
-    </section>
+    </div>
+</article>
 
-    <section class="mdui-col mdui-m-b-2">
-        <div class="mdui-card">
+            <article class="block block--inset block--list">
+    <h2 class="block-title post-featured" itemprop="headline">
+        <a href="https://jenkinsxu.github.io/post/algorithms-week-1/">Algorithms - Week 1</a>
+    </h2>
+    <div class="block-postMetaWrap u-textAlignCenter">
+        <time>2020-01-14</time>
+    </div>
+    <div class="block-snippet block-snippet--subtitle grap" itemprop="about">
             
-            <div class="mdui-card-primary">
-                <div class="mdui-card-primary-title"><a href="https://jenkinsxu.github.io/post/algorithms-week-2/">Algorithms - Week 2</a></div>
-                <div class="mdui-card-primary-subtitle">2020-01-17</div>
-            </div>
-            <div class="mdui-card-content">Modular Division
-
-Dividing by a != 0 is the same as multiplying by a^(-1) = 1 / a (the inverse of a). Here we assume rat...</div>
+                    
+                <p class="u-textAlignCenter"><a class="more-link" href="https://jenkinsxu.github.io/post/algorithms-week-1/" title="Algorithms - Week 1">READ MORE</a></p>
+    </div>
+    <div class="block-footer">
+        In 
+        <div class="block-footer-inner">
+                11 min read .
         </div>
-    </section>
+    </div>
+</article>
 
-    <section class="mdui-col mdui-m-b-2">
-        <div class="mdui-card">
+            <article class="block block--inset block--list">
+    <h2 class="block-title post-featured" itemprop="headline">
+        <a href="https://jenkinsxu.github.io/post/java-programming-week-1-2/">Java Programming: Week 1-2</a>
+    </h2>
+    <div class="block-postMetaWrap u-textAlignCenter">
+        <time>2020-01-13</time>
+    </div>
+    <div class="block-snippet block-snippet--subtitle grap" itemprop="about">
             
-            <div class="mdui-card-primary">
-                <div class="mdui-card-primary-title"><a href="https://jenkinsxu.github.io/post/algorithms-week-1/">Algorithms - Week 1</a></div>
-                <div class="mdui-card-primary-subtitle">2020-01-14</div>
-            </div>
-            <div class="mdui-card-content">fib()
-The formula
-Facts
-
-Grow as fast as 2^n
-fib(100) is 21 digits long
-In general T(n) = 2^(0.694n)
-
-Q: What is the pre...</div>
+                    
+                <p class="u-textAlignCenter"><a class="more-link" href="https://jenkinsxu.github.io/post/java-programming-week-1-2/" title="Java Programming: Week 1-2">READ MORE</a></p>
+    </div>
+    <div class="block-footer">
+        In 
+        <div class="block-footer-inner">
+                10 min read .
         </div>
-    </section>
+    </div>
+</article>
 
-    <section class="mdui-col mdui-m-b-2">
-        <div class="mdui-card">
+            <article class="block block--inset block--list">
+    <h2 class="block-title post-featured" itemprop="headline">
+        <a href="https://jenkinsxu.github.io/post/day-09-introduction-to-uikit-part-5/">Day 09 - Introduction to UIKit Part 5</a>
+    </h2>
+    <div class="block-postMetaWrap u-textAlignCenter">
+        <time>2020-01-13</time>
+    </div>
+    <div class="block-snippet block-snippet--subtitle grap" itemprop="about">
             
-            <div class="mdui-card-primary">
-                <div class="mdui-card-primary-title"><a href="https://jenkinsxu.github.io/post/java-programming-week-1-2/">Java Programming: Week 1-2</a></div>
-                <div class="mdui-card-primary-subtitle">2020-01-13</div>
-            </div>
-            <div class="mdui-card-content">Basic Java
-
-Classes in Java
-// Can have nested classes, but no more than one full class in  a file
-public class HelloWor...</div>
+                    
+                <p class="u-textAlignCenter"><a class="more-link" href="https://jenkinsxu.github.io/post/day-09-introduction-to-uikit-part-5/" title="Day 09 - Introduction to UIKit Part 5">READ MORE</a></p>
+    </div>
+    <div class="block-footer">
+        In  <a href="https://jenkinsxu.github.io/tag/7B5LxGodg/" rel="category tag">App Development with Swift</a>.  
+        <div class="block-footer-inner">
+                2 min read .
         </div>
-    </section>
+    </div>
+</article>
 
-    <section class="mdui-col mdui-m-b-2">
-        <div class="mdui-card">
+            <article class="block block--inset block--list">
+    <h2 class="block-title post-featured" itemprop="headline">
+        <a href="https://jenkinsxu.github.io/post/day-07-introduction-to-uikit-part-3/">Day 07 - Introduction to UIKit Part 3</a>
+    </h2>
+    <div class="block-postMetaWrap u-textAlignCenter">
+        <time>2020-01-04</time>
+    </div>
+    <div class="block-snippet block-snippet--subtitle grap" itemprop="about">
             
-            <div class="mdui-card-primary">
-                <div class="mdui-card-primary-title"><a href="https://jenkinsxu.github.io/post/day-09-introduction-to-uikit-part-5/">Day 09 - Introduction to UIKit Part 5</a></div>
-                <div class="mdui-card-primary-subtitle">2020-01-13</div>
-            </div>
-            <div class="mdui-card-content">Controls (Responding to user input)
-When the user interacts with a control, the control triggers a control event. Differ...</div>
+                    
+                <p class="u-textAlignCenter"><a class="more-link" href="https://jenkinsxu.github.io/post/day-07-introduction-to-uikit-part-3/" title="Day 07 - Introduction to UIKit Part 3">READ MORE</a></p>
+    </div>
+    <div class="block-footer">
+        In  <a href="https://jenkinsxu.github.io/tag/7B5LxGodg/" rel="category tag">App Development with Swift</a>.  
+        <div class="block-footer-inner">
+                3 min read .
         </div>
-    </section>
+    </div>
+</article>
 
-    <section class="mdui-col mdui-m-b-2">
-        <div class="mdui-card">
+            <article class="block block--inset block--list">
+    <h2 class="block-title post-featured" itemprop="headline">
+        <a href="https://jenkinsxu.github.io/post/day-08-introduction-to-uikit-part-4/">Day 08 - Introduction to UIKit Part 4</a>
+    </h2>
+    <div class="block-postMetaWrap u-textAlignCenter">
+        <time>2020-01-03</time>
+    </div>
+    <div class="block-snippet block-snippet--subtitle grap" itemprop="about">
             
-            <div class="mdui-card-primary">
-                <div class="mdui-card-primary-title"><a href="https://jenkinsxu.github.io/post/day-07-introduction-to-uikit-part-3/">Day 07 - Introduction to UIKit Part 3</a></div>
-                <div class="mdui-card-primary-subtitle">2020-01-04</div>
-            </div>
-            <div class="mdui-card-content">2.5 Collections
-Arrays
-var names: [String] = [&quot;Anne&quot;, &quot;Gary&quot;, &quot;Keith&quot;]
-var numbers: [Int8]...</div>
+                    
+                <p class="u-textAlignCenter"><a class="more-link" href="https://jenkinsxu.github.io/post/day-08-introduction-to-uikit-part-4/" title="Day 08 - Introduction to UIKit Part 4">READ MORE</a></p>
+    </div>
+    <div class="block-footer">
+        In  <a href="https://jenkinsxu.github.io/tag/7B5LxGodg/" rel="category tag">App Development with Swift</a>.  
+        <div class="block-footer-inner">
+                3 min read .
         </div>
-    </section>
+    </div>
+</article>
 
-    <section class="mdui-col mdui-m-b-2">
-        <div class="mdui-card">
+            <article class="block block--inset block--list">
+    <h2 class="block-title post-featured" itemprop="headline">
+        <a href="https://jenkinsxu.github.io/post/day-06-introduction-to-uikit-part-2/">Day 06 - Introduction to UIKit Part 2</a>
+    </h2>
+    <div class="block-postMetaWrap u-textAlignCenter">
+        <time>2020-01-02</time>
+    </div>
+    <div class="block-snippet block-snippet--subtitle grap" itemprop="about">
             
-            <div class="mdui-card-primary">
-                <div class="mdui-card-primary-title"><a href="https://jenkinsxu.github.io/post/day-08-introduction-to-uikit-part-4/">Day 08 - Introduction to UIKit Part 4</a></div>
-                <div class="mdui-card-primary-subtitle">2020-01-03</div>
-            </div>
-            <div class="mdui-card-content">2.7 Introduction to UIKit
-
-The foundational class for all visual elements defined in UIKit is the UIView, or view. A vie...</div>
+                    
+                <p class="u-textAlignCenter"><a class="more-link" href="https://jenkinsxu.github.io/post/day-06-introduction-to-uikit-part-2/" title="Day 06 - Introduction to UIKit Part 2">READ MORE</a></p>
+    </div>
+    <div class="block-footer">
+        In 
+        <div class="block-footer-inner">
+                3 min read .
         </div>
-    </section>
+    </div>
+</article>
 
-    <section class="mdui-col mdui-m-b-2">
-        <div class="mdui-card">
+            <article class="block block--inset block--list">
+    <h2 class="block-title post-featured" itemprop="headline">
+        <a href="https://jenkinsxu.github.io/post/day-05-introduction-to-uikit-part-2/">Day 05 - Introduction to UIKit Part 2 </a>
+    </h2>
+    <div class="block-postMetaWrap u-textAlignCenter">
+        <time>2020-01-01</time>
+    </div>
+    <div class="block-snippet block-snippet--subtitle grap" itemprop="about">
             
-            <div class="mdui-card-primary">
-                <div class="mdui-card-primary-title"><a href="https://jenkinsxu.github.io/post/day-06-introduction-to-uikit-part-2/">Day 06 - Introduction to UIKit Part 2</a></div>
-                <div class="mdui-card-primary-subtitle">2020-01-02</div>
-            </div>
-            <div class="mdui-card-content">2.4 Classes, Inheritance
-
-As a basic rule, you should start new types as structures until you need one of the features t...</div>
+                    
+                <p class="u-textAlignCenter"><a class="more-link" href="https://jenkinsxu.github.io/post/day-05-introduction-to-uikit-part-2/" title="Day 05 - Introduction to UIKit Part 2 ">READ MORE</a></p>
+    </div>
+    <div class="block-footer">
+        In  <a href="https://jenkinsxu.github.io/tag/7B5LxGodg/" rel="category tag">App Development with Swift</a>.  
+        <div class="block-footer-inner">
+                5 min read .
         </div>
-    </section>
+    </div>
+</article>
 
-    <section class="mdui-col mdui-m-b-2">
-        <div class="mdui-card">
+            <article class="block block--inset block--list">
+    <h2 class="block-title post-featured" itemprop="headline">
+        <a href="https://jenkinsxu.github.io/post/day-04-introduction-to-uikit-part-1/">Day 04 - Introduction to UIKit Part 1</a>
+    </h2>
+    <div class="block-postMetaWrap u-textAlignCenter">
+        <time>2019-12-31</time>
+    </div>
+    <div class="block-snippet block-snippet--subtitle grap" itemprop="about">
             
-            <div class="mdui-card-primary">
-                <div class="mdui-card-primary-title"><a href="https://jenkinsxu.github.io/post/day-05-introduction-to-uikit-part-2/">Day 05 - Introduction to UIKit Part 2 </a></div>
-                <div class="mdui-card-primary-subtitle">2020-01-01</div>
-            </div>
-            <div class="mdui-card-content">2.2 Functions
-
-A function in Swift can return zero, one or multiple values.
-
-Defining a Function
-func functionName (argu...</div>
+                    
+                <p class="u-textAlignCenter"><a class="more-link" href="https://jenkinsxu.github.io/post/day-04-introduction-to-uikit-part-1/" title="Day 04 - Introduction to UIKit Part 1">READ MORE</a></p>
+    </div>
+    <div class="block-footer">
+        In  <a href="https://jenkinsxu.github.io/tag/7B5LxGodg/" rel="category tag">App Development with Swift</a>.  
+        <div class="block-footer-inner">
+                2 min read .
         </div>
-    </section>
+    </div>
+</article>
 
-    <section class="mdui-col mdui-m-b-2">
-        <div class="mdui-card">
+            <article class="block block--inset block--list">
+    <h2 class="block-title post-featured" itemprop="headline">
+        <a href="https://jenkinsxu.github.io/post/day-03-getting-started-with-app-development-part-3/">Day 03 - Getting Started with App Development Part 3</a>
+    </h2>
+    <div class="block-postMetaWrap u-textAlignCenter">
+        <time>2019-12-28</time>
+    </div>
+    <div class="block-snippet block-snippet--subtitle grap" itemprop="about">
             
-            <div class="mdui-card-primary">
-                <div class="mdui-card-primary-title"><a href="https://jenkinsxu.github.io/post/day-04-introduction-to-uikit-part-1/">Day 04 - Introduction to UIKit Part 1</a></div>
-                <div class="mdui-card-primary-subtitle">2019-12-31</div>
-            </div>
-            <div class="mdui-card-content">2.1 Strings
-String Literals
-&quot;Hello Michelle!&quot;
-
-If your string literal needs to be multiple lines, simply surro...</div>
+                    
+                <p class="u-textAlignCenter"><a class="more-link" href="https://jenkinsxu.github.io/post/day-03-getting-started-with-app-development-part-3/" title="Day 03 - Getting Started with App Development Part 3">READ MORE</a></p>
+    </div>
+    <div class="block-footer">
+        In  <a href="https://jenkinsxu.github.io/tag/7B5LxGodg/" rel="category tag">App Development with Swift</a>.  
+        <div class="block-footer-inner">
+                1 min read .
         </div>
-    </section>
+    </div>
+</article>
 
-    <section class="mdui-col mdui-m-b-2">
-        <div class="mdui-card">
+            <article class="block block--inset block--list">
+    <h2 class="block-title post-featured" itemprop="headline">
+        <a href="https://jenkinsxu.github.io/post/day-02-getting-started-with-app-development/">Day 02 - Getting Started with App Development Part 2</a>
+    </h2>
+    <div class="block-postMetaWrap u-textAlignCenter">
+        <time>2019-12-27</time>
+    </div>
+    <div class="block-snippet block-snippet--subtitle grap" itemprop="about">
             
-            <div class="mdui-card-primary">
-                <div class="mdui-card-primary-title"><a href="https://jenkinsxu.github.io/post/day-03-getting-started-with-app-development-part-3/">Day 03 - Getting Started with App Development Part 3</a></div>
-                <div class="mdui-card-primary-subtitle">2019-12-28</div>
-            </div>
-            <div class="mdui-card-content">
-Swift booleans have a method, **toggle() **
-Command-Shift-L to view library
-
-Setting background color
-view.backgroundCo...</div>
+                    
+                <p class="u-textAlignCenter"><a class="more-link" href="https://jenkinsxu.github.io/post/day-02-getting-started-with-app-development/" title="Day 02 - Getting Started with App Development Part 2">READ MORE</a></p>
+    </div>
+    <div class="block-footer">
+        In  <a href="https://jenkinsxu.github.io/tag/7B5LxGodg/" rel="category tag">App Development with Swift</a>.  
+        <div class="block-footer-inner">
+                3 min read .
         </div>
-    </section>
+    </div>
+</article>
 
-    <section class="mdui-col mdui-m-b-2">
-        <div class="mdui-card">
+            <article class="block block--inset block--list">
+    <h2 class="block-title post-featured" itemprop="headline">
+        <a href="https://jenkinsxu.github.io/post/day-01-getting-started-with-app-development-part-1/">Day 01 - Getting Started with App Development Part 1</a>
+    </h2>
+    <div class="block-postMetaWrap u-textAlignCenter">
+        <time>2019-12-25</time>
+    </div>
+    <div class="block-snippet block-snippet--subtitle grap" itemprop="about">
             
-            <div class="mdui-card-primary">
-                <div class="mdui-card-primary-title"><a href="https://jenkinsxu.github.io/post/day-02-getting-started-with-app-development/">Day 02 - Getting Started with App Development Part 2</a></div>
-                <div class="mdui-card-primary-subtitle">2019-12-27</div>
-            </div>
-            <div class="mdui-card-content">
-Assistant editor  - to view the storyboard and the definition at the same time.
-The Custom Class is set to be ViewConrt...</div>
+                    
+                <p class="u-textAlignCenter"><a class="more-link" href="https://jenkinsxu.github.io/post/day-01-getting-started-with-app-development-part-1/" title="Day 01 - Getting Started with App Development Part 1">READ MORE</a></p>
+    </div>
+    <div class="block-footer">
+        In  <a href="https://jenkinsxu.github.io/tag/7B5LxGodg/" rel="category tag">App Development with Swift</a>.  
+        <div class="block-footer-inner">
+                6 min read .
         </div>
-    </section>
+    </div>
+</article>
 
-    <section class="mdui-col mdui-m-b-2">
-        <div class="mdui-card">
-            
-            <div class="mdui-card-primary">
-                <div class="mdui-card-primary-title"><a href="https://jenkinsxu.github.io/post/day-01-getting-started-with-app-development-part-1/">Day 01 - Getting Started with App Development Part 1</a></div>
-                <div class="mdui-card-primary-subtitle">2019-12-25</div>
-            </div>
-            <div class="mdui-card-content">1.2 Constants, variables and data types
+</section>
 
-Type :quit and press Enter to exit the Swift REPL.
-One of type inference or typ...</div>
-        </div>
-    </section>
-
-</main>
-
-<nav class="mdui-container mdui-m-t-2 mdui-m-b-2">
-    
-    
-</nav>
-
-<div class="mdui-m-t-2 mdui-text-center mdui-typo">
-    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-<div>Icons made by <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">Eucalyp</a> from <a href="https://www.flaticon.com/"             title="Flaticon">www.flaticon.com</a></div>
-</div>
-
-<script src="https://jenkinsxu.github.io/media/js/jquery.min.js"></script>
-<script src="https://jenkinsxu.github.io/media/js/mdui.min.js"></script>
-<script src="https://jenkinsxu.github.io/media/js/modify.js"></script>
-<script src="https://jenkinsxu.github.io/media/js/masonry.pkgd.min.js"></script>
-<script src="https://jenkinsxu.github.io/media/js/imagesloaded.pkgd.min.js"></script>
-<script>
-// 初始化-文章列表页面瀑布流。
-function masonry() {
-    // 初始化 masonry
-    $('.mdui-row-xs-1').masonry({
-        itemSelector: '.mdui-col',
-        horizontalOrder: true
+    </main>
+</div></div>
+<script type="text/javascript">
+//点击加载更多
+jQuery(document).ready(function($) {
+    //点击下一页的链接(即那个a标签)
+    $(' .button').click(function() {
+        $this = $(this);
+        $this.addClass('loading').text('正在努力加载'); //给a标签加载一个loading的class属性，用来添加加载效果
+        var href = $this.attr('href'); //获取下一页的链接地址
+        if (href != undefined) { //如果地址存在
+            $.ajax({ //发起ajax请求
+                url: href,
+                //请求的地址就是下一页的链接
+                type: 'get',
+                //请求类型是get
+                error: function(request) {
+                    //如果发生错误怎么处理
+                },
+                success: function(data) { //请求成功
+                    $this.removeClass('loading').text('点击查看更多'); //移除loading属性
+                    var $res = $(data).find('.block--list '); //从数据中挑出文章数据，请根据实际情况更改
+                    $('.blockGroup').append($res.fadeIn(500)); //将数据加载加进posts-loop的标签中。
+                    var newhref = $(data).find(' .button').attr('href'); //找出新的下一页链接
+                    if (newhref != undefined) {
+                        $('.button').attr('href', newhref);
+                    } else {
+                        $('.button').remove(); //如果没有下一页了，隐藏
+                    }
+                }
+            });
+        }
+        return false;
     });
-}
-masonry()
-$('.mdui-col').imagesLoaded( function() {
-    masonry()
 });
 </script>
+	<footer class="site-footer u-textAlignCenter">
+    	<div class="footer-branding">
+            <a href="https://jenkinsxu.github.io" title="Jenkins&#39; Secret Base">Jenkins&#39; Secret Base</a>
+									
+			         </div>
+		 <hr />
+		 <div class="social-links">
+		                       
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+                            
+                           
+				</div>
+        <div class="footer-copy">
+                Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+<div>Icons made by <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">Eucalyp</a> from <a href="https://www.flaticon.com/"             title="Flaticon">www.flaticon.com</a></div>
+        </div>
 
+    </footer>
+	<div class="back-to-top u-hide" onclick="backToTop();"><i class="iconfont icon-xiangshang"></i></div>
+
+<script type='text/javascript' src='https://jenkinsxu.github.io/media/scripts/main.js'></script>
 </body>
 </html>
