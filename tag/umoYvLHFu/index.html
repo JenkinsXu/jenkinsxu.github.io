@@ -1,315 +1,86 @@
-
 <html>
-<head lang="zh">
-        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
-        <meta content="yes" name="apple-mobile-web-app-capable"/>
-        <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
-        <meta content="telephone=no" name="format-detection"/>
-        <meta name="renderer" content="webkit">
-    <title>Jenkins&#39; Secret Base</title>
-<link href="https://jenkinsxu.github.io/styles/main.css" type="text/css" rel="stylesheet"/>
-<script type="text/javascript" src="https://jenkinsxu.github.io/media/scripts/jquery.js"></script>
-<script type="text/javascript" src="https://jenkinsxu.github.io/media/scripts/basic.js"></script>
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-
-  </head>
-
-  <body>
-    <div class="header">
-      <div class="logo_title">
-		  
-        <div class="title animated fadeInDown"><img src="https://jenkinsxu.github.io/images/avatar.png?v=1585771628136"/>
-
-          <h1 title="Jenkins&#39; Secret Base" class="weaklink"><a href="/">Jenkins&#39; Secret Base</a>
-
-          </h1>
-
-          <div class="navbar weaklink">
-            <div class="normal_nav">
-
-<div class="bitcron_nav_container">
-
-
-  <div class="bitcron_nav">
-    <div class="mixed_site_nav_wrap site_nav_wrap">
-		
-      <ul class="mixed_site_nav site_nav sm sm-base">
- 
-  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/" class="selected active current nav__item" >Home</a>
-
-  </li>
- 
-  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/tags" class="selected active current nav__item" >Tags</a>
-
-  </li>
- 
-  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/post/about" class="selected active current nav__item" >About</a>
-
-  </li>
- 
-
-      </ul>
-
-      <div class="clear clear_nav_inline_end"></div>
-
-    </div>
-
-  </div>
-
-
-
-  <div class="clear clear_nav_end"></div>
-
-</div>
-
-            </div>
-
-            <div class="hamberger"><i class="fa fa-bars"></i>
-<i class="fa fa-times"></i>
-
-            </div>
-
-          </div>
-
+<head>
+<!-- 必要参数 -->
+<meta charset="utf-8"/>
+<title>U of T - Jenkins&#39; Secret Base</title>
+<meta name="keywords" content="关键词"/>
+<meta name="description" content="简述"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable:no"/>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<link rel="shortcut icon" href="favicon.ico">
+<!-- CSS -->
+<link rel="stylesheet" href="https://jenkinsxu.github.io/media/css/mdui.min.css">
+<link rel="stylesheet" href="https://jenkinsxu.github.io/media/css/modify.css">
+</head>
+<body>
+<body class="mdui-appbar-with-toolbar mdui-theme-primary-blue-grey mdui-theme-accent-blue mdui-theme-layout-dark">
+<header role="banner">
+    <div class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide mdui-shadow-0">
+        <div class="mdui-toolbar">
+            <button class="mdui-btn mdui-btn-icon" id="menu" mdui-drawer="{target:'#drawer',overlay:true,swipe:true}"><i class="mdui-icon material-icons">menu</i></button>
+            <a href="https://jenkinsxu.github.io" class="mdui-typo-headline">Jenkins&#39; Secret Base</a>
+            <div class="mdui-toolbar-spacer"></div>
+            <button class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '深色样式切换', position: 'left'}" id="DarkStyle"><i class="mdui-icon material-icons">brightness_4</i></button>
         </div>
-
-      </div>
-
-      <div class="hidden_nav animated fadeInDown">
-
-<div class="bitcron_nav_container">
-
-
-  <div class="bitcron_nav">
-    <div class="mixed_site_nav_wrap site_nav_wrap">
-      <ul class="mixed_site_nav site_nav sm sm-base">
-		  
-	
-  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/" class="selected active current nav__item" >Home</a>
-
-  </li>
-
-
-  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/tags" class="selected active current nav__item" >Tags</a>
-
-  </li>
-
-
-  <li><a id="d2ef19af68cc211e98f8a0242ac110003" href="/post/about" class="selected active current nav__item" >About</a>
-
-  </li>
-
-
-
-
-
-      </ul>
-
-      <div class="clear clear_nav_inline_end"></div>
-
     </div>
+</header>
 
-  </div>
-
-
-
-  <div class="clear clear_nav_end"></div>
-
-</div>
-
-      </div>
-
-    </div>
-
-
-    <div class="main">
-      <div class="main-inner">
-
-<div class="content">
+<nav id="drawer" class="mdui-drawer mdui-drawer-full-height mdui-drawer-close">
+    <ul class="mdui-list">
+        <a href="/" class="menu"><li class="mdui-list-item mdui-ripple">Home</li></a>
+        <a href="/tags" class="menu"><li class="mdui-list-item mdui-ripple">Tags</li></a>
+        <a href="/post/about" class="menu"><li class="mdui-list-item mdui-ripple">About</li></a>
+        
+        <a href="https://github.com/CPlayer-CN/gridea-theme-cplayer-material" class="spread"><li class="mdui-list-item mdui-ripple">主题主页</li></a>
+    </ul>
+</nav>
 
 
-
-
-
-
-  <div class="post_list" >
-
-	
-<div class="post">
-  <div class="post_title weaklink">
-    <h2><a href="https://jenkinsxu.github.io/post/csc-tutorial-files-download/" >CSC Tutorial - Files Download</a>
-    </h2>
-  </div>
-  <div class="post_content markdown"><div class="p_part"><p></p></div></div>
-  <div class="post_footer">
-    <div class="info weaklink"><i class="fa fa-clock-o"></i>
-<span class="date_info">2019-11-24</span>
-
-<i class="fa fa-bookmark-o"></i>
-	
-<span class="tags_info weaklink">
-	
-	<a href="https://jenkinsxu.github.io/tag/umoYvLHFu/" class="tag">U of T</a>
-
-
-
-</span>
-
-
-    </div>
-
-  </div>
-
-</div>
-	
-
-	
-<div class="post">
-  <div class="post_title weaklink">
-    <h2><a href="https://jenkinsxu.github.io/post/microeconomics-notes-list/" >Microeconomics Notes List</a>
-    </h2>
-  </div>
-  <div class="post_content markdown"><div class="p_part"><p></p></div></div>
-  <div class="post_footer">
-    <div class="info weaklink"><i class="fa fa-clock-o"></i>
-<span class="date_info">2019-10-22</span>
-
-<i class="fa fa-bookmark-o"></i>
-	
-<span class="tags_info weaklink">
-	
-	<a href="https://jenkinsxu.github.io/tag/umoYvLHFu/" class="tag">U of T</a>
-
-
-
-</span>
-
-
-    </div>
-
-  </div>
-
-</div>
-	
-	
-
-<div class="paginator pager pagination" >
-	
-
-
-
-    <div style="clear:both;height:0;"></div>
-
-
-  </div>
-
-</div>
-
-
-
-  </div>
-</div>
-
-
-
-      </div>
-
-    </div>
-
-    <div class="footer">
-<link href="https://jenkinsxu.github.io/styles/main.css" type="text/css" rel="stylesheet"/><div class="site_footer_wrap"><div class="site_footer">
-
-      <div class="mysocials"><div class="my_socials">
-		   
-			   
+<main class="mdui-container mdui-typo mdui-m-t-2">
     
-			   
-    
-			   
-    
-			   
-    
-</div><link href="https://jenkinsxu.github.io/styles/main.css" type="text/css" rel="stylesheet"/>
+    <section class="mdui-col mdui-m-b-2">
+        <div class="mdui-card">
+            
+            <div class="mdui-card-primary">
+                <div class="mdui-card-primary-title"><a href="https://jenkinsxu.github.io/post/csc-tutorial-files-download/">CSC Tutorial - Files Download</a></div>
+                <div class="mdui-card-primary-subtitle">2019-11-24</div>
+            </div>
+            <div class="mdui-card-content">Class_and_Testing_1
+Mutability_and_Dictionary
+Sorting_Animation
+...</div>
+        </div>
+    </section>
 
-      </div>
+    <section class="mdui-col mdui-m-b-2">
+        <div class="mdui-card">
+            
+            <div class="mdui-card-primary">
+                <div class="mdui-card-primary-title"><a href="https://jenkinsxu.github.io/post/microeconomics-notes-list/">Microeconomics Notes List</a></div>
+                <div class="mdui-card-primary-subtitle">2019-10-22</div>
+            </div>
+            <div class="mdui-card-content">Chapter 01 - Introduction
+Chapter 02 - Economic Models: Tradeoffs and Trade
+Chapter 03 - Model of a Competitive Market
+C...</div>
+        </div>
+    </section>
 
-      <div class="copyright">Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+</main>
+
+<nav class="mdui-container mdui-m-t-2 mdui-m-b-2">
+    
+    
+</nav>
+
+<div class="mdui-m-t-2 mdui-text-center mdui-typo">
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
 <div>Icons made by <a href="https://www.flaticon.com/authors/eucalyp" title="Eucalyp">Eucalyp</a> from <a href="https://www.flaticon.com/"             title="Flaticon">www.flaticon.com</a></div>
-      </div>
+</div>
 
-</div></div>
-
-    </div>
-
-
-<style type="text/css">a.back_to_top {
-    text-decoration: none;
-    position: fixed;
-    bottom: 40px;
-    right: 30px;
-    background: #f0f0f0;
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    line-height: 36px;
-    font-size: 18px;
-    text-align: center;
-    transition-duration: .5s;
-    transition-propety: background-color;
-    display: none;
-}
-
-a.back_to_top span {
-    color: #888;
-}
-
-a.back_to_top:hover {
-    cursor: pointer;
-    background: #dfdfdf;
-}
-
-a.back_to_top:hover span {
-    color: #555;
-}
-
-@media print, screen and (max-width: 580px) {
-    .back_to_top {
-        display: none !important;
-    }
-}
-
-
-
-</style><a id="back_to_top" href="#" class="back_to_top"><span>△</span>
-</a>
-<script type="text/javascript" src="https://jenkinsxu.github.io/media/scripts/jquery.js"></script>
-
-<script>$(document).ready((function(_this) {
-  return function() {
-    var bt;
-    bt = $('#back_to_top');
-    if ($(document).width() > 480) {
-      $(window).scroll(function() {
-        var st;
-        st = $(window).scrollTop();
-        if (st > 30) {
-          return bt.css('display', 'block');
-        } else {
-          return bt.css('display', 'none');
-        }
-      });
-      return bt.click(function() {
-        $('body,html').animate({
-          scrollTop: 0
-        }, 800);
-        return false;
-      });
-    }
-  };
-})(this));
-</script>
+<script src="https://jenkinsxu.github.io/media/js/jquery.min.js"></script>
+<script src="https://jenkinsxu.github.io/media/js/mdui.min.js"></script>
+<script src="https://jenkinsxu.github.io/media/js/modify.js"></script>
 
 </body>
-
 </html>
